@@ -1,0 +1,31 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=recsys_feature_health_monitor_dag/run_id=scheduled__2025-11-06T20:59:00+00:00/task_id=stop_docker/attempt=1.log
+[2025-11-07T21:09:12.252+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-07T21:09:12.264+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.stop_docker scheduled__2025-11-06T20:59:00+00:00 [queued]>
+[2025-11-07T21:09:12.270+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.stop_docker scheduled__2025-11-06T20:59:00+00:00 [queued]>
+[2025-11-07T21:09:12.271+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-07T21:09:12.279+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): stop_docker> on 2025-11-06 20:59:00+00:00
+[2025-11-07T21:09:12.286+0000] {standard_task_runner.py:72} INFO - Started process 1377558 to run task
+[2025-11-07T21:09:12.290+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'recsys_feature_health_monitor_dag\', \'stop_docker\', \'scheduled__2025-11-06T20:59:00+00:00\', \'--job-id\', \'396\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/recsys_feature_health_monitor_dag.py\', \'--cfg-path\', \'/tmp/tmpivhpr8mi\']
+[2025-11-07T21:09:12.291+0000] {standard_task_runner.py:105} INFO - Job 396: Subtask stop_docker
+[2025-11-07T21:09:12.304+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-07T21:09:12.329+0000] {task_command.py:467} INFO - Running <TaskInstance: recsys_feature_health_monitor_dag.stop_docker scheduled__2025-11-06T20:59:00+00:00 [running]> on host b689d2c26a55
+[2025-11-07T21:09:12.330+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-07T21:09:12.385+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'recsys_feature_health_monitor_dag\' AIRFLOW_CTX_TASK_ID=\'stop_docker\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-06T20:59:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-06T20:59:00+00:00\'
+[2025-11-07T21:09:12.386+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-07T21:09:12.396+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-07T21:09:12.396+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-07T21:09:12.403+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-07T21:09:12.527+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-07T21:09:12.537+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-07T21:09:12.596+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-07T21:09:12.597+0000] {ssh.py:494} INFO - Running command: docker stop recsys_feature_health_monitor_dag_container || true; docker rm recsys_feature_health_monitor_dag_container || true; 
+[2025-11-07T21:09:23.502+0000] {ssh.py:540} INFO - recsys_feature_health_monitor_dag_container
+[2025-11-07T21:09:23.528+0000] {ssh.py:540} INFO - recsys_feature_health_monitor_dag_container
+[2025-11-07T21:09:23.706+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-07T21:09:23.707+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=recsys_feature_health_monitor_dag, task_id=stop_docker, run_id=scheduled__2025-11-06T20:59:00+00:00, execution_date=20251106T205900, start_date=20251107T210912, end_date=20251107T210923
+[2025-11-07T21:09:23.761+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-07T21:09:23.772+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-07T21:09:23.773+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

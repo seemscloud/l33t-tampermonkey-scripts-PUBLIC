@@ -1,0 +1,32 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=prod_data_quality_check_dag/run_id=scheduled__2025-11-16T15:30:00+00:00/task_id=run_docker_container/attempt=1.log
+[2025-11-18T14:04:08.063+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-18T14:04:08.075+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prod_data_quality_check_dag.run_docker_container scheduled__2025-11-16T15:30:00+00:00 [queued]>
+[2025-11-18T14:04:08.081+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prod_data_quality_check_dag.run_docker_container scheduled__2025-11-16T15:30:00+00:00 [queued]>
+[2025-11-18T14:04:08.082+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-18T14:04:08.090+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): run_docker_container> on 2025-11-16 15:30:00+00:00
+[2025-11-18T14:04:08.096+0000] {standard_task_runner.py:72} INFO - Started process 1913541 to run task
+[2025-11-18T14:04:08.100+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'prod_data_quality_check_dag\', \'run_docker_container\', \'scheduled__2025-11-16T15:30:00+00:00\', \'--job-id\', \'461\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/validation/prod_data_quality_check_dag.py\', \'--cfg-path\', \'/tmp/tmpxaodq8qr\']
+[2025-11-18T14:04:08.101+0000] {standard_task_runner.py:105} INFO - Job 461: Subtask run_docker_container
+[2025-11-18T14:04:08.112+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-18T14:04:08.139+0000] {task_command.py:467} INFO - Running <TaskInstance: prod_data_quality_check_dag.run_docker_container scheduled__2025-11-16T15:30:00+00:00 [running]> on host b689d2c26a55
+[2025-11-18T14:04:08.140+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-18T14:04:08.197+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'m.gazoian\' AIRFLOW_CTX_DAG_ID=\'prod_data_quality_check_dag\' AIRFLOW_CTX_TASK_ID=\'run_docker_container\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-16T15:30:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-16T15:30:00+00:00\'
+[2025-11-18T14:04:08.197+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-18T14:04:08.207+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-18T14:04:08.207+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-18T14:04:08.216+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-11-18T14:04:08.256+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-18T14:04:08.282+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-11-18T14:04:08.429+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-18T14:04:08.430+0000] {ssh.py:494} INFO - Running command: docker stop recsys_data_quality_check_run_container; docker rm recsys_data_quality_check_run_container; docker run --name recsys_data_quality_check_run_container -it -d -v \'/srv/data:/srv/data\' data_quality_check:latest
+[2025-11-18T14:04:08.644+0000] {ssh.py:545} WARNING - Error response from daemon: No such container: recsys_data_quality_check_run_container
+[2025-11-18T14:04:08.662+0000] {ssh.py:545} WARNING - Error response from daemon: No such container: recsys_data_quality_check_run_container
+[2025-11-18T14:04:08.824+0000] {ssh.py:540} INFO - df0c0a4ec68de5f2fd613afcaf3a4b88cbdf7780cd9849218acfa3116ee7c275
+[2025-11-18T14:04:09.413+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-18T14:04:09.414+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=prod_data_quality_check_dag, task_id=run_docker_container, run_id=scheduled__2025-11-16T15:30:00+00:00, execution_date=20251116T153000, start_date=20251118T140408, end_date=20251118T140409
+[2025-11-18T14:04:09.436+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-18T14:04:09.464+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-18T14:04:09.466+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

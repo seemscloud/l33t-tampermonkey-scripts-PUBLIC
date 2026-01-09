@@ -1,0 +1,38 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=prod_data_quality_check_dag/run_id=scheduled__2025-11-16T15:30:00+00:00/task_id=run_data_quality_check/attempt=1.log
+[2025-11-18T14:04:10.398+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-18T14:04:10.412+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prod_data_quality_check_dag.run_data_quality_check scheduled__2025-11-16T15:30:00+00:00 [queued]>
+[2025-11-18T14:04:10.418+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prod_data_quality_check_dag.run_data_quality_check scheduled__2025-11-16T15:30:00+00:00 [queued]>
+[2025-11-18T14:04:10.419+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-18T14:04:10.427+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): run_data_quality_check> on 2025-11-16 15:30:00+00:00
+[2025-11-18T14:04:10.434+0000] {standard_task_runner.py:72} INFO - Started process 1913552 to run task
+[2025-11-18T14:04:10.438+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'prod_data_quality_check_dag\', \'run_data_quality_check\', \'scheduled__2025-11-16T15:30:00+00:00\', \'--job-id\', \'462\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/validation/prod_data_quality_check_dag.py\', \'--cfg-path\', \'/tmp/tmpug9imu7s\']
+[2025-11-18T14:04:10.440+0000] {standard_task_runner.py:105} INFO - Job 462: Subtask run_data_quality_check
+[2025-11-18T14:04:10.452+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-18T14:04:10.482+0000] {task_command.py:467} INFO - Running <TaskInstance: prod_data_quality_check_dag.run_data_quality_check scheduled__2025-11-16T15:30:00+00:00 [running]> on host b689d2c26a55
+[2025-11-18T14:04:10.482+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-18T14:04:10.539+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'m.gazoian\' AIRFLOW_CTX_DAG_ID=\'prod_data_quality_check_dag\' AIRFLOW_CTX_TASK_ID=\'run_data_quality_check\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-16T15:30:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-16T15:30:00+00:00\'
+[2025-11-18T14:04:10.540+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-18T14:04:10.550+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-18T14:04:10.550+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-18T14:04:10.561+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-11-18T14:04:10.601+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-18T14:04:10.628+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-11-18T14:04:10.782+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-18T14:04:10.783+0000] {ssh.py:494} INFO - Running command: docker exec -i recsys_data_quality_check_run_container python -m src.data_quality_check 2025-11-16 admin ***
+[2025-11-18T14:04:13.278+0000] {ssh.py:545} WARNING - INFO:root:data gets successfully!
+[2025-11-18T14:04:14.143+0000] {ssh.py:545} WARNING - INFO:root:metrics get successfully!
+[2025-11-18T14:04:20.862+0000] {ssh.py:545} WARNING - INFO:root:metrics are logged
+[2025-11-18T14:04:24.339+0000] {ssh.py:545} WARNING - INFO:root:history get successfully!
+[2025-11-18T14:04:24.340+0000] {ssh.py:545} WARNING - INFO:root:{\'total_items\': \'13733.00 вне диапазона [13224.65, 13731.49] (mean=13478.07, std=126.71)\', \'n_unique_id_tov\': \'13733.00 вне диапазона [13224.65, 13731.49] (mean=13478.07, std=126.71)\'}
+[2025-11-18T14:04:24.569+0000] {ssh.py:545} WARNING - INFO:root:Сообщение отправлено в чат 855851159
+[2025-11-18T14:04:24.787+0000] {ssh.py:545} WARNING - INFO:root:Сообщение отправлено в чат -1002330460324
+[2025-11-18T14:04:24.789+0000] {ssh.py:540} INFO - 🏃 View run 2025-11-16 at: http://51.250.3.58:5005/#/experiments/21/runs/260bc70e6cb546c2a1db33bb1075a0f3
+[2025-11-18T14:04:24.789+0000] {ssh.py:540} INFO - 🧪 View experiment at: http://51.250.3.58:5005/#/experiments/21
+[2025-11-18T14:04:25.141+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-18T14:04:25.141+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=prod_data_quality_check_dag, task_id=run_data_quality_check, run_id=scheduled__2025-11-16T15:30:00+00:00, execution_date=20251116T153000, start_date=20251118T140410, end_date=20251118T140425
+[2025-11-18T14:04:25.198+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-18T14:04:25.213+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-18T14:04:25.214+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

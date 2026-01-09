@@ -1,0 +1,835 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag/run_id=scheduled__2025-12-28T21:15:00+00:00/task_id=check_s3_files/attempt=1.log
+[2025-12-29T21:15:02.391+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T21:15:02.405+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T21:15:02.410+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T21:15:02.410+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-29T21:15:02.425+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-29T21:15:02.432+0000] {standard_task_runner.py:72} INFO - Started process 3981179 to run task
+[2025-12-29T21:15:02.435+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1208\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp_wbh0_1g\']
+[2025-12-29T21:15:02.437+0000] {standard_task_runner.py:105} INFO - Job 1208: Subtask check_s3_files
+[2025-12-29T21:15:02.489+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T21:15:02.518+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T21:15:02.519+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T21:15:02.594+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-29T21:15:02.595+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T21:15:02.606+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-29T21:15:02.613+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-29T21:15:02.620+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-29T21:15:02.620+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-29T21:15:02.672+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-29T21:15:03.420+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-29T21:15:03.421+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T21:15:03.450+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T21:15:03.475+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T21:15:03.479+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-29T21:45:04.028+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T21:45:04.041+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T21:45:04.047+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T21:45:04.047+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-29T21:45:04.056+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-29T21:45:04.063+0000] {standard_task_runner.py:72} INFO - Started process 3982221 to run task
+[2025-12-29T21:45:04.068+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1209\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpbi8razvx\']
+[2025-12-29T21:45:04.069+0000] {standard_task_runner.py:105} INFO - Job 1209: Subtask check_s3_files
+[2025-12-29T21:45:04.092+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T21:45:04.122+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T21:45:04.123+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T21:45:04.193+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-29T21:45:04.193+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T21:45:04.203+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-29T21:45:04.210+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-29T21:45:04.217+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-29T21:45:04.218+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-29T21:45:04.257+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-29T21:45:04.923+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-29T21:45:04.924+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T21:45:04.968+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T21:45:05.002+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T21:45:05.005+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-29T22:15:05.436+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T22:15:05.448+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T22:15:05.453+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T22:15:05.454+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-29T22:15:05.464+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-29T22:15:05.470+0000] {standard_task_runner.py:72} INFO - Started process 3983260 to run task
+[2025-12-29T22:15:05.474+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1210\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp9u2cfdzi\']
+[2025-12-29T22:15:05.475+0000] {standard_task_runner.py:105} INFO - Job 1210: Subtask check_s3_files
+[2025-12-29T22:15:05.487+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T22:15:05.515+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T22:15:05.516+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T22:15:05.592+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-29T22:15:05.593+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T22:15:05.602+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-29T22:15:05.609+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-29T22:15:05.616+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-29T22:15:05.616+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-29T22:15:05.659+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-29T22:15:06.340+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-29T22:15:06.340+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T22:15:06.369+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T22:15:06.393+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T22:15:06.395+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-29T22:45:07.024+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T22:45:07.044+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T22:45:07.052+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T22:45:07.053+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-29T22:45:07.064+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-29T22:45:07.078+0000] {standard_task_runner.py:72} INFO - Started process 3984306 to run task
+[2025-12-29T22:45:07.084+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1211\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp6slzwead\']
+[2025-12-29T22:45:07.086+0000] {standard_task_runner.py:105} INFO - Job 1211: Subtask check_s3_files
+[2025-12-29T22:45:07.100+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T22:45:07.135+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T22:45:07.136+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T22:45:07.206+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-29T22:45:07.207+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T22:45:07.217+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-29T22:45:07.224+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-29T22:45:07.231+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-29T22:45:07.232+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-29T22:45:07.272+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-29T22:45:08.000+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-29T22:45:08.000+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T22:45:08.021+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T22:45:08.048+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T22:45:08.049+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-29T23:15:08.884+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T23:15:08.898+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T23:15:08.903+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T23:15:08.903+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-29T23:15:08.911+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-29T23:15:08.919+0000] {standard_task_runner.py:72} INFO - Started process 3985352 to run task
+[2025-12-29T23:15:08.923+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1212\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpcqe0uof7\']
+[2025-12-29T23:15:08.924+0000] {standard_task_runner.py:105} INFO - Job 1212: Subtask check_s3_files
+[2025-12-29T23:15:08.937+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T23:15:08.967+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T23:15:08.968+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T23:15:09.042+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-29T23:15:09.043+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T23:15:09.052+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-29T23:15:09.060+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-29T23:15:09.066+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-29T23:15:09.067+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-29T23:15:09.106+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-29T23:15:09.797+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-29T23:15:09.797+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T23:15:09.822+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T23:15:09.848+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T23:15:09.851+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-29T23:45:10.865+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T23:45:10.880+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T23:45:10.887+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-29T23:45:10.887+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-29T23:45:10.899+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-29T23:45:10.910+0000] {standard_task_runner.py:72} INFO - Started process 3986399 to run task
+[2025-12-29T23:45:10.916+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1213\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpb2c0u9i2\']
+[2025-12-29T23:45:10.918+0000] {standard_task_runner.py:105} INFO - Job 1213: Subtask check_s3_files
+[2025-12-29T23:45:10.935+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T23:45:10.975+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T23:45:10.975+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T23:45:11.074+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-29T23:45:11.075+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T23:45:11.084+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-29T23:45:11.092+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-29T23:45:11.100+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-29T23:45:11.100+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-29T23:45:11.141+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-29T23:45:11.763+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-29T23:45:11.763+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T23:45:11.816+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T23:45:11.848+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T23:45:11.856+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T00:15:13.325+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T00:15:13.343+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T00:15:13.350+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T00:15:13.351+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T00:15:13.362+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T00:15:13.372+0000] {standard_task_runner.py:72} INFO - Started process 3987444 to run task
+[2025-12-30T00:15:13.376+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1214\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpd06imvng\']
+[2025-12-30T00:15:13.378+0000] {standard_task_runner.py:105} INFO - Job 1214: Subtask check_s3_files
+[2025-12-30T00:15:13.392+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T00:15:13.428+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T00:15:13.428+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T00:15:13.520+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T00:15:13.521+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T00:15:13.533+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T00:15:13.542+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T00:15:13.551+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T00:15:13.552+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T00:15:13.607+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T00:15:14.336+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T00:15:14.337+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T00:15:14.357+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T00:15:14.387+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T00:15:14.388+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T00:45:15.929+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T00:45:15.948+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T00:45:15.955+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T00:45:15.955+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T00:45:15.992+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T00:45:16.002+0000] {standard_task_runner.py:72} INFO - Started process 3988487 to run task
+[2025-12-30T00:45:16.007+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1215\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp9lvkyrlr\']
+[2025-12-30T00:45:16.009+0000] {standard_task_runner.py:105} INFO - Job 1215: Subtask check_s3_files
+[2025-12-30T00:45:16.023+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T00:45:16.060+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T00:45:16.061+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T00:45:16.144+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T00:45:16.145+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T00:45:16.157+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T00:45:16.166+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T00:45:16.173+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T00:45:16.174+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T00:45:16.219+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T00:45:16.837+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T00:45:16.838+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T00:45:16.863+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T00:45:16.887+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T00:45:16.889+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T01:15:18.094+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T01:15:18.109+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T01:15:18.115+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T01:15:18.116+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T01:15:18.124+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T01:15:18.133+0000] {standard_task_runner.py:72} INFO - Started process 3989530 to run task
+[2025-12-30T01:15:18.137+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1216\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpshkrj75c\']
+[2025-12-30T01:15:18.139+0000] {standard_task_runner.py:105} INFO - Job 1216: Subtask check_s3_files
+[2025-12-30T01:15:18.153+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T01:15:18.186+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T01:15:18.187+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T01:15:18.262+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T01:15:18.262+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T01:15:18.272+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T01:15:18.280+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T01:15:18.287+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T01:15:18.288+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T01:15:18.335+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T01:15:18.942+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T01:15:18.942+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T01:15:18.992+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T01:15:19.017+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T01:15:19.030+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T01:45:19.864+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T01:45:19.877+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T01:45:19.882+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T01:45:19.882+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T01:45:19.891+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T01:45:19.898+0000] {standard_task_runner.py:72} INFO - Started process 3990569 to run task
+[2025-12-30T01:45:19.901+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1217\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpaw0exsz8\']
+[2025-12-30T01:45:19.902+0000] {standard_task_runner.py:105} INFO - Job 1217: Subtask check_s3_files
+[2025-12-30T01:45:19.914+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T01:45:19.942+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T01:45:19.942+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T01:45:20.018+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T01:45:20.019+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T01:45:20.029+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T01:45:20.037+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T01:45:20.044+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T01:45:20.045+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T01:45:20.086+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T01:45:20.700+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T01:45:20.700+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T01:45:20.716+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T01:45:20.741+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T01:45:20.743+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T02:15:21.330+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T02:15:21.346+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T02:15:21.353+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T02:15:21.353+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T02:15:21.362+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T02:15:21.371+0000] {standard_task_runner.py:72} INFO - Started process 3991613 to run task
+[2025-12-30T02:15:21.374+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1218\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpijm9qs5z\']
+[2025-12-30T02:15:21.376+0000] {standard_task_runner.py:105} INFO - Job 1218: Subtask check_s3_files
+[2025-12-30T02:15:21.389+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T02:15:21.419+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T02:15:21.420+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T02:15:21.496+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T02:15:21.497+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T02:15:21.507+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T02:15:21.514+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T02:15:21.521+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T02:15:21.521+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T02:15:21.560+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T02:15:22.183+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T02:15:22.183+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T02:15:22.230+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T02:15:22.255+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T02:15:22.257+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T02:45:23.047+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T02:45:23.060+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T02:45:23.065+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T02:45:23.065+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T02:45:23.073+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T02:45:23.079+0000] {standard_task_runner.py:72} INFO - Started process 3992658 to run task
+[2025-12-30T02:45:23.083+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1219\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmps8_7wo0k\']
+[2025-12-30T02:45:23.084+0000] {standard_task_runner.py:105} INFO - Job 1219: Subtask check_s3_files
+[2025-12-30T02:45:23.118+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T02:45:23.146+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T02:45:23.147+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T02:45:23.218+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T02:45:23.219+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T02:45:23.228+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T02:45:23.234+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T02:45:23.240+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T02:45:23.241+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T02:45:23.280+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T02:45:23.911+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T02:45:23.911+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T02:45:23.938+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T02:45:23.962+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T02:45:23.964+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T03:15:24.755+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T03:15:24.768+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T03:15:24.774+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T03:15:24.774+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T03:15:24.782+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T03:15:24.789+0000] {standard_task_runner.py:72} INFO - Started process 3993700 to run task
+[2025-12-30T03:15:24.793+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1220\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpqu652tpl\']
+[2025-12-30T03:15:24.794+0000] {standard_task_runner.py:105} INFO - Job 1220: Subtask check_s3_files
+[2025-12-30T03:15:24.806+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T03:15:24.834+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T03:15:24.835+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T03:15:24.899+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T03:15:24.900+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T03:15:24.909+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T03:15:24.916+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T03:15:24.922+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T03:15:24.922+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T03:15:24.961+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T03:15:25.620+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T03:15:25.621+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T03:15:25.648+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T03:15:25.672+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T03:15:25.673+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T03:45:26.544+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T03:45:26.557+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T03:45:26.563+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T03:45:26.563+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T03:45:26.573+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T03:45:26.582+0000] {standard_task_runner.py:72} INFO - Started process 3994746 to run task
+[2025-12-30T03:45:26.586+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1221\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpfurh724v\']
+[2025-12-30T03:45:26.587+0000] {standard_task_runner.py:105} INFO - Job 1221: Subtask check_s3_files
+[2025-12-30T03:45:26.600+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T03:45:26.629+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T03:45:26.630+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T03:45:26.701+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T03:45:26.701+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T03:45:26.711+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T03:45:26.718+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T03:45:26.726+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T03:45:26.726+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T03:45:26.765+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T03:45:27.488+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T03:45:27.488+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T03:45:27.528+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T03:45:27.553+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T03:45:27.555+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T04:15:28.118+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T04:15:28.137+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T04:15:28.144+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T04:15:28.145+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T04:15:28.158+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T04:15:28.169+0000] {standard_task_runner.py:72} INFO - Started process 3995783 to run task
+[2025-12-30T04:15:28.174+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1222\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp8zkogrvf\']
+[2025-12-30T04:15:28.176+0000] {standard_task_runner.py:105} INFO - Job 1222: Subtask check_s3_files
+[2025-12-30T04:15:28.190+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T04:15:28.224+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T04:15:28.224+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T04:15:28.296+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T04:15:28.297+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T04:15:28.307+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T04:15:28.314+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T04:15:28.321+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T04:15:28.322+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T04:15:28.362+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T04:15:28.980+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T04:15:28.980+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T04:15:29.028+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T04:15:29.052+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T04:15:29.054+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T04:45:30.053+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T04:45:30.069+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T04:45:30.075+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T04:45:30.075+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T04:45:30.084+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T04:45:30.092+0000] {standard_task_runner.py:72} INFO - Started process 3996828 to run task
+[2025-12-30T04:45:30.096+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1223\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpxi1xjcyj\']
+[2025-12-30T04:45:30.098+0000] {standard_task_runner.py:105} INFO - Job 1223: Subtask check_s3_files
+[2025-12-30T04:45:30.112+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T04:45:30.145+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T04:45:30.145+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T04:45:30.221+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T04:45:30.221+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T04:45:30.234+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T04:45:30.242+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T04:45:30.249+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T04:45:30.250+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T04:45:30.290+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T04:45:30.956+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T04:45:30.957+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T04:45:30.992+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T04:45:31.018+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T04:45:31.020+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T05:15:31.576+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T05:15:31.592+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T05:15:31.599+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T05:15:31.599+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T05:15:31.610+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T05:15:31.619+0000] {standard_task_runner.py:72} INFO - Started process 3997874 to run task
+[2025-12-30T05:15:31.623+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1224\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpzlwll2v6\']
+[2025-12-30T05:15:31.625+0000] {standard_task_runner.py:105} INFO - Job 1224: Subtask check_s3_files
+[2025-12-30T05:15:31.637+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T05:15:31.667+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T05:15:31.668+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T05:15:31.745+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T05:15:31.746+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T05:15:31.758+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T05:15:31.765+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T05:15:31.772+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T05:15:31.773+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T05:15:31.813+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T05:15:32.492+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T05:15:32.492+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T05:15:32.524+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T05:15:32.558+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T05:15:32.560+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T05:45:33.599+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T05:45:33.612+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T05:45:33.618+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T05:45:33.618+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T05:45:33.626+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T05:45:33.633+0000] {standard_task_runner.py:72} INFO - Started process 3998911 to run task
+[2025-12-30T05:45:33.637+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1225\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp5k0cepd_\']
+[2025-12-30T05:45:33.638+0000] {standard_task_runner.py:105} INFO - Job 1225: Subtask check_s3_files
+[2025-12-30T05:45:33.649+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T05:45:33.677+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T05:45:33.678+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T05:45:33.742+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T05:45:33.743+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T05:45:33.752+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T05:45:33.759+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T05:45:33.765+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T05:45:33.765+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T05:45:33.804+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T05:45:34.440+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T05:45:34.440+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T05:45:34.492+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T05:45:34.517+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T05:45:34.519+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T06:15:35.170+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T06:15:35.187+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T06:15:35.193+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T06:15:35.193+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T06:15:35.202+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T06:15:35.209+0000] {standard_task_runner.py:72} INFO - Started process 3999957 to run task
+[2025-12-30T06:15:35.214+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1226\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpdxzray8q\']
+[2025-12-30T06:15:35.215+0000] {standard_task_runner.py:105} INFO - Job 1226: Subtask check_s3_files
+[2025-12-30T06:15:35.228+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T06:15:35.256+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T06:15:35.257+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T06:15:35.340+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T06:15:35.341+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T06:15:35.353+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T06:15:35.364+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T06:15:35.373+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T06:15:35.374+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T06:15:35.423+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T06:15:36.147+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T06:15:36.147+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T06:15:36.196+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T06:15:36.220+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T06:15:36.221+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T06:45:37.579+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T06:45:37.593+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T06:45:37.598+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T06:45:37.598+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T06:45:37.607+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T06:45:37.614+0000] {standard_task_runner.py:72} INFO - Started process 4000995 to run task
+[2025-12-30T06:45:37.617+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1227\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp_quq4rjm\']
+[2025-12-30T06:45:37.619+0000] {standard_task_runner.py:105} INFO - Job 1227: Subtask check_s3_files
+[2025-12-30T06:45:37.630+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T06:45:37.658+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T06:45:37.659+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T06:45:37.727+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T06:45:37.728+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T06:45:37.737+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T06:45:37.744+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T06:45:37.750+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T06:45:37.751+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T06:45:37.790+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T06:45:38.405+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T06:45:38.405+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T06:45:38.432+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T06:45:38.457+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T06:45:38.458+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T07:15:38.999+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T07:15:39.014+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T07:15:39.019+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T07:15:39.020+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T07:15:39.029+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T07:15:39.036+0000] {standard_task_runner.py:72} INFO - Started process 4002043 to run task
+[2025-12-30T07:15:39.041+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1228\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpm_i4vn90\']
+[2025-12-30T07:15:39.042+0000] {standard_task_runner.py:105} INFO - Job 1228: Subtask check_s3_files
+[2025-12-30T07:15:39.055+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T07:15:39.083+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T07:15:39.084+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T07:15:39.148+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T07:15:39.149+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T07:15:39.158+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T07:15:39.165+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T07:15:39.174+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T07:15:39.174+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T07:15:39.224+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T07:15:39.844+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T07:15:39.844+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T07:15:39.895+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T07:15:39.920+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T07:15:39.921+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T07:45:40.442+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T07:45:40.455+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T07:45:40.461+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T07:45:40.461+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T07:45:40.469+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T07:45:40.475+0000] {standard_task_runner.py:72} INFO - Started process 4003089 to run task
+[2025-12-30T07:45:40.479+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1229\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmphw8b9i55\']
+[2025-12-30T07:45:40.480+0000] {standard_task_runner.py:105} INFO - Job 1229: Subtask check_s3_files
+[2025-12-30T07:45:40.491+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T07:45:40.519+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T07:45:40.520+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T07:45:40.585+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T07:45:40.585+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T07:45:40.594+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T07:45:40.601+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T07:45:40.608+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T07:45:40.608+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T07:45:40.648+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T07:45:41.292+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T07:45:41.293+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T07:45:41.336+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T07:45:41.361+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T07:45:41.363+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T08:15:42.402+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T08:15:42.420+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T08:15:42.427+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T08:15:42.428+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T08:15:42.441+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T08:15:42.451+0000] {standard_task_runner.py:72} INFO - Started process 4004129 to run task
+[2025-12-30T08:15:42.456+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1230\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpngkj4zf5\']
+[2025-12-30T08:15:42.457+0000] {standard_task_runner.py:105} INFO - Job 1230: Subtask check_s3_files
+[2025-12-30T08:15:42.473+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T08:15:42.506+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T08:15:42.506+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T08:15:42.594+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T08:15:42.595+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T08:15:42.604+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T08:15:42.611+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T08:15:42.617+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T08:15:42.618+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T08:15:42.657+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T08:15:43.266+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T08:15:43.266+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T08:15:43.311+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T08:15:43.336+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T08:15:43.339+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T08:45:44.456+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T08:45:44.470+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T08:45:44.475+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T08:45:44.475+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T08:45:44.483+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T08:45:44.489+0000] {standard_task_runner.py:72} INFO - Started process 4005174 to run task
+[2025-12-30T08:45:44.493+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1231\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpw_b9p7qw\']
+[2025-12-30T08:45:44.494+0000] {standard_task_runner.py:105} INFO - Job 1231: Subtask check_s3_files
+[2025-12-30T08:45:44.506+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T08:45:44.534+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T08:45:44.534+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T08:45:44.600+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T08:45:44.601+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T08:45:44.610+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T08:45:44.616+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T08:45:44.623+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T08:45:44.623+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T08:45:44.661+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T08:45:45.278+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T08:45:45.278+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T08:45:45.307+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T08:45:45.332+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T08:45:45.334+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T09:15:46.308+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T09:15:46.325+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T09:15:46.332+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T09:15:46.332+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T09:15:46.344+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T09:15:46.354+0000] {standard_task_runner.py:72} INFO - Started process 4006212 to run task
+[2025-12-30T09:15:46.358+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1232\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpc7zmsrbg\']
+[2025-12-30T09:15:46.360+0000] {standard_task_runner.py:105} INFO - Job 1232: Subtask check_s3_files
+[2025-12-30T09:15:46.377+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T09:15:46.410+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T09:15:46.411+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T09:15:46.487+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T09:15:46.488+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T09:15:46.497+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T09:15:46.505+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T09:15:46.512+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T09:15:46.513+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T09:15:46.554+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T09:15:47.183+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T09:15:47.183+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T09:15:47.215+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T09:15:47.239+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T09:15:47.243+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T09:45:48.216+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T09:45:48.231+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T09:45:48.237+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T09:45:48.237+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T09:45:48.247+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T09:45:48.254+0000] {standard_task_runner.py:72} INFO - Started process 4007256 to run task
+[2025-12-30T09:45:48.258+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1233\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpn08zfnaw\']
+[2025-12-30T09:45:48.259+0000] {standard_task_runner.py:105} INFO - Job 1233: Subtask check_s3_files
+[2025-12-30T09:45:48.272+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T09:45:48.305+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T09:45:48.305+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T09:45:48.378+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T09:45:48.379+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T09:45:48.389+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T09:45:48.397+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T09:45:48.404+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T09:45:48.405+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T09:45:48.444+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T09:45:49.091+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T09:45:49.091+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T09:45:49.113+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T09:45:49.137+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T09:45:49.139+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T10:15:50.616+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T10:15:50.630+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T10:15:50.636+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T10:15:50.636+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T10:15:50.644+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T10:15:50.653+0000] {standard_task_runner.py:72} INFO - Started process 4008295 to run task
+[2025-12-30T10:15:50.657+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1234\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp83oo9zp5\']
+[2025-12-30T10:15:50.659+0000] {standard_task_runner.py:105} INFO - Job 1234: Subtask check_s3_files
+[2025-12-30T10:15:50.672+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T10:15:50.704+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T10:15:50.704+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T10:15:50.776+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T10:15:50.777+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T10:15:50.786+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T10:15:50.794+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T10:15:50.801+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T10:15:50.801+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T10:15:50.845+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T10:15:51.450+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T10:15:51.450+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T10:15:51.473+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T10:15:51.497+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T10:15:51.499+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T10:45:52.218+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T10:45:52.234+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T10:45:52.240+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T10:45:52.240+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T10:45:52.249+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T10:45:52.257+0000] {standard_task_runner.py:72} INFO - Started process 4009331 to run task
+[2025-12-30T10:45:52.261+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1235\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpde1tjuk3\']
+[2025-12-30T10:45:52.262+0000] {standard_task_runner.py:105} INFO - Job 1235: Subtask check_s3_files
+[2025-12-30T10:45:52.275+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T10:45:52.307+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T10:45:52.308+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T10:45:52.395+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T10:45:52.396+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T10:45:52.406+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T10:45:52.413+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T10:45:52.420+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T10:45:52.421+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T10:45:52.460+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T10:45:53.251+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T10:45:53.251+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T10:45:53.278+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T10:45:53.312+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T10:45:53.314+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T11:15:54.458+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T11:15:54.470+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T11:15:54.476+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T11:15:54.476+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T11:15:54.484+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T11:15:54.491+0000] {standard_task_runner.py:72} INFO - Started process 4010378 to run task
+[2025-12-30T11:15:54.495+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1236\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpyl1dmapg\']
+[2025-12-30T11:15:54.496+0000] {standard_task_runner.py:105} INFO - Job 1236: Subtask check_s3_files
+[2025-12-30T11:15:54.507+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T11:15:54.535+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T11:15:54.536+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T11:15:54.601+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T11:15:54.602+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T11:15:54.612+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T11:15:54.618+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T11:15:54.624+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T11:15:54.625+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T11:15:54.663+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T11:15:55.268+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T11:15:55.268+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T11:15:55.309+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T11:15:55.333+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T11:15:55.335+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T11:45:55.801+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T11:45:55.814+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T11:45:55.819+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T11:45:55.819+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T11:45:55.828+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T11:45:55.834+0000] {standard_task_runner.py:72} INFO - Started process 4011415 to run task
+[2025-12-30T11:45:55.838+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1237\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp7c64ma3c\']
+[2025-12-30T11:45:55.839+0000] {standard_task_runner.py:105} INFO - Job 1237: Subtask check_s3_files
+[2025-12-30T11:45:55.852+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T11:45:55.881+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T11:45:55.882+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T11:45:55.947+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T11:45:55.948+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T11:45:55.957+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T11:45:55.964+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T11:45:55.971+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T11:45:55.972+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T11:45:56.013+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T11:45:56.610+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T11:45:56.611+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T11:45:56.653+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T11:45:56.677+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T11:45:56.679+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T12:15:57.481+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T12:15:57.495+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T12:15:57.501+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T12:15:57.501+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T12:15:57.510+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T12:15:57.518+0000] {standard_task_runner.py:72} INFO - Started process 4012459 to run task
+[2025-12-30T12:15:57.522+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1238\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmp87c77q_5\']
+[2025-12-30T12:15:57.524+0000] {standard_task_runner.py:105} INFO - Job 1238: Subtask check_s3_files
+[2025-12-30T12:15:57.538+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T12:15:57.570+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T12:15:57.571+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T12:15:57.652+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T12:15:57.653+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T12:15:57.666+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T12:15:57.678+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T12:15:57.692+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T12:15:57.692+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T12:15:57.738+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T12:15:58.540+0000] {taskinstance.py:309} INFO - Rescheduling task, marking task as UP_FOR_RESCHEDULE
+[2025-12-30T12:15:58.540+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T12:15:58.593+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T12:15:58.656+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T12:15:58.677+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2025-12-30T12:45:59.082+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-30T12:45:59.096+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T12:45:59.102+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [queued]>
+[2025-12-30T12:45:59.102+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-30T12:45:59.112+0000] {taskinstance.py:2879} INFO - Executing <Task(S3KeySensor): check_s3_files> on 2025-12-28 21:15:00+00:00
+[2025-12-30T12:45:59.119+0000] {standard_task_runner.py:72} INFO - Started process 4013499 to run task
+[2025-12-30T12:45:59.123+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'check_s3_files\', \'scheduled__2025-12-28T21:15:00+00:00\', \'--job-id\', \'1239\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpdc805gbe\']
+[2025-12-30T12:45:59.124+0000] {standard_task_runner.py:105} INFO - Job 1239: Subtask check_s3_files
+[2025-12-30T12:45:59.137+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-30T12:45:59.166+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.check_s3_files scheduled__2025-12-28T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-30T12:45:59.166+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-30T12:45:59.240+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'check_s3_files\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-28T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-28T21:15:00+00:00\'
+[2025-12-30T12:45:59.240+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-30T12:45:59.250+0000] {baseoperator.py:405} WARNING - S3KeySensor.execute cannot be called outside TaskInstance!
+[2025-12-30T12:45:59.257+0000] {s3.py:118} INFO - Poking for key : s3://vkusvillnew/recsys3/analogs_text/year=2025/month=12/day=30/analogs_100_filtered_title.json
+[2025-12-30T12:45:59.263+0000] {base.py:84} INFO - Retrieving connection \'s3_experimental\'
+[2025-12-30T12:45:59.263+0000] {connection_wrapper.py:388} INFO - AWS Connection (conn_id=\'s3_experimental\', conn_type=\'aws\') credentials retrieved from login and password.
+[2025-12-30T12:45:59.302+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/providers_manager.py:830: DeprecationWarning: The provider apache-***-providers-docker uses `hook-class-names` property in provider-info and has no `connection-types` one. The \'hook-class-names\' property has been deprecated in favour of \'connection-types\' in Airflow 2.2. Use **both** in case you want to have backwards compatibility with Airflow < 2.2
+  warnings.warn(
+[2025-12-30T12:45:59.895+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-12-30T12:45:59.903+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-30T12:45:59.903+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag, task_id=check_s3_files, run_id=scheduled__2025-12-28T21:15:00+00:00, execution_date=20251228T211500, start_date=20251230T124559, end_date=20251230T124559
+[2025-12-30T12:45:59.978+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-30T12:46:00.006+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-30T12:46:00.028+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

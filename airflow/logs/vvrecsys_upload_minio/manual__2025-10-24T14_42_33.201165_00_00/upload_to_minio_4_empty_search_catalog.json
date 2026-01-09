@@ -1,0 +1,85 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_upload_minio/run_id=manual__2025-10-24T14:42:33.201165+00:00/task_id=upload_to_minio_4_empty_search_catalog/attempt=1.log
+[2025-10-24T16:00:17.293+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-24T16:00:17.309+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_4_empty_search_catalog manual__2025-10-24T14:42:33.201165+00:00 [queued]>
+[2025-10-24T16:00:17.316+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_4_empty_search_catalog manual__2025-10-24T14:42:33.201165+00:00 [queued]>
+[2025-10-24T16:00:17.316+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-10-24T16:00:17.324+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): upload_to_minio_4_empty_search_catalog> on 2025-10-24 14:42:33.201165+00:00
+[2025-10-24T16:00:17.332+0000] {standard_task_runner.py:72} INFO - Started process 664927 to run task
+[2025-10-24T16:00:17.336+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_upload_minio\', \'upload_to_minio_4_empty_search_catalog\', \'manual__2025-10-24T14:42:33.201165+00:00\', \'--job-id\', \'233\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_upload_minio_dag.py\', \'--cfg-path\', \'/tmp/tmpexwc79m7\']
+[2025-10-24T16:00:17.337+0000] {standard_task_runner.py:105} INFO - Job 233: Subtask upload_to_minio_4_empty_search_catalog
+[2025-10-24T16:00:17.349+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-10-24T16:00:17.376+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_upload_minio.upload_to_minio_4_empty_search_catalog manual__2025-10-24T14:42:33.201165+00:00 [running]> on host b689d2c26a55
+[2025-10-24T16:00:17.435+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'vzelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_upload_minio\' AIRFLOW_CTX_TASK_ID=\'upload_to_minio_4_empty_search_catalog\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-10-24T14:42:33.201165+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'manual__2025-10-24T14:42:33.201165+00:00\'
+[2025-10-24T16:00:17.435+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-24T16:00:17.445+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-10-24T16:00:17.445+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-10-24T16:00:17.453+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-10-24T16:00:17.493+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-10-24T16:00:17.521+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-10-24T16:00:17.669+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-10-24T16:00:17.670+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_upload_minio_container python -m vvrecsys.cli.minio --config=configs/production/empty_search_catalog.yaml
+[2025-10-24T16:15:34.089+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:15:34.090+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:   0%|          | 0/7493834 [00:00<?, ?it/s]
+[2025-10-24T16:15:34.090+0000] {ssh.py:540} INFO - Opening data/production/infinity_feed/empty_search_catalog.h5 ...
+[2025-10-24T16:15:34.090+0000] {ssh.py:540} INFO - Opened data/production/infinity_feed/empty_search_catalog.h5
+[2025-10-24T16:15:39.101+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:15:39.101+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:   2%|▏         | 156807/7493834 [00:05<03:54, 31291.94it/s]
+[2025-10-24T16:15:44.106+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:15:44.106+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:   6%|▌         | 433656/7493834 [00:10<02:35, 45414.74it/s]
+[2025-10-24T16:15:49.106+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:15:49.106+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  10%|▉         | 744756/7493834 [00:15<02:07, 53081.97it/s]
+[2025-10-24T16:15:54.113+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:15:54.113+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  14%|█▍        | 1055606/7493834 [00:20<01:53, 56636.94it/s]
+[2025-10-24T16:15:59.113+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:15:59.113+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  18%|█▊        | 1382750/7493834 [00:25<01:42, 59805.15it/s]
+[2025-10-24T16:16:04.113+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:04.113+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  23%|██▎       | 1698297/7493834 [00:30<01:35, 60928.05it/s]
+[2025-10-24T16:16:09.121+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:09.121+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  27%|██▋       | 2021606/7493834 [00:35<01:28, 62117.41it/s]
+[2025-10-24T16:16:14.124+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:14.124+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  31%|███▏      | 2345006/7493834 [00:40<01:21, 62920.49it/s]
+[2025-10-24T16:16:19.169+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:19.170+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  35%|███▌      | 2659616/7493834 [00:45<01:17, 62742.42it/s]
+[2025-10-24T16:16:24.216+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:24.216+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  40%|███▉      | 2973338/7493834 [00:50<01:12, 62563.75it/s]
+[2025-10-24T16:16:29.217+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:29.218+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  44%|████▍     | 3290005/7493834 [00:55<01:06, 62791.85it/s]
+[2025-10-24T16:16:34.808+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:34.808+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  48%|████▊     | 3603976/7493834 [01:00<01:04, 60619.73it/s]
+[2025-10-24T16:16:40.131+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:40.131+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  52%|█████▏    | 3907856/7493834 [01:06<01:00, 59532.27it/s]
+[2025-10-24T16:16:45.131+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:45.131+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  56%|█████▌    | 4210618/7493834 [01:11<00:54, 59830.69it/s]
+[2025-10-24T16:16:50.139+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:50.140+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  60%|██████    | 4516404/7493834 [01:16<00:49, 60191.21it/s]
+[2025-10-24T16:16:55.139+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:16:55.140+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  64%|██████▍   | 4818887/7493834 [01:21<00:44, 60281.61it/s]
+[2025-10-24T16:17:00.140+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:00.140+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  68%|██████▊   | 5126368/7493834 [01:26<00:39, 60642.72it/s]
+[2025-10-24T16:17:05.362+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:05.362+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  72%|███████▏  | 5429795/7493834 [01:31<00:34, 59861.32it/s]
+[2025-10-24T16:17:10.456+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:10.457+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  76%|███████▋  | 5729338/7493834 [01:36<00:29, 59544.68it/s]
+[2025-10-24T16:17:15.456+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:15.456+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  81%|████████  | 6046410/7493834 [01:41<00:23, 60690.02it/s]
+[2025-10-24T16:17:20.460+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:20.460+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  85%|████████▍ | 6368603/7493834 [01:46<00:18, 61790.12it/s]
+[2025-10-24T16:17:26.125+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:26.125+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  89%|████████▉ | 6677743/7493834 [01:52<00:13, 59445.90it/s]
+[2025-10-24T16:17:32.081+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:32.082+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  93%|█████████▎| 6975994/7493834 [01:57<00:09, 56371.49it/s]
+[2025-10-24T16:17:37.645+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:37.645+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  97%|█████████▋| 7259869/7493834 [02:03<00:04, 54743.40it/s]
+[2025-10-24T16:17:42.140+0000] {ssh.py:545} WARNING - 
+[2025-10-24T16:17:42.140+0000] {ssh.py:545} WARNING - get_dict_from_dataframe: 100%|██████████| 7493834/7493834 [02:08<00:00, 58522.48it/s]
+[2025-10-24T16:18:14.475+0000] {ssh.py:540} INFO - [2025-10-24 16:18:14,469] INFO: VPN запущен.
+[2025-10-24T16:18:14.475+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.vpn:VPN запущен.
+[2025-10-24T17:22:48.890+0000] {ssh.py:540} INFO - [2025-10-24 17:22:48,876] INFO: Передача по VPN завершена.
+[2025-10-24T17:22:48.890+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.vpn:Передача по VPN завершена.
+[2025-10-24T17:25:46.001+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-24T17:25:46.001+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_upload_minio, task_id=upload_to_minio_4_empty_search_catalog, run_id=manual__2025-10-24T14:42:33.201165+00:00, execution_date=20251024T144233, start_date=20251024T160017, end_date=20251024T172546
+[2025-10-24T17:25:46.022+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-10-24T17:25:46.037+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-24T17:25:46.039+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

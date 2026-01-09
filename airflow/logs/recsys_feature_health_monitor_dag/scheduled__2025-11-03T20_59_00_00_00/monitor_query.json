@@ -1,0 +1,159 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=recsys_feature_health_monitor_dag/run_id=scheduled__2025-11-03T20:59:00+00:00/task_id=monitor_query/attempt=1.log
+[2025-11-05T14:43:21.473+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-05T14:43:21.582+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_query scheduled__2025-11-03T20:59:00+00:00 [queued]>
+[2025-11-05T14:43:21.642+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_query scheduled__2025-11-03T20:59:00+00:00 [queued]>
+[2025-11-05T14:43:21.642+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-05T14:43:21.705+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): monitor_query> on 2025-11-03 20:59:00+00:00
+[2025-11-05T14:43:21.720+0000] {standard_task_runner.py:72} INFO - Started process 1264123 to run task
+[2025-11-05T14:43:21.742+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'recsys_feature_health_monitor_dag\', \'monitor_query\', \'scheduled__2025-11-03T20:59:00+00:00\', \'--job-id\', \'368\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/recsys_feature_health_monitor_dag.py\', \'--cfg-path\', \'/tmp/tmpe32rqhy8\']
+[2025-11-05T14:43:21.748+0000] {standard_task_runner.py:105} INFO - Job 368: Subtask monitor_query
+[2025-11-05T14:43:21.804+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-05T14:43:21.960+0000] {task_command.py:467} INFO - Running <TaskInstance: recsys_feature_health_monitor_dag.monitor_query scheduled__2025-11-03T20:59:00+00:00 [running]> on host b689d2c26a55
+[2025-11-05T14:43:21.974+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-05T14:43:22.277+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'recsys_feature_health_monitor_dag\' AIRFLOW_CTX_TASK_ID=\'monitor_query\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-03T20:59:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-03T20:59:00+00:00\'
+[2025-11-05T14:43:22.283+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-05T14:43:22.313+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-05T14:43:22.316+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-05T14:43:22.376+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-05T14:43:22.658+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-05T14:43:22.671+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-05T14:43:22.783+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-05T14:43:22.786+0000] {ssh.py:494} INFO - Running command: docker exec -i recsys_feature_health_monitor_dag_container python cli.py 2025-11-02 config/config_query.yaml
+[2025-11-05T14:43:23.931+0000] {ssh.py:545} WARNING - /app/src/infrastructure/s3_repository.py:94: UserWarning: Polars found a filename. Ensure you pass a path to the file instead of a python file object when possible for best performance.
+[2025-11-05T14:43:23.932+0000] {ssh.py:545} WARNING -   df = pl.read_parquet(f)
+[2025-11-05T14:44:13.245+0000] {ssh.py:540} INFO - Evaluating features for date: 2025-11-02
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO - query_count:
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO -   Current: 481813.00
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO -   Day change: -20.00 (-0.00%) (prev: 481833.00)
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO -   Week change: +563.00 (+0.12%) (prev: 481250.00)
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO - query_query_n_clicks_30 (column: query_n_clicks_30):
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO -   Column: query_n_clicks_30
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO -   Current: 8555621.00
+[2025-11-05T14:44:13.246+0000] {ssh.py:540} INFO -   Day change: -19457.00 (-0.23%) (prev: 8575078.00)
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Week change: -180261.00 (-2.06%) (prev: 8735882.00)
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO - query_query_n_clicks_15 (column: query_n_clicks_15):
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Column: query_n_clicks_15
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Current: 4253312.00
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Day change: +3600.00 (+0.08%) (prev: 4249712.00)
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Week change: +13949.00 (+0.33%) (prev: 4239363.00)
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO - query_query_n_clicks_7 (column: query_n_clicks_7):
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Column: query_n_clicks_7
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Current: 1971256.00
+[2025-11-05T14:44:13.247+0000] {ssh.py:540} INFO -   Day change: -16668.00 (-0.84%) (prev: 1987924.00)
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Week change: -8032.00 (-0.41%) (prev: 1979288.00)
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO - query_query_n_clicks_3 (column: query_n_clicks_3):
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Column: query_n_clicks_3
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Current: 848506.00
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Day change: +12514.00 (+1.50%) (prev: 835992.00)
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Week change: -3589.00 (-0.42%) (prev: 852095.00)
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO - query_query_n_clicks_1 (column: query_n_clicks_1):
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Column: query_n_clicks_1
+[2025-11-05T14:44:13.248+0000] {ssh.py:540} INFO -   Current: 286530.00
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Day change: -2098.00 (-0.73%) (prev: 288628.00)
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Week change: -16675.00 (-5.50%) (prev: 303205.00)
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO - query_query_n_baskets_30 (column: query_n_baskets_30):
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Column: query_n_baskets_30
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Current: 12795121.00
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Day change: -10000.00 (-0.08%) (prev: 12805121.00)
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Week change: -134850.00 (-1.04%) (prev: 12929971.00)
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO - query_query_n_baskets_15 (column: query_n_baskets_15):
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Column: query_n_baskets_15
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Current: 6283220.00
+[2025-11-05T14:44:13.249+0000] {ssh.py:540} INFO -   Day change: +4835.00 (+0.08%) (prev: 6278385.00)
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Week change: +10315.00 (+0.16%) (prev: 6272905.00)
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO - query_query_n_baskets_7 (column: query_n_baskets_7):
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Column: query_n_baskets_7
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Current: 2879591.00
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Day change: -33538.00 (-1.15%) (prev: 2913129.00)
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Week change: -30626.00 (-1.05%) (prev: 2910217.00)
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO - query_query_n_baskets_3 (column: query_n_baskets_3):
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Column: query_n_baskets_3
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Current: 1265020.00
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Day change: +33500.00 (+2.72%) (prev: 1231520.00)
+[2025-11-05T14:44:13.250+0000] {ssh.py:540} INFO -   Week change: +7346.00 (+0.58%) (prev: 1257674.00)
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO - query_query_n_baskets_1 (column: query_n_baskets_1):
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Column: query_n_baskets_1
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Current: 430172.00
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Day change: -8529.00 (-1.94%) (prev: 438701.00)
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Week change: -27258.00 (-5.96%) (prev: 457430.00)
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO - query_query_n_views_30 (column: query_n_views_30):
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Column: query_n_views_30
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Current: 1186879115.00
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Day change: -1451119.00 (-0.12%) (prev: 1188330234.00)
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO -   Week change: -30131392.00 (-2.48%) (prev: 1217010507.00)
+[2025-11-05T14:44:13.251+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO - query_query_n_views_15 (column: query_n_views_15):
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Column: query_n_views_15
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Current: 584004658.00
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Day change: +1124096.00 (+0.19%) (prev: 582880562.00)
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Week change: -2545134.00 (-0.43%) (prev: 586549792.00)
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO - query_query_n_views_7 (column: query_n_views_7):
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Column: query_n_views_7
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Current: 268988181.00
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Day change: -3049439.00 (-1.12%) (prev: 272037620.00)
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO -   Week change: -5035619.00 (-1.84%) (prev: 274023800.00)
+[2025-11-05T14:44:13.252+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO - query_query_n_views_3 (column: query_n_views_3):
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Column: query_n_views_3
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Current: 118400156.00
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Day change: +2014434.00 (+1.73%) (prev: 116385722.00)
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Week change: +296951.00 (+0.25%) (prev: 118103205.00)
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO - query_query_n_views_1 (column: query_n_views_1):
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Column: query_n_views_1
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Current: 39743486.00
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Day change: -1348975.00 (-3.28%) (prev: 41092461.00)
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO -   Week change: -3050243.00 (-7.13%) (prev: 42793729.00)
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.253+0000] {ssh.py:540} INFO - query_query_n_mean_price_30 (column: query_n_mean_price_30):
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Column: query_n_mean_price_30
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Current: 136791683.49
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Day change: +28267.87 (+0.02%) (prev: 136763415.62)
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Week change: +445612.17 (+0.33%) (prev: 136346071.31)
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO - query_query_n_mean_price_15 (column: query_n_mean_price_15):
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Column: query_n_mean_price_15
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Current: 86486541.89
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Day change: +172444.03 (+0.20%) (prev: 86314097.87)
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Week change: +1587287.91 (+1.87%) (prev: 84899253.99)
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO - query_query_n_mean_price_7 (column: query_n_mean_price_7):
+[2025-11-05T14:44:13.254+0000] {ssh.py:540} INFO -   Column: query_n_mean_price_7
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Current: 52633623.94
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Day change: -65496.68 (-0.12%) (prev: 52699120.62)
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Week change: +1007110.12 (+1.95%) (prev: 51626513.82)
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO - query_query_n_mean_price_3 (column: query_n_mean_price_3):
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Column: query_n_mean_price_3
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Current: 29951599.33
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Day change: +425757.80 (+1.44%) (prev: 29525841.53)
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Week change: +284097.64 (+0.96%) (prev: 29667501.69)
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO - query_query_n_mean_price_1 (column: query_n_mean_price_1):
+[2025-11-05T14:44:13.255+0000] {ssh.py:540} INFO -   Column: query_n_mean_price_1
+[2025-11-05T14:44:13.256+0000] {ssh.py:540} INFO -   Current: 14807027.79
+[2025-11-05T14:44:13.256+0000] {ssh.py:540} INFO -   Day change: -16142.52 (-0.11%) (prev: 14823170.31)
+[2025-11-05T14:44:13.256+0000] {ssh.py:540} INFO -   Week change: -74116.62 (-0.50%) (prev: 14881144.42)
+[2025-11-05T14:44:13.256+0000] {ssh.py:540} INFO - 
+[2025-11-05T14:44:13.256+0000] {ssh.py:540} INFO - ✅ No alerts detected
+[2025-11-05T14:44:13.686+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-05T14:44:13.686+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=recsys_feature_health_monitor_dag, task_id=monitor_query, run_id=scheduled__2025-11-03T20:59:00+00:00, execution_date=20251103T205900, start_date=20251105T144321, end_date=20251105T144413
+[2025-11-05T14:44:13.745+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-05T14:44:13.762+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-05T14:44:13.764+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

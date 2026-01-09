@@ -1,0 +1,135 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=recsys_feature_health_monitor_dag/run_id=scheduled__2025-11-12T20:59:00+00:00/task_id=monitor_querycat/attempt=1.log
+[2025-11-13T20:59:30.966+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-13T20:59:30.991+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_querycat scheduled__2025-11-12T20:59:00+00:00 [queued]>
+[2025-11-13T20:59:31.000+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_querycat scheduled__2025-11-12T20:59:00+00:00 [queued]>
+[2025-11-13T20:59:31.000+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-13T20:59:31.017+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): monitor_querycat> on 2025-11-12 20:59:00+00:00
+[2025-11-13T20:59:31.027+0000] {standard_task_runner.py:72} INFO - Started process 1677128 to run task
+[2025-11-13T20:59:31.034+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'recsys_feature_health_monitor_dag\', \'monitor_querycat\', \'scheduled__2025-11-12T20:59:00+00:00\', \'--job-id\', \'437\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/recsys_feature_health_monitor_dag.py\', \'--cfg-path\', \'/tmp/tmp7p49uqx5\']
+[2025-11-13T20:59:31.036+0000] {standard_task_runner.py:105} INFO - Job 437: Subtask monitor_querycat
+[2025-11-13T20:59:31.061+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-13T20:59:31.112+0000] {task_command.py:467} INFO - Running <TaskInstance: recsys_feature_health_monitor_dag.monitor_querycat scheduled__2025-11-12T20:59:00+00:00 [running]> on host b689d2c26a55
+[2025-11-13T20:59:31.113+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-13T20:59:31.262+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'recsys_feature_health_monitor_dag\' AIRFLOW_CTX_TASK_ID=\'monitor_querycat\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-12T20:59:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-12T20:59:00+00:00\'
+[2025-11-13T20:59:31.263+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-13T20:59:31.306+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-13T20:59:31.306+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-13T20:59:31.347+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-13T20:59:32.040+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-13T20:59:32.079+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-13T20:59:33.133+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-13T20:59:33.133+0000] {ssh.py:494} INFO - Running command: docker exec -i recsys_feature_health_monitor_dag_container python cli.py 2025-11-11 config/config_querycat.yaml
+[2025-11-13T20:59:34.522+0000] {ssh.py:545} WARNING - /app/src/infrastructure/s3_repository.py:94: UserWarning: Polars found a filename. Ensure you pass a path to the file instead of a python file object when possible for best performance.
+[2025-11-13T20:59:34.523+0000] {ssh.py:545} WARNING -   df = pl.read_parquet(f)
+[2025-11-13T21:10:01.977+0000] {ssh.py:540} INFO - Evaluating features for date: 2025-11-11
+[2025-11-13T21:10:01.977+0000] {ssh.py:540} INFO - ⚠️ Column missing for feature querycat_querycat_n_mean_price_30: None of the specified columns [\'querycat_n_mean_price_30\'] found in the file. Available columns: [\'querycat_n_views_30\', \'querycat_n_views_15\', \'querycat_n_views_7\', \'querycat_n_views_3\', \'querycat_n_views_1\', \'ds\', \'query\', \'category\', \'querycat_n_clicks_30\', \'querycat_n_clicks_15\', \'querycat_n_clicks_7\', \'querycat_n_clicks_3\', \'querycat_n_clicks_1\', \'querycat_n_baskets_30\', \'querycat_n_baskets_15\', \'querycat_n_baskets_7\', \'querycat_n_baskets_3\', \'querycat_n_baskets_1\', \'querycat_n_baskets_devided_by_views_30\', \'querycat_n_baskets_devided_by_views_15\', \'querycat_n_baskets_devided_by_views_7\', \'querycat_n_baskets_devided_by_views_3\', \'querycat_n_baskets_devided_by_views_1\', \'querycat_n_baskets_devided_by_clicks_30\', \'querycat_n_baskets_devided_by_clicks_15\', \'querycat_n_baskets_devided_by_clicks_7\', \'querycat_n_baskets_devided_by_clicks_3\', \'querycat_n_baskets_devided_by_clicks_1\']
+[2025-11-13T21:10:01.977+0000] {ssh.py:540} INFO - ⚠️ Column missing for feature querycat_querycat_n_mean_price_15: None of the specified columns [\'querycat_n_mean_price_15\'] found in the file. Available columns: [\'querycat_n_views_30\', \'querycat_n_views_15\', \'querycat_n_views_7\', \'querycat_n_views_3\', \'querycat_n_views_1\', \'ds\', \'query\', \'category\', \'querycat_n_clicks_30\', \'querycat_n_clicks_15\', \'querycat_n_clicks_7\', \'querycat_n_clicks_3\', \'querycat_n_clicks_1\', \'querycat_n_baskets_30\', \'querycat_n_baskets_15\', \'querycat_n_baskets_7\', \'querycat_n_baskets_3\', \'querycat_n_baskets_1\', \'querycat_n_baskets_devided_by_views_30\', \'querycat_n_baskets_devided_by_views_15\', \'querycat_n_baskets_devided_by_views_7\', \'querycat_n_baskets_devided_by_views_3\', \'querycat_n_baskets_devided_by_views_1\', \'querycat_n_baskets_devided_by_clicks_30\', \'querycat_n_baskets_devided_by_clicks_15\', \'querycat_n_baskets_devided_by_clicks_7\', \'querycat_n_baskets_devided_by_clicks_3\', \'querycat_n_baskets_devided_by_clicks_1\']
+[2025-11-13T21:10:01.977+0000] {ssh.py:540} INFO - ⚠️ Column missing for feature querycat_querycat_n_mean_price_7: None of the specified columns [\'querycat_n_mean_price_7\'] found in the file. Available columns: [\'querycat_n_views_30\', \'querycat_n_views_15\', \'querycat_n_views_7\', \'querycat_n_views_3\', \'querycat_n_views_1\', \'ds\', \'query\', \'category\', \'querycat_n_clicks_30\', \'querycat_n_clicks_15\', \'querycat_n_clicks_7\', \'querycat_n_clicks_3\', \'querycat_n_clicks_1\', \'querycat_n_baskets_30\', \'querycat_n_baskets_15\', \'querycat_n_baskets_7\', \'querycat_n_baskets_3\', \'querycat_n_baskets_1\', \'querycat_n_baskets_devided_by_views_30\', \'querycat_n_baskets_devided_by_views_15\', \'querycat_n_baskets_devided_by_views_7\', \'querycat_n_baskets_devided_by_views_3\', \'querycat_n_baskets_devided_by_views_1\', \'querycat_n_baskets_devided_by_clicks_30\', \'querycat_n_baskets_devided_by_clicks_15\', \'querycat_n_baskets_devided_by_clicks_7\', \'querycat_n_baskets_devided_by_clicks_3\', \'querycat_n_baskets_devided_by_clicks_1\']
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO - ⚠️ Column missing for feature querycat_querycat_n_mean_price_3: None of the specified columns [\'querycat_n_mean_price_3\'] found in the file. Available columns: [\'querycat_n_views_30\', \'querycat_n_views_15\', \'querycat_n_views_7\', \'querycat_n_views_3\', \'querycat_n_views_1\', \'ds\', \'query\', \'category\', \'querycat_n_clicks_30\', \'querycat_n_clicks_15\', \'querycat_n_clicks_7\', \'querycat_n_clicks_3\', \'querycat_n_clicks_1\', \'querycat_n_baskets_30\', \'querycat_n_baskets_15\', \'querycat_n_baskets_7\', \'querycat_n_baskets_3\', \'querycat_n_baskets_1\', \'querycat_n_baskets_devided_by_views_30\', \'querycat_n_baskets_devided_by_views_15\', \'querycat_n_baskets_devided_by_views_7\', \'querycat_n_baskets_devided_by_views_3\', \'querycat_n_baskets_devided_by_views_1\', \'querycat_n_baskets_devided_by_clicks_30\', \'querycat_n_baskets_devided_by_clicks_15\', \'querycat_n_baskets_devided_by_clicks_7\', \'querycat_n_baskets_devided_by_clicks_3\', \'querycat_n_baskets_devided_by_clicks_1\']
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO - ⚠️ Column missing for feature querycat_querycat_n_mean_price_1: None of the specified columns [\'querycat_n_mean_price_1\'] found in the file. Available columns: [\'querycat_n_views_30\', \'querycat_n_views_15\', \'querycat_n_views_7\', \'querycat_n_views_3\', \'querycat_n_views_1\', \'ds\', \'query\', \'category\', \'querycat_n_clicks_30\', \'querycat_n_clicks_15\', \'querycat_n_clicks_7\', \'querycat_n_clicks_3\', \'querycat_n_clicks_1\', \'querycat_n_baskets_30\', \'querycat_n_baskets_15\', \'querycat_n_baskets_7\', \'querycat_n_baskets_3\', \'querycat_n_baskets_1\', \'querycat_n_baskets_devided_by_views_30\', \'querycat_n_baskets_devided_by_views_15\', \'querycat_n_baskets_devided_by_views_7\', \'querycat_n_baskets_devided_by_views_3\', \'querycat_n_baskets_devided_by_views_1\', \'querycat_n_baskets_devided_by_clicks_30\', \'querycat_n_baskets_devided_by_clicks_15\', \'querycat_n_baskets_devided_by_clicks_7\', \'querycat_n_baskets_devided_by_clicks_3\', \'querycat_n_baskets_devided_by_clicks_1\']
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO - querycat_count:
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO -   Current: 9248998.00
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO -   Day change: -37517.00 (-0.40%) (prev: 9286515.00)
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO -   Week change: -156037.00 (-1.66%) (prev: 9405035.00)
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO - querycat_querycat_n_clicks_30 (column: querycat_n_clicks_30):
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO -   Column: querycat_n_clicks_30
+[2025-11-13T21:10:01.978+0000] {ssh.py:540} INFO -   Current: 7910692.00
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Day change: -29996.00 (-0.38%) (prev: 7940688.00)
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Week change: -83388.00 (-1.04%) (prev: 7994080.00)
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO - querycat_querycat_n_clicks_15 (column: querycat_n_clicks_15):
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Column: querycat_n_clicks_15
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Current: 3919625.00
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Day change: -41820.00 (-1.06%) (prev: 3961445.00)
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Week change: -48526.00 (-1.22%) (prev: 3968151.00)
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO - querycat_querycat_n_clicks_7 (column: querycat_n_clicks_7):
+[2025-11-13T21:10:01.979+0000] {ssh.py:540} INFO -   Column: querycat_n_clicks_7
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Current: 1809902.00
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Day change: -22432.00 (-1.22%) (prev: 1832334.00)
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Week change: -46421.00 (-2.50%) (prev: 1856323.00)
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO - querycat_querycat_n_clicks_3 (column: querycat_n_clicks_3):
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Column: querycat_n_clicks_3
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Current: 792465.00
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Day change: -14038.00 (-1.74%) (prev: 806503.00)
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Week change: -16648.00 (-2.06%) (prev: 809113.00)
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO - querycat_querycat_n_clicks_1 (column: querycat_n_clicks_1):
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Column: querycat_n_clicks_1
+[2025-11-13T21:10:01.980+0000] {ssh.py:540} INFO -   Current: 243518.00
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Day change: -30234.00 (-11.04%) (prev: 273752.00)
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Week change: -22435.00 (-8.44%) (prev: 265953.00)
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO - querycat_querycat_n_baskets_30 (column: querycat_n_baskets_30):
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Column: querycat_n_baskets_30
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Current: 12460595.00
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Day change: -68962.00 (-0.55%) (prev: 12529557.00)
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Week change: -195994.00 (-1.55%) (prev: 12656589.00)
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO - querycat_querycat_n_baskets_15 (column: querycat_n_baskets_15):
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Column: querycat_n_baskets_15
+[2025-11-13T21:10:01.981+0000] {ssh.py:540} INFO -   Current: 6111881.00
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Day change: -70619.00 (-1.14%) (prev: 6182500.00)
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Week change: -84970.00 (-1.37%) (prev: 6196851.00)
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO - querycat_querycat_n_baskets_7 (column: querycat_n_baskets_7):
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Column: querycat_n_baskets_7
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Current: 2847462.00
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Day change: -32802.00 (-1.14%) (prev: 2880264.00)
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Week change: -37588.00 (-1.30%) (prev: 2885050.00)
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO - querycat_querycat_n_baskets_3 (column: querycat_n_baskets_3):
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Column: querycat_n_baskets_3
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Current: 1253047.00
+[2025-11-13T21:10:01.982+0000] {ssh.py:540} INFO -   Day change: -26022.00 (-2.03%) (prev: 1279069.00)
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Week change: -16276.00 (-1.28%) (prev: 1269323.00)
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO - querycat_querycat_n_baskets_1 (column: querycat_n_baskets_1):
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Column: querycat_n_baskets_1
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Current: 378433.00
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Day change: -62923.00 (-14.26%) (prev: 441356.00)
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Week change: -32803.00 (-7.98%) (prev: 411236.00)
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO - querycat_querycat_n_views_30 (column: querycat_n_views_30):
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Column: querycat_n_views_30
+[2025-11-13T21:10:01.983+0000] {ssh.py:540} INFO -   Current: 1155472031.00
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Day change: -6156961.00 (-0.53%) (prev: 1161628992.00)
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Week change: -21206827.00 (-1.80%) (prev: 1176678858.00)
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO - querycat_querycat_n_views_15 (column: querycat_n_views_15):
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Column: querycat_n_views_15
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Current: 568352600.00
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Day change: -6726737.00 (-1.17%) (prev: 575079337.00)
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Week change: -10043320.00 (-1.74%) (prev: 578395920.00)
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO - querycat_querycat_n_views_7 (column: querycat_n_views_7):
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Column: querycat_n_views_7
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Current: 263013498.00
+[2025-11-13T21:10:01.984+0000] {ssh.py:540} INFO -   Day change: -3308919.00 (-1.24%) (prev: 266322417.00)
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO -   Week change: -7201282.00 (-2.67%) (prev: 270214780.00)
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO - querycat_querycat_n_views_3 (column: querycat_n_views_3):
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO -   Column: querycat_n_views_3
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO -   Current: 115718397.00
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO -   Day change: -2204890.00 (-1.87%) (prev: 117923287.00)
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO -   Week change: -2083777.00 (-1.77%) (prev: 117802174.00)
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:01.985+0000] {ssh.py:540} INFO - querycat_querycat_n_views_1 (column: querycat_n_views_1):
+[2025-11-13T21:10:02.893+0000] {ssh.py:540} INFO -   Column: querycat_n_views_1
+[2025-11-13T21:10:02.894+0000] {ssh.py:540} INFO -   Current: 34980843.00
+[2025-11-13T21:10:02.894+0000] {ssh.py:540} INFO -   Day change: -5865988.00 (-14.36%) (prev: 40846831.00)
+[2025-11-13T21:10:02.894+0000] {ssh.py:540} INFO -   Week change: -3308974.00 (-8.64%) (prev: 38289817.00)
+[2025-11-13T21:10:02.894+0000] {ssh.py:540} INFO - 
+[2025-11-13T21:10:02.894+0000] {ssh.py:540} INFO - 🚨 Found 3 alerts
+[2025-11-13T21:10:02.894+0000] {ssh.py:540} INFO -    Alerts sent to Telegram
+[2025-11-13T21:10:03.983+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-13T21:10:03.984+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=recsys_feature_health_monitor_dag, task_id=monitor_querycat, run_id=scheduled__2025-11-12T20:59:00+00:00, execution_date=20251112T205900, start_date=20251113T205930, end_date=20251113T211003
+[2025-11-13T21:10:04.025+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-13T21:10:04.044+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-13T21:10:04.046+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

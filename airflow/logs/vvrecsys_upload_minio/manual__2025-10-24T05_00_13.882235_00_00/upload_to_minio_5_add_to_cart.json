@@ -1,0 +1,89 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_upload_minio/run_id=manual__2025-10-24T05:00:13.882235+00:00/task_id=upload_to_minio_5_add_to_cart/attempt=1.log
+[2025-10-24T08:49:44.539+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-24T08:49:44.551+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_5_add_to_cart manual__2025-10-24T05:00:13.882235+00:00 [queued]>
+[2025-10-24T08:49:44.557+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_5_add_to_cart manual__2025-10-24T05:00:13.882235+00:00 [queued]>
+[2025-10-24T08:49:44.558+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-10-24T08:49:44.565+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): upload_to_minio_5_add_to_cart> on 2025-10-24 05:00:13.882235+00:00
+[2025-10-24T08:49:44.572+0000] {standard_task_runner.py:72} INFO - Started process 649872 to run task
+[2025-10-24T08:49:44.575+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_upload_minio\', \'upload_to_minio_5_add_to_cart\', \'manual__2025-10-24T05:00:13.882235+00:00\', \'--job-id\', \'210\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_upload_minio_dag.py\', \'--cfg-path\', \'/tmp/tmphpz8ydef\']
+[2025-10-24T08:49:44.576+0000] {standard_task_runner.py:105} INFO - Job 210: Subtask upload_to_minio_5_add_to_cart
+[2025-10-24T08:49:44.587+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-10-24T08:49:44.613+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_upload_minio.upload_to_minio_5_add_to_cart manual__2025-10-24T05:00:13.882235+00:00 [running]> on host b689d2c26a55
+[2025-10-24T08:49:44.667+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'vzelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_upload_minio\' AIRFLOW_CTX_TASK_ID=\'upload_to_minio_5_add_to_cart\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-10-24T05:00:13.882235+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'manual__2025-10-24T05:00:13.882235+00:00\'
+[2025-10-24T08:49:44.667+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-24T08:49:44.677+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-10-24T08:49:44.678+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-10-24T08:49:44.685+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-10-24T08:49:44.727+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-10-24T08:49:44.755+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-10-24T08:49:44.908+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-10-24T08:49:44.908+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_upload_minio_container python -m vvrecsys.cli.minio --config=configs/production/add-to-cart.yaml --index=0 --focus_group=1
+[2025-10-24T08:50:02.673+0000] {ssh.py:545} WARNING - Traceback (most recent call last):
+[2025-10-24T08:50:02.673+0000] {ssh.py:545} WARNING -   File "<frozen runpy>", line 198, in _run_module_as_main
+[2025-10-24T08:50:02.673+0000] {ssh.py:545} WARNING -   File "<frozen runpy>", line 88, in _run_code
+[2025-10-24T08:50:02.673+0000] {ssh.py:545} WARNING -   File "/app/vvrecsys/cli/minio.py", line 151, in <module>
+[2025-10-24T08:50:02.674+0000] {ssh.py:545} WARNING -     raise FileNotFoundError(args.config.as_posix())
+[2025-10-24T08:50:02.674+0000] {ssh.py:545} WARNING - FileNotFoundError: configs/production/add-to-cart.yaml
+[2025-10-24T08:50:04.001+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 191, in execute
+    result = self.run_ssh_client_command(ssh_client, self.command, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 179, in run_ssh_client_command
+    self.raise_for_status(exit_status, agg_stderr, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 173, in raise_for_status
+    raise AirflowException(f"SSH operator error: exit status = {exit_status}")
+airflow.exceptions.AirflowException: SSH operator error: exit status = 1
+[2025-10-24T08:50:04.004+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=vvrecsys_upload_minio, task_id=upload_to_minio_5_add_to_cart, run_id=manual__2025-10-24T05:00:13.882235+00:00, execution_date=20251024T050013, start_date=20251024T084944, end_date=20251024T085004
+[2025-10-24T08:50:04.013+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-24T08:50:04.013+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 210 for task upload_to_minio_5_add_to_cart (SSH operator error: exit status = 1; 649872)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2995, in _run_raw_task
+    return _run_raw_task(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3149, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 3173, in _execute_task
+    return _execute_task(self, context, task_orig)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 191, in execute
+    result = self.run_ssh_client_command(ssh_client, self.command, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 179, in run_ssh_client_command
+    self.raise_for_status(exit_status, agg_stderr, context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/ssh/operators/ssh.py", line 173, in raise_for_status
+    raise AirflowException(f"SSH operator error: exit status = {exit_status}")
+airflow.exceptions.AirflowException: SSH operator error: exit status = 1
+[2025-10-24T08:50:04.054+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 1
+[2025-10-24T08:50:04.076+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-24T08:50:04.077+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

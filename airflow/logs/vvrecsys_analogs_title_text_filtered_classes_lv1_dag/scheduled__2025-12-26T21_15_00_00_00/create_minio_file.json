@@ -1,0 +1,32 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag/run_id=scheduled__2025-12-26T21:15:00+00:00/task_id=create_minio_file/attempt=3.log
+[2025-12-29T10:26:58.618+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T10:26:58.631+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.create_minio_file scheduled__2025-12-26T21:15:00+00:00 [queued]>
+[2025-12-29T10:26:58.638+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.create_minio_file scheduled__2025-12-26T21:15:00+00:00 [queued]>
+[2025-12-29T10:26:58.638+0000] {taskinstance.py:2856} INFO - Starting attempt 3 of 3
+[2025-12-29T10:26:58.646+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): create_minio_file> on 2025-12-26 21:15:00+00:00
+[2025-12-29T10:26:58.654+0000] {standard_task_runner.py:72} INFO - Started process 3958742 to run task
+[2025-12-29T10:26:58.658+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'create_minio_file\', \'scheduled__2025-12-26T21:15:00+00:00\', \'--job-id\', \'1199\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpmzur47ir\']
+[2025-12-29T10:26:58.660+0000] {standard_task_runner.py:105} INFO - Job 1199: Subtask create_minio_file
+[2025-12-29T10:26:58.673+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T10:26:58.705+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.create_minio_file scheduled__2025-12-26T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T10:26:58.706+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T10:26:58.817+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'create_minio_file\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-26T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'3\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-26T21:15:00+00:00\'
+[2025-12-29T10:26:58.818+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T10:26:58.832+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-12-29T10:26:58.832+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-12-29T10:26:58.845+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-12-29T10:26:58.896+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-12-29T10:26:58.924+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-12-29T10:26:59.072+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-12-29T10:26:59.072+0000] {ssh.py:494} INFO - Running command: mkdir -p vvrecsys_analogs_title_text_filtered_classes_lv1_dag_recsys-ad-hoc/.credentials;
+echo \'endpoint: dl-minio-cluster.int.vkusvill.ru
+access_key: KYeNpRjL4nSqXOauTJVl
+secret_key: ***\' > vvrecsys_analogs_title_text_filtered_classes_lv1_dag_recsys-ad-hoc/.credentials/minio.yaml
+[2025-12-29T10:26:59.331+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T10:26:59.331+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag, task_id=create_minio_file, run_id=scheduled__2025-12-26T21:15:00+00:00, execution_date=20251226T211500, start_date=20251229T102658, end_date=20251229T102659
+[2025-12-29T10:26:59.356+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T10:26:59.381+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T10:26:59.382+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

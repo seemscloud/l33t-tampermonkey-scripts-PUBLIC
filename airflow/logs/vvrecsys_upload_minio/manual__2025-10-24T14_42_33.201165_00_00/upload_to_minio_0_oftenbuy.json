@@ -1,0 +1,45 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_upload_minio/run_id=manual__2025-10-24T14:42:33.201165+00:00/task_id=upload_to_minio_0_oftenbuy/attempt=1.log
+[2025-10-24T14:46:04.749+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-24T14:46:04.761+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_0_oftenbuy manual__2025-10-24T14:42:33.201165+00:00 [queued]>
+[2025-10-24T14:46:04.768+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_0_oftenbuy manual__2025-10-24T14:42:33.201165+00:00 [queued]>
+[2025-10-24T14:46:04.768+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-10-24T14:46:04.776+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): upload_to_minio_0_oftenbuy> on 2025-10-24 14:42:33.201165+00:00
+[2025-10-24T14:46:04.782+0000] {standard_task_runner.py:72} INFO - Started process 662333 to run task
+[2025-10-24T14:46:04.786+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_upload_minio\', \'upload_to_minio_0_oftenbuy\', \'manual__2025-10-24T14:42:33.201165+00:00\', \'--job-id\', \'229\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_upload_minio_dag.py\', \'--cfg-path\', \'/tmp/tmpztirpdcm\']
+[2025-10-24T14:46:04.787+0000] {standard_task_runner.py:105} INFO - Job 229: Subtask upload_to_minio_0_oftenbuy
+[2025-10-24T14:46:04.797+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-10-24T14:46:04.822+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_upload_minio.upload_to_minio_0_oftenbuy manual__2025-10-24T14:42:33.201165+00:00 [running]> on host b689d2c26a55
+[2025-10-24T14:46:04.880+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'vzelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_upload_minio\' AIRFLOW_CTX_TASK_ID=\'upload_to_minio_0_oftenbuy\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-10-24T14:42:33.201165+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'manual__2025-10-24T14:42:33.201165+00:00\'
+[2025-10-24T14:46:04.880+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-24T14:46:04.890+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-10-24T14:46:04.891+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-10-24T14:46:04.898+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-10-24T14:46:04.940+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-10-24T14:46:04.966+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-10-24T14:46:05.112+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-10-24T14:46:05.113+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_upload_minio_container python -m vvrecsys.cli.minio --config=configs/production/oftenbuy.yaml --index=0 --focus_group=1
+[2025-10-24T14:50:17.411+0000] {ssh.py:540} INFO - Opening data/production/oftenbuy/new_ranking_margin_boosting.h5 ...
+[2025-10-24T14:50:17.411+0000] {ssh.py:540} INFO - Opened data/production/oftenbuy/new_ranking_margin_boosting.h5
+[2025-10-24T14:50:17.412+0000] {ssh.py:545} WARNING - 
+[2025-10-24T14:50:17.412+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:   0%|          | 0/4963162 [00:00<?, ?it/s]
+[2025-10-24T14:50:22.411+0000] {ssh.py:545} WARNING - 
+[2025-10-24T14:50:22.412+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  19%|█▉        | 956661/4963162 [00:05<00:20, 191331.25it/s]
+[2025-10-24T14:50:27.411+0000] {ssh.py:545} WARNING - 
+[2025-10-24T14:50:27.412+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  41%|████      | 2033388/4963162 [00:10<00:14, 205456.65it/s]
+[2025-10-24T14:50:32.411+0000] {ssh.py:545} WARNING - 
+[2025-10-24T14:50:32.412+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  62%|██████▏   | 3072150/4963162 [00:15<00:09, 206504.67it/s]
+[2025-10-24T14:50:38.641+0000] {ssh.py:545} WARNING - 
+[2025-10-24T14:50:38.641+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  83%|████████▎ | 4104674/4963162 [00:21<00:04, 188237.25it/s]
+[2025-10-24T14:50:43.865+0000] {ssh.py:545} WARNING - 
+[2025-10-24T14:50:43.865+0000] {ssh.py:545} WARNING - get_dict_from_dataframe: 100%|██████████| 4963162/4963162 [00:26<00:00, 187618.40it/s]
+[2025-10-24T14:50:50.272+0000] {ssh.py:540} INFO - [2025-10-24 14:50:50,266] INFO: VPN запущен.
+[2025-10-24T14:50:50.273+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.vpn:VPN запущен.
+[2025-10-24T15:14:22.801+0000] {ssh.py:540} INFO - [2025-10-24 15:14:22,793] INFO: Передача по VPN завершена.
+[2025-10-24T15:14:22.802+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.vpn:Передача по VPN завершена.
+[2025-10-24T15:15:02.537+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-24T15:15:02.537+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_upload_minio, task_id=upload_to_minio_0_oftenbuy, run_id=manual__2025-10-24T14:42:33.201165+00:00, execution_date=20251024T144233, start_date=20251024T144604, end_date=20251024T151502
+[2025-10-24T15:15:02.572+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-10-24T15:15:02.592+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-24T15:15:02.600+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

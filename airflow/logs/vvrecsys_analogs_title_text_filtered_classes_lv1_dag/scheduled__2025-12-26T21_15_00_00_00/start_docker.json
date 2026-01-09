@@ -1,0 +1,458 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag/run_id=scheduled__2025-12-26T21:15:00+00:00/task_id=start_docker/attempt=3.log
+[2025-12-29T10:27:02.524+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-29T10:27:02.538+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.start_docker scheduled__2025-12-26T21:15:00+00:00 [queued]>
+[2025-12-29T10:27:02.545+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.start_docker scheduled__2025-12-26T21:15:00+00:00 [queued]>
+[2025-12-29T10:27:02.546+0000] {taskinstance.py:2856} INFO - Starting attempt 3 of 3
+[2025-12-29T10:27:02.555+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): start_docker> on 2025-12-26 21:15:00+00:00
+[2025-12-29T10:27:02.563+0000] {standard_task_runner.py:72} INFO - Started process 3958752 to run task
+[2025-12-29T10:27:02.567+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'start_docker\', \'scheduled__2025-12-26T21:15:00+00:00\', \'--job-id\', \'1201\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmpaacgmmxq\']
+[2025-12-29T10:27:02.569+0000] {standard_task_runner.py:105} INFO - Job 1201: Subtask start_docker
+[2025-12-29T10:27:02.582+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-29T10:27:02.614+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.start_docker scheduled__2025-12-26T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-29T10:27:02.614+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-29T10:27:02.687+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'start_docker\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-26T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'3\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-26T21:15:00+00:00\'
+[2025-12-29T10:27:02.688+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-29T10:27:02.698+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-12-29T10:27:02.698+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-12-29T10:27:02.707+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-12-29T10:27:02.756+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-12-29T10:27:02.784+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-12-29T10:27:02.892+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-12-29T10:27:02.893+0000] {ssh.py:494} INFO - Running command: docker stop vvrecsys_analogs_title_text_filtered_classes_lv1_dag_container || true; docker rm vvrecsys_analogs_title_text_filtered_classes_lv1_dag_container || true; docker rmi vvrecsys_analogs_title_text_filtered_classes_lv1_dag_image || true; docker build --no-cache --rm -t vvrecsys_analogs_title_text_filtered_classes_lv1_dag_image ./vvrecsys_analogs_title_text_filtered_classes_lv1_dag_recsys-ad-hoc; docker run --name vvrecsys_analogs_title_text_filtered_classes_lv1_dag_container -it -d --cpus=16 -v /srv/data:/app/data -v /etc/openvpn:/app/etc/openvpn -v /home/***/.ssh:/root/.ssh vvrecsys_analogs_title_text_filtered_classes_lv1_dag_image
+[2025-12-29T10:27:13.551+0000] {ssh.py:540} INFO - vvrecsys_analogs_title_text_filtered_classes_lv1_dag_container
+[2025-12-29T10:27:13.592+0000] {ssh.py:540} INFO - vvrecsys_analogs_title_text_filtered_classes_lv1_dag_container
+[2025-12-29T10:27:13.623+0000] {ssh.py:540} INFO - Untagged: vvrecsys_analogs_title_text_filtered_classes_lv1_dag_image:latest
+[2025-12-29T10:27:13.623+0000] {ssh.py:540} INFO - Deleted: sha256:426878fcd83015c08ff62eb9528a9bc0f1cd1bcc4459d4463bc7d5a1e98d60db
+[2025-12-29T10:27:13.900+0000] {ssh.py:545} WARNING - #1 [internal] load .dockerignore
+[2025-12-29T10:27:13.900+0000] {ssh.py:545} WARNING - #1 transferring context: 2B done
+[2025-12-29T10:27:13.900+0000] {ssh.py:545} WARNING - #1 DONE 0.0s
+[2025-12-29T10:27:13.900+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:13.900+0000] {ssh.py:545} WARNING - #2 [internal] load build definition from Dockerfile
+[2025-12-29T10:27:13.901+0000] {ssh.py:545} WARNING - #2 transferring dockerfile: 1.06kB done
+[2025-12-29T10:27:13.901+0000] {ssh.py:545} WARNING - #2 DONE 0.0s
+[2025-12-29T10:27:13.901+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:13.901+0000] {ssh.py:545} WARNING - #3 [internal] load metadata for docker.io/library/python:3.11
+[2025-12-29T10:27:14.910+0000] {ssh.py:545} WARNING - #3 DONE 1.0s
+[2025-12-29T10:27:14.910+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:14.911+0000] {ssh.py:545} WARNING - #4 [ 1/13] FROM docker.io/library/python:3.11@sha256:ddc4560e6e692d47cc5e3109ea978d4a4f7d3ccab24557dedefd278563e2b1a2
+[2025-12-29T10:27:14.911+0000] {ssh.py:545} WARNING - #4 resolve docker.io/library/python:3.11@sha256:ddc4560e6e692d47cc5e3109ea978d4a4f7d3ccab24557dedefd278563e2b1a2 0.0s done
+[2025-12-29T10:27:15.014+0000] {ssh.py:545} WARNING - #4 DONE 0.0s
+[2025-12-29T10:27:15.015+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:15.015+0000] {ssh.py:545} WARNING - #5 [ 2/13] WORKDIR /app
+[2025-12-29T10:27:15.015+0000] {ssh.py:545} WARNING - #5 CACHED
+[2025-12-29T10:27:15.015+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:15.016+0000] {ssh.py:545} WARNING - #6 [internal] load build context
+[2025-12-29T10:27:15.016+0000] {ssh.py:545} WARNING - #6 transferring context: 20.16MB 0.1s done
+[2025-12-29T10:27:15.165+0000] {ssh.py:545} WARNING - #6 DONE 0.2s
+[2025-12-29T10:27:15.166+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:15.166+0000] {ssh.py:545} WARNING - #7 [ 3/13] COPY requirements.txt requirements.txt
+[2025-12-29T10:27:15.617+0000] {ssh.py:545} WARNING - #7 DONE 0.4s
+[2025-12-29T10:27:15.617+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:15.617+0000] {ssh.py:545} WARNING - #8 [ 4/13] RUN pip install -U pip
+[2025-12-29T10:27:17.572+0000] {ssh.py:545} WARNING - #8 1.982 Requirement already satisfied: pip in /usr/local/lib/python3.11/site-packages (24.0)
+[2025-12-29T10:27:17.722+0000] {ssh.py:545} WARNING - #8 2.176 Collecting pip
+[2025-12-29T10:27:17.833+0000] {ssh.py:545} WARNING - #8 2.299   Downloading pip-25.3-py3-none-any.whl.metadata (4.7 kB)
+[2025-12-29T10:27:17.834+0000] {ssh.py:545} WARNING - #8 2.351 Downloading pip-25.3-py3-none-any.whl (1.8 MB)
+[2025-12-29T10:27:18.103+0000] {ssh.py:545} WARNING - #8 2.558    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 8.8 MB/s eta 0:00:00
+[2025-12-29T10:27:18.104+0000] {ssh.py:545} WARNING - #8 2.621 Installing collected packages: pip
+[2025-12-29T10:27:18.104+0000] {ssh.py:545} WARNING - #8 2.621   Attempting uninstall: pip
+[2025-12-29T10:27:18.254+0000] {ssh.py:545} WARNING - #8 2.624     Found existing installation: pip 24.0
+[2025-12-29T10:27:18.255+0000] {ssh.py:545} WARNING - #8 2.665     Uninstalling pip-24.0:
+[2025-12-29T10:27:18.405+0000] {ssh.py:545} WARNING - #8 2.795       Successfully uninstalled pip-24.0
+[2025-12-29T10:27:19.308+0000] {ssh.py:545} WARNING - #8 3.684 Successfully installed pip-25.3
+[2025-12-29T10:27:19.308+0000] {ssh.py:545} WARNING - #8 3.684 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[2025-12-29T10:27:19.910+0000] {ssh.py:545} WARNING - #8 DONE 4.3s
+[2025-12-29T10:27:19.910+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:27:19.910+0000] {ssh.py:545} WARNING - #9 [ 5/13] RUN pip install -q "datalab @ git+https://***:***@gitlab-vv.vkusvill.ru/datalab/recsys-core/datalab.git@python311"
+[2025-12-29T10:27:49.684+0000] {ssh.py:545} WARNING - #9 29.83 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-12-29T10:28:01.417+0000] {ssh.py:545} WARNING - #9 DONE 41.6s
+[2025-12-29T10:28:01.417+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:28:01.417+0000] {ssh.py:545} WARNING - #10 [ 6/13] RUN pip install -q --no-deps "recsys @ git+https://***:***@gitlab-vv.vkusvill.ru/datalab/recsys-core/recsys.git@python311"
+[2025-12-29T10:28:06.077+0000] {ssh.py:545} WARNING - #10 4.658 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-12-29T10:28:06.342+0000] {ssh.py:545} WARNING - #10 DONE 5.0s
+[2025-12-29T10:28:06.493+0000] {ssh.py:545} WARNING - #11 [ 7/13] RUN pip install -q "vvutils @ git+https://***:***@gitlab-vv.vkusvill.ru/datalab/recsys-core/vvutils.git"
+[2025-12-29T10:28:24.543+0000] {ssh.py:545} WARNING - #11 18.05 ERROR: pip\'s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+[2025-12-29T10:28:24.543+0000] {ssh.py:545} WARNING - #11 18.05 recsys 1.3 requires catboost<2.0.0,>=1.2.8, which is not installed.
+[2025-12-29T10:28:24.543+0000] {ssh.py:545} WARNING - #11 18.05 recsys 1.3 requires faiss-cpu<2.0.0,>=1.11.0, which is not installed.
+[2025-12-29T10:28:24.544+0000] {ssh.py:545} WARNING - #11 18.05 recsys 1.3 requires psutil<8.0.0,>=7.0.0, which is not installed.
+[2025-12-29T10:28:24.544+0000] {ssh.py:545} WARNING - #11 18.05 recsys 1.3 requires pyarrow<21.0.0,>=20.0.0, which is not installed.
+[2025-12-29T10:28:24.544+0000] {ssh.py:545} WARNING - #11 18.05 recsys 1.3 requires torch==2.6.0, which is not installed.
+[2025-12-29T10:28:24.544+0000] {ssh.py:545} WARNING - #11 18.05 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-12-29T10:28:26.798+0000] {ssh.py:545} WARNING - #11 DONE 20.3s
+[2025-12-29T10:28:26.799+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:28:26.799+0000] {ssh.py:545} WARNING - #12 [ 8/13] RUN pip install --no-deps "features_tools @ git+https://***:***@gitlab-vv.vkusvill.ru/datalab/recsys-core/feature-loader.git"
+[2025-12-29T10:28:28.152+0000] {ssh.py:545} WARNING - #12 1.357 Collecting features_tools@ git+https://***:****@gitlab-vv.vkusvill.ru/datalab/recsys-core/feature-loader.git
+[2025-12-29T10:28:28.152+0000] {ssh.py:545} WARNING - #12 1.358   Cloning https://***:****@gitlab-vv.vkusvill.ru/datalab/recsys-core/feature-loader.git to /tmp/pip-install-osdw56cc/features-tools_87926f6ab41e4e19986cf7acc29597b9
+[2025-12-29T10:28:28.153+0000] {ssh.py:545} WARNING - #12 1.360   Running command git clone --filter=blob:none --quiet \'https://***:****@gitlab-vv.vkusvill.ru/datalab/recsys-core/feature-loader.git\' /tmp/pip-install-osdw56cc/features-tools_87926f6ab41e4e19986cf7acc29597b9
+[2025-12-29T10:28:29.208+0000] {ssh.py:545} WARNING - #12 2.471   Resolved https://***:****@gitlab-vv.vkusvill.ru/datalab/recsys-core/feature-loader.git to commit d62ae78675b363d29fe9f01541127f2bdeb5d86c
+[2025-12-29T10:28:29.208+0000] {ssh.py:545} WARNING - #12 2.476   Installing build dependencies: started
+[2025-12-29T10:28:30.258+0000] {ssh.py:545} WARNING - #12 3.489   Installing build dependencies: finished with status \'done\'
+[2025-12-29T10:28:30.259+0000] {ssh.py:545} WARNING - #12 3.490   Getting requirements to build wheel: started
+[2025-12-29T10:28:30.710+0000] {ssh.py:545} WARNING - #12 3.957   Getting requirements to build wheel: finished with status \'done\'
+[2025-12-29T10:28:30.710+0000] {ssh.py:545} WARNING - #12 3.958   Preparing metadata (pyproject.toml): started
+[2025-12-29T10:28:30.844+0000] {ssh.py:545} WARNING - #12 4.175   Preparing metadata (pyproject.toml): finished with status \'done\'
+[2025-12-29T10:28:30.994+0000] {ssh.py:545} WARNING - #12 4.178 Building wheels for collected packages: features_tools
+[2025-12-29T10:28:30.995+0000] {ssh.py:545} WARNING - #12 4.179   Building wheel for features_tools (pyproject.toml): started
+[2025-12-29T10:28:31.122+0000] {ssh.py:545} WARNING - #12 4.418   Building wheel for features_tools (pyproject.toml): finished with status \'done\'
+[2025-12-29T10:28:31.123+0000] {ssh.py:545} WARNING - #12 4.419   Created wheel for features_tools: filename=features_tools-0.1.0-py3-none-any.whl size=6674 sha256=346f16a57ffa2997c7caa0d4c4156e39146a8dda0af12c64fc69de3c78e735dc
+[2025-12-29T10:28:31.123+0000] {ssh.py:545} WARNING - #12 4.419   Stored in directory: /tmp/pip-ephem-wheel-cache-wfxdoh17/wheels/7b/d0/82/00fd1c13e00371e518626195564be1e352b5cf79383ef5f528
+[2025-12-29T10:28:31.123+0000] {ssh.py:545} WARNING - #12 4.422 Successfully built features_tools
+[2025-12-29T10:28:31.123+0000] {ssh.py:545} WARNING - #12 4.422 Installing collected packages: features_tools
+[2025-12-29T10:28:31.123+0000] {ssh.py:545} WARNING - #12 4.454 Successfully installed features_tools-0.1.0
+[2025-12-29T10:28:31.273+0000] {ssh.py:545} WARNING - #12 4.454 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-12-29T10:28:31.541+0000] {ssh.py:545} WARNING - #12 DONE 4.9s
+[2025-12-29T10:28:31.691+0000] {ssh.py:545} WARNING - #13 [ 9/13] RUN pip install -r requirements.txt
+[2025-12-29T10:28:33.645+0000] {ssh.py:545} WARNING - #13 2.009 Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+[2025-12-29T10:28:34.836+0000] {ssh.py:545} WARNING - #13 3.237 Collecting torch==2.6.0+cpu (from -r requirements.txt (line 2))
+[2025-12-29T10:28:34.836+0000] {ssh.py:545} WARNING - #13 3.289   Downloading https://download.pytorch.org/whl/cpu/torch-2.6.0%2Bcpu-cp311-cp311-linux_x86_64.whl.metadata (26 kB)
+[2025-12-29T10:28:35.893+0000] {ssh.py:545} WARNING - #13 4.247 Collecting boto3==1.24.59 (from -r requirements.txt (line 3))
+[2025-12-29T10:28:36.040+0000] {ssh.py:545} WARNING - #13 4.382   Downloading boto3-1.24.59-py3-none-any.whl.metadata (7.0 kB)
+[2025-12-29T10:28:36.943+0000] {ssh.py:545} WARNING - #13 5.278 Collecting botocore==1.27.59 (from -r requirements.txt (line 4))
+[2025-12-29T10:28:36.943+0000] {ssh.py:545} WARNING - #13 5.318   Downloading botocore-1.27.59-py3-none-any.whl.metadata (5.9 kB)
+[2025-12-29T10:28:37.367+0000] {ssh.py:545} WARNING - #13 5.820 Collecting catboost==1.2.8 (from -r requirements.txt (line 5))
+[2025-12-29T10:28:37.518+0000] {ssh.py:545} WARNING - #13 5.860   Downloading catboost-1.2.8-cp311-cp311-manylinux2014_x86_64.whl.metadata (1.2 kB)
+[2025-12-29T10:28:37.969+0000] {ssh.py:545} WARNING - #13 6.311 Collecting h5py==3.13.0 (from -r requirements.txt (line 6))
+[2025-12-29T10:28:37.969+0000] {ssh.py:545} WARNING - #13 6.350   Downloading h5py-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.5 kB)
+[2025-12-29T10:28:38.386+0000] {ssh.py:545} WARNING - #13 6.801 Collecting implicit==0.7.0 (from -r requirements.txt (line 7))
+[2025-12-29T10:28:38.386+0000] {ssh.py:545} WARNING - #13 6.839   Downloading implicit-0.7.0-cp311-cp311-manylinux2014_x86_64.whl.metadata (6.1 kB)
+[2025-12-29T10:28:38.823+0000] {ssh.py:545} WARNING - #13 7.277 Collecting joblib==1.3.2 (from -r requirements.txt (line 8))
+[2025-12-29T10:28:38.974+0000] {ssh.py:545} WARNING - #13 7.316   Downloading joblib-1.3.2-py3-none-any.whl.metadata (5.4 kB)
+[2025-12-29T10:28:39.425+0000] {ssh.py:545} WARNING - #13 7.750 Collecting loguru==0.7.2 (from -r requirements.txt (line 9))
+[2025-12-29T10:28:39.426+0000] {ssh.py:545} WARNING - #13 7.789   Downloading loguru-0.7.2-py3-none-any.whl.metadata (23 kB)
+[2025-12-29T10:28:39.838+0000] {ssh.py:545} WARNING - #13 8.252 Collecting minio==7.2.7 (from -r requirements.txt (line 10))
+[2025-12-29T10:28:39.839+0000] {ssh.py:545} WARNING - #13 8.292   Downloading minio-7.2.7-py3-none-any.whl.metadata (6.4 kB)
+[2025-12-29T10:28:41.489+0000] {ssh.py:545} WARNING - #13 9.942 Collecting numpy==1.26.3 (from -r requirements.txt (line 11))
+[2025-12-29T10:28:41.639+0000] {ssh.py:545} WARNING - #13 9.981   Downloading numpy-1.26.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+[2025-12-29T10:28:42.241+0000] {ssh.py:545} WARNING - #13 10.60 Collecting pandas==2.2.0 (from -r requirements.txt (line 12))
+[2025-12-29T10:28:42.241+0000] {ssh.py:545} WARNING - #13 10.64   Downloading pandas-2.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (19 kB)
+[2025-12-29T10:28:42.964+0000] {ssh.py:545} WARNING - #13 11.42 Collecting polars==1.3.0 (from -r requirements.txt (line 13))
+[2025-12-29T10:28:43.115+0000] {ssh.py:545} WARNING - #13 11.46   Downloading polars-1.3.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+[2025-12-29T10:28:43.566+0000] {ssh.py:545} WARNING - #13 11.90 Collecting pymorphy3==2.0.2 (from -r requirements.txt (line 14))
+[2025-12-29T10:28:43.567+0000] {ssh.py:545} WARNING - #13 11.94   Downloading pymorphy3-2.0.2-py3-none-any.whl.metadata (1.8 kB)
+[2025-12-29T10:28:44.169+0000] {ssh.py:545} WARNING - #13 12.49 Collecting psutil==7.0.0 (from -r requirements.txt (line 15))
+[2025-12-29T10:28:44.169+0000] {ssh.py:545} WARNING - #13 12.53   Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (22 kB)
+[2025-12-29T10:28:44.737+0000] {ssh.py:545} WARNING - #13 13.15 Collecting pydantic==1.10.17 (from -r requirements.txt (line 16))
+[2025-12-29T10:28:44.737+0000] {ssh.py:545} WARNING - #13 13.19   Downloading pydantic-1.10.17-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (151 kB)
+[2025-12-29T10:28:45.011+0000] {ssh.py:545} WARNING - #13 13.46 Collecting python-dotenv==1.0.0 (from -r requirements.txt (line 17))
+[2025-12-29T10:28:45.162+0000] {ssh.py:545} WARNING - #13 13.50   Downloading python_dotenv-1.0.0-py3-none-any.whl.metadata (21 kB)
+[2025-12-29T10:28:45.613+0000] {ssh.py:545} WARNING - #13 13.93 Collecting rank-bm25==0.2.2 (from -r requirements.txt (line 18))
+[2025-12-29T10:28:45.614+0000] {ssh.py:545} WARNING - #13 13.97   Downloading rank_bm25-0.2.2-py3-none-any.whl.metadata (3.2 kB)
+[2025-12-29T10:28:46.625+0000] {ssh.py:545} WARNING - #13 15.08 Collecting rapidfuzz==3.9.6 (from -r requirements.txt (line 19))
+[2025-12-29T10:28:46.776+0000] {ssh.py:545} WARNING - #13 15.12   Downloading rapidfuzz-3.9.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+[2025-12-29T10:28:47.227+0000] {ssh.py:545} WARNING - #13 15.54 Collecting s3fs==2022.11.0 (from -r requirements.txt (line 20))
+[2025-12-29T10:28:47.227+0000] {ssh.py:545} WARNING - #13 15.59   Downloading s3fs-2022.11.0-py3-none-any.whl.metadata (1.5 kB)
+[2025-12-29T10:28:48.095+0000] {ssh.py:545} WARNING - #13 16.51 Collecting SQLAlchemy==2.0.38 (from -r requirements.txt (line 21))
+[2025-12-29T10:28:48.096+0000] {ssh.py:545} WARNING - #13 16.55   Downloading SQLAlchemy-2.0.38-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+[2025-12-29T10:28:48.647+0000] {ssh.py:545} WARNING - #13 17.05 Collecting tables==3.10.0 (from -r requirements.txt (line 22))
+[2025-12-29T10:28:48.647+0000] {ssh.py:545} WARNING - #13 17.10   Downloading tables-3.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.2 kB)
+[2025-12-29T10:28:49.250+0000] {ssh.py:545} WARNING - #13 17.59 Collecting tqdm==4.66.5 (from -r requirements.txt (line 23))
+[2025-12-29T10:28:49.250+0000] {ssh.py:545} WARNING - #13 17.64   Downloading https://download.pytorch.org/whl/tqdm-4.66.5-py3-none-any.whl (78 kB)
+[2025-12-29T10:28:49.689+0000] {ssh.py:545} WARNING - #13 18.10 Collecting faiss-cpu==1.10.0 (from -r requirements.txt (line 24))
+[2025-12-29T10:28:49.689+0000] {ssh.py:545} WARNING - #13 18.14   Downloading faiss_cpu-1.10.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (4.4 kB)
+[2025-12-29T10:28:50.111+0000] {ssh.py:545} WARNING - #13 18.56 Collecting scipy==1.15.0 (from -r requirements.txt (line 25))
+[2025-12-29T10:28:50.262+0000] {ssh.py:545} WARNING - #13 18.60   Downloading scipy-1.15.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+[2025-12-29T10:28:50.695+0000] {ssh.py:545} WARNING - #13 19.11 Collecting scikit-learn==1.6.0 (from -r requirements.txt (line 26))
+[2025-12-29T10:28:50.695+0000] {ssh.py:545} WARNING - #13 19.15   Downloading scikit_learn-1.6.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+[2025-12-29T10:28:51.124+0000] {ssh.py:545} WARNING - #13 19.58 Collecting pathlib==1.0.1 (from -r requirements.txt (line 27))
+[2025-12-29T10:28:51.275+0000] {ssh.py:545} WARNING - #13 19.62   Downloading pathlib-1.0.1-py3-none-any.whl.metadata (5.1 kB)
+[2025-12-29T10:28:51.684+0000] {ssh.py:545} WARNING - #13 20.10 Collecting PyYAML==6.0.2 (from -r requirements.txt (line 28))
+[2025-12-29T10:28:51.685+0000] {ssh.py:545} WARNING - #13 20.14   Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.1 kB)
+[2025-12-29T10:28:52.280+0000] {ssh.py:545} WARNING - #13 20.73 Collecting pyarrow==20.0.0 (from -r requirements.txt (line 29))
+[2025-12-29T10:28:52.431+0000] {ssh.py:545} WARNING - #13 20.77   Downloading pyarrow-20.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+[2025-12-29T10:28:53.017+0000] {ssh.py:545} WARNING - #13 21.38 Collecting filelock (from torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:28:53.018+0000] {ssh.py:545} WARNING - #13 21.42   Downloading filelock-3.20.1-py3-none-any.whl.metadata (2.1 kB)
+[2025-12-29T10:28:53.018+0000] {ssh.py:545} WARNING - #13 21.47 Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.11/site-packages (from torch==2.6.0+cpu->-r requirements.txt (line 2)) (4.15.0)
+[2025-12-29T10:28:53.729+0000] {ssh.py:545} WARNING - #13 22.18 Collecting networkx (from torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:28:53.879+0000] {ssh.py:545} WARNING - #13 22.22   Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+[2025-12-29T10:28:54.322+0000] {ssh.py:545} WARNING - #13 22.77 Collecting jinja2 (from torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:28:54.472+0000] {ssh.py:545} WARNING - #13 22.83   Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+[2025-12-29T10:28:54.472+0000] {ssh.py:545} WARNING - #13 22.85 Requirement already satisfied: fsspec in /usr/local/lib/python3.11/site-packages (from torch==2.6.0+cpu->-r requirements.txt (line 2)) (2025.12.0)
+[2025-12-29T10:28:54.755+0000] {ssh.py:545} WARNING - #13 23.21 Collecting sympy==1.13.1 (from torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:28:54.906+0000] {ssh.py:545} WARNING - #13 23.25   Downloading sympy-1.13.1-py3-none-any.whl.metadata (12 kB)
+[2025-12-29T10:28:55.207+0000] {ssh.py:545} WARNING - #13 23.60 Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /usr/local/lib/python3.11/site-packages (from boto3==1.24.59->-r requirements.txt (line 3)) (1.0.1)
+[2025-12-29T10:28:55.508+0000] {ssh.py:545} WARNING - #13 23.82 Collecting s3transfer<0.7.0,>=0.6.0 (from boto3==1.24.59->-r requirements.txt (line 3))
+[2025-12-29T10:28:55.508+0000] {ssh.py:545} WARNING - #13 23.86   Downloading s3transfer-0.6.2-py3-none-any.whl.metadata (1.8 kB)
+[2025-12-29T10:28:55.509+0000] {ssh.py:545} WARNING - #13 23.88 Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /usr/local/lib/python3.11/site-packages (from botocore==1.27.59->-r requirements.txt (line 4)) (2.9.0.post0)
+[2025-12-29T10:28:55.938+0000] {ssh.py:545} WARNING - #13 24.35 Collecting urllib3<1.27,>=1.25.4 (from botocore==1.27.59->-r requirements.txt (line 4))
+[2025-12-29T10:28:55.938+0000] {ssh.py:545} WARNING - #13 24.39   Downloading urllib3-1.26.20-py2.py3-none-any.whl.metadata (50 kB)
+[2025-12-29T10:28:56.382+0000] {ssh.py:545} WARNING - #13 24.84 Collecting graphviz (from catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:28:56.534+0000] {ssh.py:545} WARNING - #13 24.87   Downloading graphviz-0.21-py3-none-any.whl.metadata (12 kB)
+[2025-12-29T10:28:56.808+0000] {ssh.py:545} WARNING - #13 25.22 Collecting matplotlib (from catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:28:56.809+0000] {ssh.py:545} WARNING - #13 25.26   Downloading matplotlib-3.10.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (52 kB)
+[2025-12-29T10:28:57.373+0000] {ssh.py:545} WARNING - #13 25.74 Collecting plotly (from catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:28:57.373+0000] {ssh.py:545} WARNING - #13 25.78   Downloading plotly-6.5.0-py3-none-any.whl.metadata (8.5 kB)
+[2025-12-29T10:28:57.373+0000] {ssh.py:545} WARNING - #13 25.80 Requirement already satisfied: six in /usr/local/lib/python3.11/site-packages (from catboost==1.2.8->-r requirements.txt (line 5)) (1.17.0)
+[2025-12-29T10:28:57.374+0000] {ssh.py:545} WARNING - #13 25.83 Requirement already satisfied: certifi in /usr/local/lib/python3.11/site-packages (from minio==7.2.7->-r requirements.txt (line 10)) (2025.11.12)
+[2025-12-29T10:28:57.975+0000] {ssh.py:545} WARNING - #13 26.28 Collecting argon2-cffi (from minio==7.2.7->-r requirements.txt (line 10))
+[2025-12-29T10:28:57.976+0000] {ssh.py:545} WARNING - #13 26.32   Downloading argon2_cffi-25.1.0-py3-none-any.whl.metadata (4.1 kB)
+[2025-12-29T10:28:58.424+0000] {ssh.py:545} WARNING - #13 26.88 Collecting pycryptodome (from minio==7.2.7->-r requirements.txt (line 10))
+[2025-12-29T10:28:58.575+0000] {ssh.py:545} WARNING - #13 26.92   Downloading pycryptodome-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.4 kB)
+[2025-12-29T10:28:58.575+0000] {ssh.py:545} WARNING - #13 26.94 Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.11/site-packages (from pandas==2.2.0->-r requirements.txt (line 12)) (2025.2)
+[2025-12-29T10:28:58.575+0000] {ssh.py:545} WARNING - #13 26.94 Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.11/site-packages (from pandas==2.2.0->-r requirements.txt (line 12)) (2025.3)
+[2025-12-29T10:28:59.012+0000] {ssh.py:545} WARNING - #13 27.35 Collecting dawg-python>=0.7.1 (from pymorphy3==2.0.2->-r requirements.txt (line 14))
+[2025-12-29T10:28:59.012+0000] {ssh.py:545} WARNING - #13 27.39   Downloading DAWG_Python-0.7.2-py2.py3-none-any.whl.metadata (7.0 kB)
+[2025-12-29T10:28:59.012+0000] {ssh.py:545} WARNING - #13 27.47 Requirement already satisfied: pymorphy3-dicts-ru in /usr/local/lib/python3.11/site-packages (from pymorphy3==2.0.2->-r requirements.txt (line 14)) (2.4.417150.4580142)
+[2025-12-29T10:28:59.455+0000] {ssh.py:545} WARNING - #13 27.91 Collecting aiobotocore~=2.4.0 (from s3fs==2022.11.0->-r requirements.txt (line 20))
+[2025-12-29T10:28:59.605+0000] {ssh.py:545} WARNING - #13 27.95   Downloading aiobotocore-2.4.2-py3-none-any.whl.metadata (19 kB)
+[2025-12-29T10:29:00.177+0000] {ssh.py:545} WARNING - #13 28.53 Collecting fsspec (from torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:29:00.177+0000] {ssh.py:545} WARNING - #13 28.57   Downloading fsspec-2022.11.0-py3-none-any.whl.metadata (5.6 kB)
+[2025-12-29T10:29:00.177+0000] {ssh.py:545} WARNING - #13 28.63 Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.11/site-packages (from s3fs==2022.11.0->-r requirements.txt (line 20)) (3.13.2)
+[2025-12-29T10:29:00.328+0000] {ssh.py:545} WARNING - #13 28.63 Requirement already satisfied: greenlet!=0.4.17 in /usr/local/lib/python3.11/site-packages (from SQLAlchemy==2.0.38->-r requirements.txt (line 21)) (3.3.0)
+[2025-12-29T10:29:00.779+0000] {ssh.py:545} WARNING - #13 29.12 Collecting numexpr>=2.6.2 (from tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:00.780+0000] {ssh.py:545} WARNING - #13 29.16   Downloading numexpr-2.14.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.0 kB)
+[2025-12-29T10:29:01.080+0000] {ssh.py:545} WARNING - #13 29.43 Collecting packaging (from tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:01.081+0000] {ssh.py:545} WARNING - #13 29.46   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+[2025-12-29T10:29:01.490+0000] {ssh.py:545} WARNING - #13 29.90 Collecting py-cpuinfo (from tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:01.490+0000] {ssh.py:545} WARNING - #13 29.94   Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+[2025-12-29T10:29:02.242+0000] {ssh.py:545} WARNING - #13 30.57 Collecting blosc2>=2.3.0 (from tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:02.243+0000] {ssh.py:545} WARNING - #13 30.61   Downloading blosc2-3.12.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.1 kB)
+[2025-12-29T10:29:02.393+0000] {ssh.py:545} WARNING - #13 30.73 Requirement already satisfied: threadpoolctl>=3.1.0 in /usr/local/lib/python3.11/site-packages (from scikit-learn==1.6.0->-r requirements.txt (line 26)) (3.6.0)
+[2025-12-29T10:29:02.803+0000] {ssh.py:545} WARNING - #13 31.22 Collecting mpmath<1.4,>=1.1.0 (from sympy==1.13.1->torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:29:02.804+0000] {ssh.py:545} WARNING - #13 31.26   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+[2025-12-29T10:29:03.104+0000] {ssh.py:545} WARNING - #13 31.42 Requirement already satisfied: wrapt>=1.10.10 in /usr/local/lib/python3.11/site-packages (from aiobotocore~=2.4.0->s3fs==2022.11.0->-r requirements.txt (line 20)) (1.17.3)
+[2025-12-29T10:29:03.104+0000] {ssh.py:545} WARNING - #13 31.42 Requirement already satisfied: aioitertools>=0.5.1 in /usr/local/lib/python3.11/site-packages (from aiobotocore~=2.4.0->s3fs==2022.11.0->-r requirements.txt (line 20)) (0.13.0)
+[2025-12-29T10:29:03.255+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (2.6.1)
+[2025-12-29T10:29:03.255+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (1.4.0)
+[2025-12-29T10:29:03.255+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (25.4.0)
+[2025-12-29T10:29:03.255+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (1.8.0)
+[2025-12-29T10:29:03.255+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (6.7.0)
+[2025-12-29T10:29:03.256+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (0.4.1)
+[2025-12-29T10:29:03.256+0000] {ssh.py:545} WARNING - #13 31.60 Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.11/site-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (1.22.0)
+[2025-12-29T10:29:03.256+0000] {ssh.py:545} WARNING - #13 31.61 Requirement already satisfied: idna>=2.0 in /usr/local/lib/python3.11/site-packages (from yarl<2.0,>=1.17.0->aiohttp!=4.0.0a0,!=4.0.0a1->s3fs==2022.11.0->-r requirements.txt (line 20)) (3.11)
+[2025-12-29T10:29:03.705+0000] {ssh.py:545} WARNING - #13 32.06 Collecting ndindex (from blosc2>=2.3.0->tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:03.706+0000] {ssh.py:545} WARNING - #13 32.10   Downloading ndindex-1.10.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.6 kB)
+[2025-12-29T10:29:04.308+0000] {ssh.py:545} WARNING - #13 32.67 Collecting msgpack (from blosc2>=2.3.0->tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:04.309+0000] {ssh.py:545} WARNING - #13 32.71   Downloading msgpack-1.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+[2025-12-29T10:29:04.910+0000] {ssh.py:545} WARNING - #13 33.23 Collecting platformdirs (from blosc2>=2.3.0->tables==3.10.0->-r requirements.txt (line 22))
+[2025-12-29T10:29:04.911+0000] {ssh.py:545} WARNING - #13 33.27   Downloading platformdirs-4.5.1-py3-none-any.whl.metadata (12 kB)
+[2025-12-29T10:29:04.911+0000] {ssh.py:545} WARNING - #13 33.28 Requirement already satisfied: requests in /usr/local/lib/python3.11/site-packages (from blosc2>=2.3.0->tables==3.10.0->-r requirements.txt (line 22)) (2.32.5)
+[2025-12-29T10:29:05.314+0000] {ssh.py:545} WARNING - #13 33.73 Collecting argon2-cffi-bindings (from argon2-cffi->minio==7.2.7->-r requirements.txt (line 10))
+[2025-12-29T10:29:05.315+0000] {ssh.py:545} WARNING - #13 33.77   Downloading argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (7.4 kB)
+[2025-12-29T10:29:05.722+0000] {ssh.py:545} WARNING - #13 34.18 Collecting cffi>=1.0.1 (from argon2-cffi-bindings->argon2-cffi->minio==7.2.7->-r requirements.txt (line 10))
+[2025-12-29T10:29:05.872+0000] {ssh.py:545} WARNING - #13 34.21   Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+[2025-12-29T10:29:06.316+0000] {ssh.py:545} WARNING - #13 34.77 Collecting pycparser (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi->minio==7.2.7->-r requirements.txt (line 10))
+[2025-12-29T10:29:06.468+0000] {ssh.py:545} WARNING - #13 34.81   Downloading pycparser-2.23-py3-none-any.whl.metadata (993 bytes)
+[2025-12-29T10:29:07.020+0000] {ssh.py:545} WARNING - #13 35.47 Collecting MarkupSafe>=2.0 (from jinja2->torch==2.6.0+cpu->-r requirements.txt (line 2))
+[2025-12-29T10:29:07.171+0000] {ssh.py:545} WARNING - #13 35.51   Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+[2025-12-29T10:29:07.577+0000] {ssh.py:545} WARNING - #13 36.03 Collecting contourpy>=1.0.1 (from matplotlib->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:07.728+0000] {ssh.py:545} WARNING - #13 36.07   Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+[2025-12-29T10:29:08.179+0000] {ssh.py:545} WARNING - #13 36.53 Collecting cycler>=0.10 (from matplotlib->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:08.179+0000] {ssh.py:545} WARNING - #13 36.57   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+[2025-12-29T10:29:08.932+0000] {ssh.py:545} WARNING - #13 37.24 Collecting fonttools>=4.22.0 (from matplotlib->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:08.932+0000] {ssh.py:545} WARNING - #13 37.27   Downloading fonttools-4.61.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (114 kB)
+[2025-12-29T10:29:09.348+0000] {ssh.py:545} WARNING - #13 37.80 Collecting kiwisolver>=1.3.1 (from matplotlib->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:09.498+0000] {ssh.py:545} WARNING - #13 37.84   Downloading kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.3 kB)
+[2025-12-29T10:29:10.701+0000] {ssh.py:545} WARNING - #13 39.06 Collecting pillow>=8 (from matplotlib->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:10.702+0000] {ssh.py:545} WARNING - #13 39.10   Downloading pillow-12.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+[2025-12-29T10:29:11.002+0000] {ssh.py:545} WARNING - #13 39.35 Collecting pyparsing>=3 (from matplotlib->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:11.002+0000] {ssh.py:545} WARNING - #13 39.39   Downloading pyparsing-3.3.1-py3-none-any.whl.metadata (5.6 kB)
+[2025-12-29T10:29:11.604+0000] {ssh.py:545} WARNING - #13 39.94 Collecting narwhals>=1.15.1 (from plotly->catboost==1.2.8->-r requirements.txt (line 5))
+[2025-12-29T10:29:11.604+0000] {ssh.py:545} WARNING - #13 39.98   Downloading narwhals-2.14.0-py3-none-any.whl.metadata (13 kB)
+[2025-12-29T10:29:11.605+0000] {ssh.py:545} WARNING - #13 40.00 Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.11/site-packages (from requests->blosc2>=2.3.0->tables==3.10.0->-r requirements.txt (line 22)) (3.4.4)
+[2025-12-29T10:29:11.754+0000] {ssh.py:545} WARNING - #13 40.09 Downloading https://download.pytorch.org/whl/cpu/torch-2.6.0%2Bcpu-cp311-cp311-linux_x86_64.whl (178.7 MB)
+[2025-12-29T10:29:15.023+0000] {ssh.py:545} WARNING - #13 43.44    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 178.7/178.7 MB 53.7 MB/s  0:00:03
+[2025-12-29T10:29:15.023+0000] {ssh.py:545} WARNING - #13 43.48 Downloading boto3-1.24.59-py3-none-any.whl (132 kB)
+[2025-12-29T10:29:15.173+0000] {ssh.py:545} WARNING - #13 43.57 Downloading botocore-1.27.59-py3-none-any.whl (9.1 MB)
+[2025-12-29T10:29:15.474+0000] {ssh.py:545} WARNING - #13 43.81    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.1/9.1 MB 42.8 MB/s  0:00:00
+[2025-12-29T10:29:15.475+0000] {ssh.py:545} WARNING - #13 43.85 Downloading catboost-1.2.8-cp311-cp311-manylinux2014_x86_64.whl (99.2 MB)
+[2025-12-29T10:29:16.979+0000] {ssh.py:545} WARNING - #13 45.32    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 99.2/99.2 MB 67.5 MB/s  0:00:01
+[2025-12-29T10:29:16.979+0000] {ssh.py:545} WARNING - #13 45.36 Downloading numpy-1.26.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+[2025-12-29T10:29:17.280+0000] {ssh.py:545} WARNING - #13 45.62    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.3/18.3 MB 71.5 MB/s  0:00:00
+[2025-12-29T10:29:17.281+0000] {ssh.py:545} WARNING - #13 45.66 Downloading h5py-3.13.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (4.5 MB)
+[2025-12-29T10:29:17.431+0000] {ssh.py:545} WARNING - #13 45.74    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 54.0 MB/s  0:00:00
+[2025-12-29T10:29:17.432+0000] {ssh.py:545} WARNING - #13 45.78 Downloading implicit-0.7.0-cp311-cp311-manylinux2014_x86_64.whl (9.2 MB)
+[2025-12-29T10:29:17.537+0000] {ssh.py:545} WARNING - #13 45.90    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.2/9.2 MB 75.7 MB/s  0:00:00
+[2025-12-29T10:29:17.537+0000] {ssh.py:545} WARNING - #13 45.94 Downloading joblib-1.3.2-py3-none-any.whl (302 kB)
+[2025-12-29T10:29:17.537+0000] {ssh.py:545} WARNING - #13 45.99 Downloading loguru-0.7.2-py3-none-any.whl (62 kB)
+[2025-12-29T10:29:17.644+0000] {ssh.py:545} WARNING - #13 46.04 Downloading minio-7.2.7-py3-none-any.whl (93 kB)
+[2025-12-29T10:29:17.644+0000] {ssh.py:545} WARNING - #13 46.10 Downloading pandas-2.2.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.0 MB)
+[2025-12-29T10:29:17.901+0000] {ssh.py:545} WARNING - #13 46.35    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.0/13.0 MB 50.4 MB/s  0:00:00
+[2025-12-29T10:29:18.052+0000] {ssh.py:545} WARNING - #13 46.39 Downloading polars-1.3.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (31.2 MB)
+[2025-12-29T10:29:18.504+0000] {ssh.py:545} WARNING - #13 46.86    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 31.2/31.2 MB 67.2 MB/s  0:00:00
+[2025-12-29T10:29:18.504+0000] {ssh.py:545} WARNING - #13 46.90 Downloading pymorphy3-2.0.2-py3-none-any.whl (53 kB)
+[2025-12-29T10:29:18.650+0000] {ssh.py:545} WARNING - #13 46.96 Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+[2025-12-29T10:29:18.650+0000] {ssh.py:545} WARNING - #13 47.02 Downloading pydantic-1.10.17-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+[2025-12-29T10:29:18.651+0000] {ssh.py:545} WARNING - #13 47.10    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 36.5 MB/s  0:00:00
+[2025-12-29T10:29:18.790+0000] {ssh.py:545} WARNING - #13 47.14 Downloading python_dotenv-1.0.0-py3-none-any.whl (19 kB)
+[2025-12-29T10:29:18.791+0000] {ssh.py:545} WARNING - #13 47.20 Downloading rank_bm25-0.2.2-py3-none-any.whl (8.6 kB)
+[2025-12-29T10:29:18.791+0000] {ssh.py:545} WARNING - #13 47.24 Downloading rapidfuzz-3.9.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.4 MB)
+[2025-12-29T10:29:18.897+0000] {ssh.py:545} WARNING - #13 47.31    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 49.0 MB/s  0:00:00
+[2025-12-29T10:29:18.897+0000] {ssh.py:545} WARNING - #13 47.35 Downloading s3fs-2022.11.0-py3-none-any.whl (27 kB)
+[2025-12-29T10:29:19.037+0000] {ssh.py:545} WARNING - #13 47.40 Downloading SQLAlchemy-2.0.38-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+[2025-12-29T10:29:19.038+0000] {ssh.py:545} WARNING - #13 47.49    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 33.2 MB/s  0:00:00
+[2025-12-29T10:29:19.188+0000] {ssh.py:545} WARNING - #13 47.53 Downloading tables-3.10.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.6 MB)
+[2025-12-29T10:29:19.338+0000] {ssh.py:545} WARNING - #13 47.64    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.6/7.6 MB 65.5 MB/s  0:00:00
+[2025-12-29T10:29:19.339+0000] {ssh.py:545} WARNING - #13 47.68 Downloading faiss_cpu-1.10.0-cp311-cp311-manylinux_2_28_x86_64.whl (30.7 MB)
+[2025-12-29T10:29:19.790+0000] {ssh.py:545} WARNING - #13 48.11    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 30.7/30.7 MB 71.5 MB/s  0:00:00
+[2025-12-29T10:29:19.790+0000] {ssh.py:545} WARNING - #13 48.15 Downloading scipy-1.15.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (40.6 MB)
+[2025-12-29T10:29:20.361+0000] {ssh.py:545} WARNING - #13 48.77    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 MB 65.3 MB/s  0:00:00
+[2025-12-29T10:29:20.361+0000] {ssh.py:545} WARNING - #13 48.81 Downloading scikit_learn-1.6.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.5 MB)
+[2025-12-29T10:29:20.926+0000] {ssh.py:545} WARNING - #13 49.38    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.5/13.5 MB 23.5 MB/s  0:00:00
+[2025-12-29T10:29:21.076+0000] {ssh.py:545} WARNING - #13 49.42 Downloading pathlib-1.0.1-py3-none-any.whl (14 kB)
+[2025-12-29T10:29:21.345+0000] {ssh.py:545} WARNING - #13 49.80 Downloading PyYAML-6.0.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (762 kB)
+[2025-12-29T10:29:21.897+0000] {ssh.py:545} WARNING - #13 50.35    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 763.0/763.0 kB 912.1 kB/s  0:00:00
+[2025-12-29T10:29:22.047+0000] {ssh.py:545} WARNING - #13 50.39 Downloading pyarrow-20.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (42.3 MB)
+[2025-12-29T10:29:23.400+0000] {ssh.py:545} WARNING - #13 51.72    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 31.8 MB/s  0:00:01
+[2025-12-29T10:29:23.401+0000] {ssh.py:545} WARNING - #13 51.76 Downloading fsspec-2022.11.0-py3-none-any.whl (139 kB)
+[2025-12-29T10:29:23.696+0000] {ssh.py:545} WARNING - #13 52.15 Downloading sympy-1.13.1-py3-none-any.whl (6.2 MB)
+[2025-12-29T10:29:24.298+0000] {ssh.py:545} WARNING - #13 52.61    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.2/6.2 MB 12.8 MB/s  0:00:00
+[2025-12-29T10:29:24.299+0000] {ssh.py:545} WARNING - #13 52.65 Downloading aiobotocore-2.4.2-py3-none-any.whl (66 kB)
+[2025-12-29T10:29:24.750+0000] {ssh.py:545} WARNING - #13 53.12 Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+[2025-12-29T10:29:25.201+0000] {ssh.py:545} WARNING - #13 53.51    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 703.7 kB/s  0:00:00
+[2025-12-29T10:29:25.202+0000] {ssh.py:545} WARNING - #13 53.55 Downloading s3transfer-0.6.2-py3-none-any.whl (79 kB)
+[2025-12-29T10:29:25.653+0000] {ssh.py:545} WARNING - #13 53.96 Downloading urllib3-1.26.20-py2.py3-none-any.whl (144 kB)
+[2025-12-29T10:29:26.104+0000] {ssh.py:545} WARNING - #13 54.46 Downloading blosc2-3.12.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.5 MB)
+[2025-12-29T10:29:26.539+0000] {ssh.py:545} WARNING - #13 54.99    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 8.1 MB/s  0:00:00
+[2025-12-29T10:29:26.690+0000] {ssh.py:545} WARNING - #13 55.03 Downloading DAWG_Python-0.7.2-py2.py3-none-any.whl (11 kB)
+[2025-12-29T10:29:26.991+0000] {ssh.py:545} WARNING - #13 55.36 Downloading numexpr-2.14.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (442 kB)
+[2025-12-29T10:29:27.292+0000] {ssh.py:545} WARNING - #13 55.64 Downloading argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
+[2025-12-29T10:29:27.443+0000] {ssh.py:545} WARNING - #13 55.84 Downloading argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (87 kB)
+[2025-12-29T10:29:27.718+0000] {ssh.py:545} WARNING - #13 56.17 Downloading cffi-2.0.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (215 kB)
+[2025-12-29T10:29:28.324+0000] {ssh.py:545} WARNING - #13 56.68 Downloading filelock-3.20.1-py3-none-any.whl (16 kB)
+[2025-12-29T10:29:28.621+0000] {ssh.py:545} WARNING - #13 56.99 Downloading graphviz-0.21-py3-none-any.whl (47 kB)
+[2025-12-29T10:29:28.772+0000] {ssh.py:545} WARNING - #13 57.16 Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+[2025-12-29T10:29:28.923+0000] {ssh.py:545} WARNING - #13 57.23 Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+[2025-12-29T10:29:29.074+0000] {ssh.py:545} WARNING - #13 57.41 Downloading matplotlib-3.10.8-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+[2025-12-29T10:29:29.809+0000] {ssh.py:545} WARNING - #13 58.26    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 10.0 MB/s  0:00:00
+[2025-12-29T10:29:29.960+0000] {ssh.py:545} WARNING - #13 58.30 Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+[2025-12-29T10:29:30.111+0000] {ssh.py:545} WARNING - #13 58.44 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+[2025-12-29T10:29:30.244+0000] {ssh.py:545} WARNING - #13 58.58 Downloading fonttools-4.61.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.0 MB)
+[2025-12-29T10:29:30.245+0000] {ssh.py:545} WARNING - #13 58.70    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 43.0 MB/s  0:00:00
+[2025-12-29T10:29:30.377+0000] {ssh.py:545} WARNING - #13 58.74 Downloading kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+[2025-12-29T10:29:30.378+0000] {ssh.py:545} WARNING - #13 58.83    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 13.1 MB/s  0:00:00
+[2025-12-29T10:29:30.483+0000] {ssh.py:545} WARNING - #13 58.87 Downloading packaging-25.0-py3-none-any.whl (66 kB)
+[2025-12-29T10:29:30.484+0000] {ssh.py:545} WARNING - #13 58.94 Downloading pillow-12.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+[2025-12-29T10:29:30.741+0000] {ssh.py:545} WARNING - #13 59.10    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 42.4 MB/s  0:00:00
+[2025-12-29T10:29:30.742+0000] {ssh.py:545} WARNING - #13 59.14 Downloading pyparsing-3.3.1-py3-none-any.whl (121 kB)
+[2025-12-29T10:29:30.742+0000] {ssh.py:545} WARNING - #13 59.19 Downloading msgpack-1.1.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (426 kB)
+[2025-12-29T10:29:30.876+0000] {ssh.py:545} WARNING - #13 59.27 Downloading ndindex-1.10.1-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (516 kB)
+[2025-12-29T10:29:30.876+0000] {ssh.py:545} WARNING - #13 59.33 Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+[2025-12-29T10:29:31.027+0000] {ssh.py:545} WARNING - #13 59.36    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 80.2 MB/s  0:00:00
+[2025-12-29T10:29:31.027+0000] {ssh.py:545} WARNING - #13 59.39 Downloading platformdirs-4.5.1-py3-none-any.whl (18 kB)
+[2025-12-29T10:29:31.177+0000] {ssh.py:545} WARNING - #13 59.52 Downloading plotly-6.5.0-py3-none-any.whl (9.9 MB)
+[2025-12-29T10:29:31.328+0000] {ssh.py:545} WARNING - #13 59.68    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 61.6 MB/s  0:00:00
+[2025-12-29T10:29:31.328+0000] {ssh.py:545} WARNING - #13 59.72 Downloading narwhals-2.14.0-py3-none-any.whl (430 kB)
+[2025-12-29T10:29:31.437+0000] {ssh.py:545} WARNING - #13 59.78 Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+[2025-12-29T10:29:31.438+0000] {ssh.py:545} WARNING - #13 59.84 Downloading pycparser-2.23-py3-none-any.whl (118 kB)
+[2025-12-29T10:29:31.438+0000] {ssh.py:545} WARNING - #13 59.89 Downloading pycryptodome-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+[2025-12-29T10:29:31.588+0000] {ssh.py:545} WARNING - #13 59.93    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 56.9 MB/s  0:00:00
+[2025-12-29T10:29:33.694+0000] {ssh.py:545} WARNING - #13 62.05 Installing collected packages: py-cpuinfo, pathlib, mpmath, dawg-python, urllib3, tqdm, sympy, SQLAlchemy, rapidfuzz, PyYAML, python-dotenv, pyparsing, pymorphy3, pydantic, pycryptodome, pycparser, pyarrow, psutil, polars, platformdirs, pillow, packaging, numpy, networkx, ndindex, narwhals, msgpack, MarkupSafe, loguru, kiwisolver, joblib, graphviz, fsspec, fonttools, filelock, cycler, scipy, rank-bm25, plotly, pandas, numexpr, jinja2, h5py, faiss-cpu, contourpy, cffi, botocore, torch, scikit-learn, s3transfer, matplotlib, implicit, blosc2, argon2-cffi-bindings, aiobotocore, tables, s3fs, catboost, boto3, argon2-cffi, minio
+[2025-12-29T10:29:34.098+0000] {ssh.py:545} WARNING - #13 62.53   Attempting uninstall: urllib3
+[2025-12-29T10:29:34.098+0000] {ssh.py:545} WARNING - #13 62.53     Found existing installation: urllib3 2.6.2
+[2025-12-29T10:29:34.098+0000] {ssh.py:545} WARNING - #13 62.54     Uninstalling urllib3-2.6.2:
+[2025-12-29T10:29:34.098+0000] {ssh.py:545} WARNING - #13 62.55       Successfully uninstalled urllib3-2.6.2
+[2025-12-29T10:29:34.211+0000] {ssh.py:545} WARNING - #13 62.63   Attempting uninstall: tqdm
+[2025-12-29T10:29:34.212+0000] {ssh.py:545} WARNING - #13 62.64     Found existing installation: tqdm 4.67.1
+[2025-12-29T10:29:34.212+0000] {ssh.py:545} WARNING - #13 62.64     Uninstalling tqdm-4.67.1:
+[2025-12-29T10:29:34.212+0000] {ssh.py:545} WARNING - #13 62.66       Successfully uninstalled tqdm-4.67.1
+[2025-12-29T10:29:39.580+0000] {ssh.py:545} WARNING - #13 68.01   Attempting uninstall: SQLAlchemy
+[2025-12-29T10:29:39.580+0000] {ssh.py:545} WARNING - #13 68.01     Found existing installation: SQLAlchemy 2.0.45
+[2025-12-29T10:29:39.580+0000] {ssh.py:545} WARNING - #13 68.03     Uninstalling SQLAlchemy-2.0.45:
+[2025-12-29T10:29:39.730+0000] {ssh.py:545} WARNING - #13 68.12       Successfully uninstalled SQLAlchemy-2.0.45
+[2025-12-29T10:29:40.771+0000] {ssh.py:545} WARNING - #13 69.22   Attempting uninstall: PyYAML
+[2025-12-29T10:29:40.921+0000] {ssh.py:545} WARNING - #13 69.23     Found existing installation: PyYAML 6.0.3
+[2025-12-29T10:29:40.921+0000] {ssh.py:545} WARNING - #13 69.23     Uninstalling PyYAML-6.0.3:
+[2025-12-29T10:29:40.922+0000] {ssh.py:545} WARNING - #13 69.24       Successfully uninstalled PyYAML-6.0.3
+[2025-12-29T10:29:41.052+0000] {ssh.py:545} WARNING - #13 69.45   Attempting uninstall: pymorphy3
+[2025-12-29T10:29:41.052+0000] {ssh.py:545} WARNING - #13 69.45     Found existing installation: pymorphy3 2.0.6
+[2025-12-29T10:29:41.052+0000] {ssh.py:545} WARNING - #13 69.46     Uninstalling pymorphy3-2.0.6:
+[2025-12-29T10:29:41.052+0000] {ssh.py:545} WARNING - #13 69.51       Successfully uninstalled pymorphy3-2.0.6
+[2025-12-29T10:29:41.203+0000] {ssh.py:545} WARNING - #13 69.55   Attempting uninstall: pydantic
+[2025-12-29T10:29:41.203+0000] {ssh.py:545} WARNING - #13 69.56     Found existing installation: pydantic 2.12.5
+[2025-12-29T10:29:41.203+0000] {ssh.py:545} WARNING - #13 69.57     Uninstalling pydantic-2.12.5:
+[2025-12-29T10:29:41.203+0000] {ssh.py:545} WARNING - #13 69.60       Successfully uninstalled pydantic-2.12.5
+[2025-12-29T10:29:43.564+0000] {ssh.py:545} WARNING - #13 72.02   Attempting uninstall: polars
+[2025-12-29T10:29:43.715+0000] {ssh.py:545} WARNING - #13 72.02     Found existing installation: polars 1.36.1
+[2025-12-29T10:29:43.715+0000] {ssh.py:545} WARNING - #13 72.04     Uninstalling polars-1.36.1:
+[2025-12-29T10:29:43.715+0000] {ssh.py:545} WARNING - #13 72.11       Successfully uninstalled polars-1.36.1
+[2025-12-29T10:29:44.869+0000] {ssh.py:545} WARNING - #13 73.32   Attempting uninstall: numpy
+[2025-12-29T10:29:45.020+0000] {ssh.py:545} WARNING - #13 73.33     Found existing installation: numpy 1.26.4
+[2025-12-29T10:29:45.020+0000] {ssh.py:545} WARNING - #13 73.39     Uninstalling numpy-1.26.4:
+[2025-12-29T10:29:45.321+0000] {ssh.py:545} WARNING - #13 73.64       Successfully uninstalled numpy-1.26.4
+[2025-12-29T10:29:49.383+0000] {ssh.py:545} WARNING - #13 77.72   Attempting uninstall: joblib
+[2025-12-29T10:29:49.383+0000] {ssh.py:545} WARNING - #13 77.73     Found existing installation: joblib 1.5.3
+[2025-12-29T10:29:49.383+0000] {ssh.py:545} WARNING - #13 77.74     Uninstalling joblib-1.5.3:
+[2025-12-29T10:29:49.383+0000] {ssh.py:545} WARNING - #13 77.77       Successfully uninstalled joblib-1.5.3
+[2025-12-29T10:29:49.524+0000] {ssh.py:545} WARNING - #13 77.98   Attempting uninstall: fsspec
+[2025-12-29T10:29:49.675+0000] {ssh.py:545} WARNING - #13 77.98     Found existing installation: fsspec 2025.12.0
+[2025-12-29T10:29:49.675+0000] {ssh.py:545} WARNING - #13 77.99     Uninstalling fsspec-2025.12.0:
+[2025-12-29T10:29:49.675+0000] {ssh.py:545} WARNING - #13 78.00       Successfully uninstalled fsspec-2025.12.0
+[2025-12-29T10:29:50.728+0000] {ssh.py:545} WARNING - #13 79.11   Attempting uninstall: scipy
+[2025-12-29T10:29:50.728+0000] {ssh.py:545} WARNING - #13 79.12     Found existing installation: scipy 1.16.3
+[2025-12-29T10:29:50.879+0000] {ssh.py:545} WARNING - #13 79.22     Uninstalling scipy-1.16.3:
+[2025-12-29T10:29:51.330+0000] {ssh.py:545} WARNING - #13 79.67       Successfully uninstalled scipy-1.16.3
+[2025-12-29T10:29:57.630+0000] {ssh.py:545} WARNING - #13 86.08   Attempting uninstall: pandas
+[2025-12-29T10:29:57.780+0000] {ssh.py:545} WARNING - #13 86.10     Found existing installation: pandas 2.3.3
+[2025-12-29T10:29:57.931+0000] {ssh.py:545} WARNING - #13 86.23     Uninstalling pandas-2.3.3:
+[2025-12-29T10:29:58.382+0000] {ssh.py:545} WARNING - #13 86.77       Successfully uninstalled pandas-2.3.3
+[2025-12-29T10:30:03.045+0000] {ssh.py:545} WARNING - #13 91.39   Attempting uninstall: h5py
+[2025-12-29T10:30:03.046+0000] {ssh.py:545} WARNING - #13 91.39     Found existing installation: h5py 3.15.1
+[2025-12-29T10:30:03.046+0000] {ssh.py:545} WARNING - #13 91.40     Uninstalling h5py-3.15.1:
+[2025-12-29T10:30:03.046+0000] {ssh.py:545} WARNING - #13 91.45       Successfully uninstalled h5py-3.15.1
+[2025-12-29T10:30:04.549+0000] {ssh.py:545} WARNING - #13 92.86   Attempting uninstall: botocore
+[2025-12-29T10:30:04.550+0000] {ssh.py:545} WARNING - #13 92.87     Found existing installation: botocore 1.41.5
+[2025-12-29T10:30:04.550+0000] {ssh.py:545} WARNING - #13 92.93     Uninstalling botocore-1.41.5:
+[2025-12-29T10:30:05.000+0000] {ssh.py:545} WARNING - #13 93.33       Successfully uninstalled botocore-1.41.5
+[2025-12-29T10:30:15.503+0000] {ssh.py:545} WARNING - #13 103.9   Attempting uninstall: scikit-learn
+[2025-12-29T10:30:15.503+0000] {ssh.py:545} WARNING - #13 103.9     Found existing installation: scikit-learn 1.8.0
+[2025-12-29T10:30:15.504+0000] {ssh.py:545} WARNING - #13 104.0     Uninstalling scikit-learn-1.8.0:
+[2025-12-29T10:30:15.754+0000] {ssh.py:545} WARNING - #13 104.2       Successfully uninstalled scikit-learn-1.8.0
+[2025-12-29T10:30:19.662+0000] {ssh.py:545} WARNING - #13 108.1   Attempting uninstall: aiobotocore
+[2025-12-29T10:30:19.813+0000] {ssh.py:545} WARNING - #13 108.1     Found existing installation: aiobotocore 2.26.0
+[2025-12-29T10:30:19.814+0000] {ssh.py:545} WARNING - #13 108.1     Uninstalling aiobotocore-2.26.0:
+[2025-12-29T10:30:19.814+0000] {ssh.py:545} WARNING - #13 108.1       Successfully uninstalled aiobotocore-2.26.0
+[2025-12-29T10:30:20.565+0000] {ssh.py:545} WARNING - #13 108.9   Attempting uninstall: s3fs
+[2025-12-29T10:30:20.565+0000] {ssh.py:545} WARNING - #13 108.9     Found existing installation: s3fs 2025.12.0
+[2025-12-29T10:30:20.566+0000] {ssh.py:545} WARNING - #13 108.9     Uninstalling s3fs-2025.12.0:
+[2025-12-29T10:30:20.566+0000] {ssh.py:545} WARNING - #13 108.9       Successfully uninstalled s3fs-2025.12.0
+[2025-12-29T10:30:22.519+0000] {ssh.py:545} WARNING - #13 110.8 
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 ERROR: pip\'s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 vvutils 0.1.0 requires numpy>=1.26.4, but you have numpy 1.26.3 which is incompatible.
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 vvutils 0.1.0 requires polars>=1.31.0, but you have polars 1.3.0 which is incompatible.
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 vvutils 0.1.0 requires s3fs>=2023.10.0, but you have s3fs 2022.11.0 which is incompatible.
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 recsys 1.3 requires faiss-cpu<2.0.0,>=1.11.0, but you have faiss-cpu 1.10.0 which is incompatible.
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 recsys 1.3 requires polars<2.0.0,>=1.30.0, but you have polars 1.3.0 which is incompatible.
+[2025-12-29T10:30:22.520+0000] {ssh.py:545} WARNING - #13 110.8 Successfully installed MarkupSafe-3.0.3 PyYAML-6.0.2 SQLAlchemy-2.0.38 aiobotocore-2.4.2 argon2-cffi-25.1.0 argon2-cffi-bindings-25.1.0 blosc2-3.12.2 boto3-1.24.59 botocore-1.27.59 catboost-1.2.8 cffi-2.0.0 contourpy-1.3.3 cycler-0.12.1 dawg-python-0.7.2 faiss-cpu-1.10.0 filelock-3.20.1 fonttools-4.61.1 fsspec-2022.11.0 graphviz-0.21 h5py-3.13.0 implicit-0.7.0 jinja2-3.1.6 joblib-1.3.2 kiwisolver-1.4.9 loguru-0.7.2 matplotlib-3.10.8 minio-7.2.7 mpmath-1.3.0 msgpack-1.1.2 narwhals-2.14.0 ndindex-1.10.1 networkx-3.6.1 numexpr-2.14.1 numpy-1.26.3 packaging-25.0 pandas-2.2.0 pathlib-1.0.1 pillow-12.0.0 platformdirs-4.5.1 plotly-6.5.0 polars-1.3.0 psutil-7.0.0 py-cpuinfo-9.0.0 pyarrow-20.0.0 pycparser-2.23 pycryptodome-3.23.0 pydantic-1.10.17 pymorphy3-2.0.2 pyparsing-3.3.1 python-dotenv-1.0.0 rank-bm25-0.2.2 rapidfuzz-3.9.6 s3fs-2022.11.0 s3transfer-0.6.2 scikit-learn-1.6.0 scipy-1.15.0 sympy-1.13.1 tables-3.10.0 torch-2.6.0+cpu tqdm-4.66.5 urllib3-1.26.20
+[2025-12-29T10:30:22.521+0000] {ssh.py:545} WARNING - #13 110.8 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-12-29T10:30:31.498+0000] {ssh.py:545} WARNING - #13 DONE 120.0s
+[2025-12-29T10:30:31.649+0000] {ssh.py:545} WARNING - #14 [10/13] RUN pip install -q markupsafe==2.0.1 --force-reinstall --no-deps
+[2025-12-29T10:30:35.215+0000] {ssh.py:545} WARNING - #14 3.708 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-12-29T10:30:35.502+0000] {ssh.py:545} WARNING - #14 DONE 4.0s
+[2025-12-29T10:30:35.653+0000] {ssh.py:545} WARNING - #15 [11/13] RUN apt-get update && apt-get install -y git
+[2025-12-29T10:30:36.362+0000] {ssh.py:545} WARNING - #15 0.836 Hit:1 http://deb.debian.org/debian trixie InRelease
+[2025-12-29T10:30:36.362+0000] {ssh.py:545} WARNING - #15 0.836 Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+[2025-12-29T10:30:36.362+0000] {ssh.py:545} WARNING - #15 0.847 Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+[2025-12-29T10:30:36.512+0000] {ssh.py:545} WARNING - #15 0.881 Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+[2025-12-29T10:30:36.628+0000] {ssh.py:545} WARNING - #15 1.114 Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+[2025-12-29T10:30:36.779+0000] {ssh.py:545} WARNING - #15 1.114 Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [93.7 kB]
+[2025-12-29T10:30:37.532+0000] {ssh.py:545} WARNING - #15 1.954 Fetched 9860 kB in 1s (7924 kB/s)
+[2025-12-29T10:30:37.532+0000] {ssh.py:545} WARNING - #15 1.954 Reading package lists...
+[2025-12-29T10:30:38.283+0000] {ssh.py:545} WARNING - #15 2.713 Reading package lists...
+[2025-12-29T10:30:39.036+0000] {ssh.py:545} WARNING - #15 3.424 Building dependency tree...
+[2025-12-29T10:30:39.337+0000] {ssh.py:545} WARNING - #15 3.674 Reading state information...
+[2025-12-29T10:30:39.638+0000] {ssh.py:545} WARNING - #15 4.024 git is already the newest version (1:2.47.3-0+deb13u1).
+[2025-12-29T10:30:39.639+0000] {ssh.py:545} WARNING - #15 4.024 0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+[2025-12-29T10:30:40.090+0000] {ssh.py:545} WARNING - #15 DONE 4.5s
+[2025-12-29T10:30:40.090+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:30:40.090+0000] {ssh.py:545} WARNING - #16 [12/13] RUN git clone --branch python311   "https://oauth2:***@gitlab-vv.vkusvill.ru/datalab/recsys-core/vvrecsys.git"   "/app/vvrecsys"
+[2025-12-29T10:30:41.267+0000] {ssh.py:545} WARNING - #16 1.264 Cloning into \'/app/vvrecsys\'...
+[2025-12-29T10:30:44.727+0000] {ssh.py:545} WARNING - #16 DONE 4.7s
+[2025-12-29T10:30:44.727+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:30:44.727+0000] {ssh.py:545} WARNING - #17 [13/13] COPY . .
+[2025-12-29T10:30:47.133+0000] {ssh.py:545} WARNING - #17 DONE 2.4s
+[2025-12-29T10:30:47.133+0000] {ssh.py:545} WARNING - 
+[2025-12-29T10:30:47.133+0000] {ssh.py:545} WARNING - #18 exporting to image
+[2025-12-29T10:30:47.133+0000] {ssh.py:545} WARNING - #18 exporting layers
+[2025-12-29T10:31:00.507+0000] {ssh.py:545} WARNING - #18 exporting layers 13.4s done
+[2025-12-29T10:31:00.659+0000] {ssh.py:545} WARNING - #18 writing image sha256:f589e4ca38c7843c93c39ead875b90c0aa9966a9677c5586e76a4a7350e17ef2 0.0s done
+[2025-12-29T10:31:00.659+0000] {ssh.py:545} WARNING - #18 naming to docker.io/library/vvrecsys_analogs_title_text_filtered_classes_lv1_dag_image 0.0s done
+[2025-12-29T10:31:00.659+0000] {ssh.py:545} WARNING - #18 DONE 13.5s
+[2025-12-29T10:31:01.044+0000] {ssh.py:540} INFO - c5d240040e1adc71d29f127c563357277509f74e848aaeae2ca00cc21fa58c60
+[2025-12-29T10:31:01.852+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-29T10:31:01.853+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag, task_id=start_docker, run_id=scheduled__2025-12-26T21:15:00+00:00, execution_date=20251226T211500, start_date=20251229T102702, end_date=20251229T103101
+[2025-12-29T10:31:01.874+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-29T10:31:01.899+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-29T10:31:01.904+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

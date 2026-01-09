@@ -1,0 +1,202 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_coitems_dag/run_id=scheduled__2025-10-10T04:30:00+00:00/task_id=copy_h5_to_s3/attempt=1.log
+[2025-10-11T11:52:36.183+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-11T11:52:36.197+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_coitems_dag.copy_h5_to_s3 scheduled__2025-10-10T04:30:00+00:00 [queued]>
+[2025-10-11T11:52:36.204+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_coitems_dag.copy_h5_to_s3 scheduled__2025-10-10T04:30:00+00:00 [queued]>
+[2025-10-11T11:52:36.204+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-10-11T11:52:36.215+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): copy_h5_to_s3> on 2025-10-10 04:30:00+00:00
+[2025-10-11T11:52:36.222+0000] {standard_task_runner.py:72} INFO - Started process 969 to run task
+[2025-10-11T11:52:36.226+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_coitems_dag\', \'copy_h5_to_s3\', \'scheduled__2025-10-10T04:30:00+00:00\', \'--job-id\', \'17\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_coitems_dag.py\', \'--cfg-path\', \'/tmp/tmpzht46klp\']
+[2025-10-11T11:52:36.227+0000] {standard_task_runner.py:105} INFO - Job 17: Subtask copy_h5_to_s3
+[2025-10-11T11:52:36.238+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-10-11T11:52:36.273+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_coitems_dag.copy_h5_to_s3 scheduled__2025-10-10T04:30:00+00:00 [running]> on host b689d2c26a55
+[2025-10-11T11:52:36.273+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-10-11T11:52:36.324+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'s.nikiforov\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_coitems_dag\' AIRFLOW_CTX_TASK_ID=\'copy_h5_to_s3\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-10-10T04:30:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-10-10T04:30:00+00:00\'
+[2025-10-11T11:52:36.325+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-11T11:52:36.334+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-10-11T11:52:36.334+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-10-11T11:52:36.340+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-10-11T11:52:36.381+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-10-11T11:52:36.406+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-10-11T11:52:36.552+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-10-11T11:52:36.553+0000] {ssh.py:494} INFO - Running command: 
+        export AWS_ACCESS_KEY_ID=YCAJEDtMjrDd40h_SQE4mFrjZ
+        export AWS_SECRET_ACCESS_KEY=***
+        aws s3 cp /srv/data/production/coitems/ s3://vkusvillnew/recsys3/production/2025/10/10/coitems/ --recursive --exclude \'*\' --include \'*.csv\' --endpoint-url=https://storage.yandexcloud.net
+        
+[2025-10-11T11:52:39.115+0000] {ssh.py:540} INFO - Completed 256.0 KiB/41.8 MiB (3.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.116+0000] {ssh.py:540} INFO - Completed 512.0 KiB/41.8 MiB (7.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.117+0000] {ssh.py:540} INFO - Completed 768.0 KiB/41.8 MiB (11.4 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.117+0000] {ssh.py:540} INFO - Completed 1.0 MiB/41.8 MiB (15.0 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.118+0000] {ssh.py:540} INFO - Completed 1.2 MiB/41.8 MiB (18.5 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.119+0000] {ssh.py:540} INFO - Completed 1.5 MiB/41.8 MiB (21.8 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.120+0000] {ssh.py:540} INFO - Completed 1.8 MiB/41.8 MiB (25.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.144+0000] {ssh.py:540} INFO - Completed 2.0 MiB/41.8 MiB (21.5 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.148+0000] {ssh.py:540} INFO - Completed 2.2 MiB/41.8 MiB (23.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.153+0000] {ssh.py:540} INFO - Completed 2.5 MiB/41.8 MiB (24.6 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.154+0000] {ssh.py:540} INFO - Completed 2.8 MiB/41.8 MiB (26.7 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.154+0000] {ssh.py:540} INFO - Completed 3.0 MiB/41.8 MiB (29.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.155+0000] {ssh.py:540} INFO - Completed 3.2 MiB/41.8 MiB (31.3 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.156+0000] {ssh.py:540} INFO - Completed 3.5 MiB/41.8 MiB (33.4 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.159+0000] {ssh.py:540} INFO - Completed 3.8 MiB/41.8 MiB (34.6 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.162+0000] {ssh.py:540} INFO - Completed 4.0 MiB/41.8 MiB (36.2 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.163+0000] {ssh.py:540} INFO - Completed 4.2 MiB/41.8 MiB (37.8 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.164+0000] {ssh.py:540} INFO - Completed 4.5 MiB/41.8 MiB (39.7 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.165+0000] {ssh.py:540} INFO - Completed 4.8 MiB/41.8 MiB (41.6 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.166+0000] {ssh.py:540} INFO - Completed 5.0 MiB/41.8 MiB (43.5 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.171+0000] {ssh.py:540} INFO - Completed 5.0 MiB/41.8 MiB (42.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.171+0000] {ssh.py:540} INFO - Completed 5.3 MiB/41.8 MiB (43.9 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.172+0000] {ssh.py:540} INFO - Completed 5.5 MiB/41.8 MiB (45.7 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.174+0000] {ssh.py:540} INFO - Completed 5.8 MiB/41.8 MiB (47.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.176+0000] {ssh.py:540} INFO - Completed 6.0 MiB/41.8 MiB (48.0 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.177+0000] {ssh.py:540} INFO - Completed 6.3 MiB/41.8 MiB (49.9 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.178+0000] {ssh.py:540} INFO - Completed 6.5 MiB/41.8 MiB (51.5 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.179+0000] {ssh.py:540} INFO - Completed 6.8 MiB/41.8 MiB (53.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.181+0000] {ssh.py:540} INFO - Completed 7.0 MiB/41.8 MiB (54.2 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.184+0000] {ssh.py:540} INFO - Completed 7.3 MiB/41.8 MiB (54.9 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.184+0000] {ssh.py:540} INFO - Completed 7.5 MiB/41.8 MiB (56.4 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.186+0000] {ssh.py:540} INFO - Completed 7.8 MiB/41.8 MiB (57.6 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.188+0000] {ssh.py:540} INFO - Completed 8.0 MiB/41.8 MiB (58.7 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.189+0000] {ssh.py:540} INFO - Completed 8.3 MiB/41.8 MiB (60.0 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.190+0000] {ssh.py:540} INFO - Completed 8.5 MiB/41.8 MiB (61.2 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.191+0000] {ssh.py:540} INFO - Completed 8.8 MiB/41.8 MiB (62.7 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.193+0000] {ssh.py:540} INFO - Completed 9.0 MiB/41.8 MiB (63.7 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.196+0000] {ssh.py:540} INFO - Completed 9.3 MiB/41.8 MiB (64.1 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.197+0000] {ssh.py:540} INFO - Completed 9.5 MiB/41.8 MiB (65.2 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.198+0000] {ssh.py:540} INFO - Completed 9.8 MiB/41.8 MiB (66.6 MiB/s) with 1 file(s) remaining  
+[2025-10-11T11:52:39.199+0000] {ssh.py:540} INFO - Completed 10.0 MiB/41.8 MiB (67.8 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.199+0000] {ssh.py:540} INFO - Completed 10.3 MiB/41.8 MiB (69.4 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.202+0000] {ssh.py:540} INFO - Completed 10.5 MiB/41.8 MiB (69.8 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.204+0000] {ssh.py:540} INFO - Completed 10.8 MiB/41.8 MiB (70.4 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.204+0000] {ssh.py:540} INFO - Completed 11.0 MiB/41.8 MiB (72.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.205+0000] {ssh.py:540} INFO - Completed 11.3 MiB/41.8 MiB (73.3 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.208+0000] {ssh.py:540} INFO - Completed 11.5 MiB/41.8 MiB (73.3 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.210+0000] {ssh.py:540} INFO - Completed 11.8 MiB/41.8 MiB (74.2 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.211+0000] {ssh.py:540} INFO - Completed 12.0 MiB/41.8 MiB (75.2 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.211+0000] {ssh.py:540} INFO - Completed 12.3 MiB/41.8 MiB (76.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.211+0000] {ssh.py:540} INFO - Completed 12.5 MiB/41.8 MiB (78.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.214+0000] {ssh.py:540} INFO - Completed 12.8 MiB/41.8 MiB (78.5 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.216+0000] {ssh.py:540} INFO - Completed 13.0 MiB/41.8 MiB (78.9 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.217+0000] {ssh.py:540} INFO - Completed 13.3 MiB/41.8 MiB (79.8 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.219+0000] {ssh.py:540} INFO - Completed 13.5 MiB/41.8 MiB (80.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.219+0000] {ssh.py:540} INFO - Completed 13.8 MiB/41.8 MiB (81.9 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.222+0000] {ssh.py:540} INFO - Completed 14.0 MiB/41.8 MiB (82.2 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.223+0000] {ssh.py:540} INFO - Completed 14.3 MiB/41.8 MiB (83.1 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.223+0000] {ssh.py:540} INFO - Completed 14.5 MiB/41.8 MiB (84.3 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.226+0000] {ssh.py:540} INFO - Completed 14.8 MiB/41.8 MiB (84.5 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.227+0000] {ssh.py:540} INFO - Completed 15.0 MiB/41.8 MiB (85.5 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.228+0000] {ssh.py:540} INFO - Completed 15.3 MiB/41.8 MiB (86.4 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.229+0000] {ssh.py:540} INFO - Completed 15.5 MiB/41.8 MiB (87.1 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.231+0000] {ssh.py:540} INFO - Completed 15.8 MiB/41.8 MiB (87.7 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.234+0000] {ssh.py:540} INFO - Completed 16.0 MiB/41.8 MiB (87.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.235+0000] {ssh.py:540} INFO - Completed 16.3 MiB/41.8 MiB (88.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.235+0000] {ssh.py:540} INFO - Completed 16.5 MiB/41.8 MiB (89.7 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.235+0000] {ssh.py:540} INFO - Completed 16.8 MiB/41.8 MiB (91.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.237+0000] {ssh.py:540} INFO - Completed 17.0 MiB/41.8 MiB (91.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.240+0000] {ssh.py:540} INFO - Completed 17.3 MiB/41.8 MiB (91.5 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.241+0000] {ssh.py:540} INFO - Completed 17.5 MiB/41.8 MiB (92.2 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.242+0000] {ssh.py:540} INFO - Completed 17.8 MiB/41.8 MiB (93.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.244+0000] {ssh.py:540} INFO - Completed 18.0 MiB/41.8 MiB (93.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.245+0000] {ssh.py:540} INFO - Completed 18.3 MiB/41.8 MiB (93.9 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.249+0000] {ssh.py:540} INFO - Completed 18.5 MiB/41.8 MiB (93.8 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.249+0000] {ssh.py:540} INFO - Completed 18.8 MiB/41.8 MiB (95.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.250+0000] {ssh.py:540} INFO - Completed 19.0 MiB/41.8 MiB (95.9 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.250+0000] {ssh.py:540} INFO - Completed 19.3 MiB/41.8 MiB (96.7 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.252+0000] {ssh.py:540} INFO - Completed 19.5 MiB/41.8 MiB (97.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.255+0000] {ssh.py:540} INFO - Completed 19.8 MiB/41.8 MiB (96.9 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.256+0000] {ssh.py:540} INFO - Completed 20.0 MiB/41.8 MiB (97.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.257+0000] {ssh.py:540} INFO - Completed 20.3 MiB/41.8 MiB (98.4 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.259+0000] {ssh.py:540} INFO - Completed 20.5 MiB/41.8 MiB (98.6 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.261+0000] {ssh.py:540} INFO - Completed 20.8 MiB/41.8 MiB (99.0 MiB/s) with 1 file(s) remaining 
+[2025-10-11T11:52:39.261+0000] {ssh.py:540} INFO - Completed 21.0 MiB/41.8 MiB (100.0 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.263+0000] {ssh.py:540} INFO - Completed 21.3 MiB/41.8 MiB (100.4 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.263+0000] {ssh.py:540} INFO - Completed 21.5 MiB/41.8 MiB (101.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.265+0000] {ssh.py:540} INFO - Completed 21.8 MiB/41.8 MiB (101.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.268+0000] {ssh.py:540} INFO - Completed 22.0 MiB/41.8 MiB (101.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.268+0000] {ssh.py:540} INFO - Completed 22.3 MiB/41.8 MiB (102.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.272+0000] {ssh.py:540} INFO - Completed 22.5 MiB/41.8 MiB (102.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.273+0000] {ssh.py:540} INFO - Completed 22.8 MiB/41.8 MiB (102.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.275+0000] {ssh.py:540} INFO - Completed 23.0 MiB/41.8 MiB (103.0 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.276+0000] {ssh.py:540} INFO - Completed 23.3 MiB/41.8 MiB (103.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.277+0000] {ssh.py:540} INFO - Completed 23.5 MiB/41.8 MiB (104.0 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.279+0000] {ssh.py:540} INFO - Completed 23.8 MiB/41.8 MiB (104.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.279+0000] {ssh.py:540} INFO - Completed 24.0 MiB/41.8 MiB (105.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.283+0000] {ssh.py:540} INFO - Completed 24.3 MiB/41.8 MiB (104.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.283+0000] {ssh.py:540} INFO - Completed 24.5 MiB/41.8 MiB (105.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.284+0000] {ssh.py:540} INFO - Completed 24.8 MiB/41.8 MiB (106.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.286+0000] {ssh.py:540} INFO - Completed 25.0 MiB/41.8 MiB (106.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.287+0000] {ssh.py:540} INFO - Completed 25.3 MiB/41.8 MiB (106.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.289+0000] {ssh.py:540} INFO - Completed 25.5 MiB/41.8 MiB (107.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.290+0000] {ssh.py:540} INFO - Completed 25.8 MiB/41.8 MiB (107.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.291+0000] {ssh.py:540} INFO - Completed 26.0 MiB/41.8 MiB (108.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.295+0000] {ssh.py:540} INFO - Completed 26.3 MiB/41.8 MiB (107.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.296+0000] {ssh.py:540} INFO - Completed 26.5 MiB/41.8 MiB (108.4 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.296+0000] {ssh.py:540} INFO - Completed 26.8 MiB/41.8 MiB (109.2 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.297+0000] {ssh.py:540} INFO - Completed 27.0 MiB/41.8 MiB (110.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.297+0000] {ssh.py:540} INFO - Completed 27.3 MiB/41.8 MiB (111.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.302+0000] {ssh.py:540} INFO - Completed 27.5 MiB/41.8 MiB (109.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.303+0000] {ssh.py:540} INFO - Completed 27.8 MiB/41.8 MiB (110.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.303+0000] {ssh.py:540} INFO - Completed 28.0 MiB/41.8 MiB (111.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.303+0000] {ssh.py:540} INFO - Completed 28.3 MiB/41.8 MiB (112.2 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.306+0000] {ssh.py:540} INFO - Completed 28.5 MiB/41.8 MiB (112.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.308+0000] {ssh.py:540} INFO - Completed 28.8 MiB/41.8 MiB (111.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.309+0000] {ssh.py:540} INFO - Completed 29.0 MiB/41.8 MiB (112.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.310+0000] {ssh.py:540} INFO - Completed 29.3 MiB/41.8 MiB (112.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.311+0000] {ssh.py:540} INFO - Completed 29.5 MiB/41.8 MiB (113.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.315+0000] {ssh.py:540} INFO - Completed 29.8 MiB/41.8 MiB (112.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.316+0000] {ssh.py:540} INFO - Completed 30.0 MiB/41.8 MiB (113.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.316+0000] {ssh.py:540} INFO - Completed 30.3 MiB/41.8 MiB (114.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.316+0000] {ssh.py:540} INFO - Completed 30.5 MiB/41.8 MiB (115.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.319+0000] {ssh.py:540} INFO - Completed 30.8 MiB/41.8 MiB (114.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.322+0000] {ssh.py:540} INFO - Completed 31.0 MiB/41.8 MiB (114.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.322+0000] {ssh.py:540} INFO - Completed 31.3 MiB/41.8 MiB (115.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.322+0000] {ssh.py:540} INFO - Completed 31.5 MiB/41.8 MiB (116.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.325+0000] {ssh.py:540} INFO - Completed 31.8 MiB/41.8 MiB (115.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.326+0000] {ssh.py:540} INFO - Completed 32.0 MiB/41.8 MiB (116.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.327+0000] {ssh.py:540} INFO - Completed 32.3 MiB/41.8 MiB (117.0 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.327+0000] {ssh.py:540} INFO - Completed 32.5 MiB/41.8 MiB (117.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.330+0000] {ssh.py:540} INFO - Completed 32.8 MiB/41.8 MiB (117.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.333+0000] {ssh.py:540} INFO - Completed 33.0 MiB/41.8 MiB (116.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.334+0000] {ssh.py:540} INFO - Completed 33.3 MiB/41.8 MiB (117.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.334+0000] {ssh.py:540} INFO - Completed 33.5 MiB/41.8 MiB (118.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.334+0000] {ssh.py:540} INFO - Completed 33.8 MiB/41.8 MiB (119.4 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.335+0000] {ssh.py:540} INFO - Completed 34.0 MiB/41.8 MiB (119.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.341+0000] {ssh.py:540} INFO - Completed 34.3 MiB/41.8 MiB (118.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.342+0000] {ssh.py:540} INFO - Completed 34.5 MiB/41.8 MiB (118.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.343+0000] {ssh.py:540} INFO - Completed 34.8 MiB/41.8 MiB (119.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.343+0000] {ssh.py:540} INFO - Completed 35.0 MiB/41.8 MiB (119.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.344+0000] {ssh.py:540} INFO - Completed 35.3 MiB/41.8 MiB (120.2 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.349+0000] {ssh.py:540} INFO - Completed 35.5 MiB/41.8 MiB (119.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.350+0000] {ssh.py:540} INFO - Completed 35.8 MiB/41.8 MiB (119.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.351+0000] {ssh.py:540} INFO - Completed 36.0 MiB/41.8 MiB (120.1 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.353+0000] {ssh.py:540} INFO - Completed 36.3 MiB/41.8 MiB (120.2 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.354+0000] {ssh.py:540} INFO - Completed 36.5 MiB/41.8 MiB (120.4 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.355+0000] {ssh.py:540} INFO - Completed 36.8 MiB/41.8 MiB (120.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.355+0000] {ssh.py:540} INFO - Completed 37.0 MiB/41.8 MiB (121.5 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.357+0000] {ssh.py:540} INFO - Completed 37.3 MiB/41.8 MiB (121.9 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.358+0000] {ssh.py:540} INFO - Completed 37.5 MiB/41.8 MiB (122.2 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.359+0000] {ssh.py:540} INFO - Completed 37.8 MiB/41.8 MiB (122.6 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.361+0000] {ssh.py:540} INFO - Completed 38.0 MiB/41.8 MiB (122.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.361+0000] {ssh.py:540} INFO - Completed 38.3 MiB/41.8 MiB (123.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.363+0000] {ssh.py:540} INFO - Completed 38.5 MiB/41.8 MiB (123.4 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.364+0000] {ssh.py:540} INFO - Completed 38.8 MiB/41.8 MiB (124.0 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.366+0000] {ssh.py:540} INFO - Completed 39.0 MiB/41.8 MiB (124.0 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.366+0000] {ssh.py:540} INFO - Completed 39.3 MiB/41.8 MiB (124.7 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.368+0000] {ssh.py:540} INFO - Completed 39.5 MiB/41.8 MiB (124.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.368+0000] {ssh.py:540} INFO - Completed 39.8 MiB/41.8 MiB (125.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.369+0000] {ssh.py:540} INFO - Completed 40.0 MiB/41.8 MiB (125.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.370+0000] {ssh.py:540} INFO - Completed 40.3 MiB/41.8 MiB (126.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.370+0000] {ssh.py:540} INFO - Completed 40.5 MiB/41.8 MiB (126.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.371+0000] {ssh.py:540} INFO - Completed 40.8 MiB/41.8 MiB (127.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.372+0000] {ssh.py:540} INFO - Completed 41.0 MiB/41.8 MiB (127.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.372+0000] {ssh.py:540} INFO - Completed 41.3 MiB/41.8 MiB (128.3 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.373+0000] {ssh.py:540} INFO - Completed 41.5 MiB/41.8 MiB (128.8 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.374+0000] {ssh.py:540} INFO - Completed 41.8 MiB/41.8 MiB (129.2 MiB/s) with 1 file(s) remaining
+[2025-10-11T11:52:39.491+0000] {ssh.py:540} INFO - upload: ../../srv/data/production/coitems/recommends.csv to s3://vkusvillnew/recsys3/production/2025/10/10/coitems/recommends.csv
+[2025-10-11T11:52:39.606+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-11T11:52:39.607+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_coitems_dag, task_id=copy_h5_to_s3, run_id=scheduled__2025-10-10T04:30:00+00:00, execution_date=20251010T043000, start_date=20251011T115236, end_date=20251011T115239
+[2025-10-11T11:52:39.850+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-10-11T11:52:39.866+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-10-11T11:52:39.867+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

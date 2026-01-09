@@ -1,0 +1,334 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=prod_data_quality_check_dag/run_id=scheduled__2025-11-16T15:30:00+00:00/task_id=build_image/attempt=4.log
+[2025-11-18T14:02:54.331+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-18T14:02:54.344+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prod_data_quality_check_dag.build_image scheduled__2025-11-16T15:30:00+00:00 [queued]>
+[2025-11-18T14:02:54.350+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prod_data_quality_check_dag.build_image scheduled__2025-11-16T15:30:00+00:00 [queued]>
+[2025-11-18T14:02:54.350+0000] {taskinstance.py:2856} INFO - Starting attempt 4 of 4
+[2025-11-18T14:02:54.358+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): build_image> on 2025-11-16 15:30:00+00:00
+[2025-11-18T14:02:54.365+0000] {standard_task_runner.py:72} INFO - Started process 1913489 to run task
+[2025-11-18T14:02:54.369+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'prod_data_quality_check_dag\', \'build_image\', \'scheduled__2025-11-16T15:30:00+00:00\', \'--job-id\', \'459\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/validation/prod_data_quality_check_dag.py\', \'--cfg-path\', \'/tmp/tmp2ps3ezn7\']
+[2025-11-18T14:02:54.370+0000] {standard_task_runner.py:105} INFO - Job 459: Subtask build_image
+[2025-11-18T14:02:54.383+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-18T14:02:54.413+0000] {task_command.py:467} INFO - Running <TaskInstance: prod_data_quality_check_dag.build_image scheduled__2025-11-16T15:30:00+00:00 [running]> on host b689d2c26a55
+[2025-11-18T14:02:54.413+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-18T14:02:54.469+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'m.gazoian\' AIRFLOW_CTX_DAG_ID=\'prod_data_quality_check_dag\' AIRFLOW_CTX_TASK_ID=\'build_image\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-16T15:30:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'4\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-16T15:30:00+00:00\'
+[2025-11-18T14:02:54.470+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-18T14:02:54.480+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-18T14:02:54.480+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-18T14:02:54.489+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-11-18T14:02:54.530+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-18T14:02:54.558+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-11-18T14:02:54.704+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-18T14:02:54.704+0000] {ssh.py:494} INFO - Running command: docker build --no-cache --rm -t data_quality_check:latest prod_data_quality_check_dag_recsys_data_quality_check/.
+[2025-11-18T14:02:55.203+0000] {ssh.py:545} WARNING - #1 [internal] load build definition from dockerfile
+[2025-11-18T14:02:55.203+0000] {ssh.py:545} WARNING - #1 transferring dockerfile: 188B done
+[2025-11-18T14:02:55.204+0000] {ssh.py:545} WARNING - #1 DONE 0.0s
+[2025-11-18T14:02:55.204+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:02:55.204+0000] {ssh.py:545} WARNING - #2 [internal] load .dockerignore
+[2025-11-18T14:02:55.204+0000] {ssh.py:545} WARNING - #2 transferring context: 2B done
+[2025-11-18T14:02:55.204+0000] {ssh.py:545} WARNING - #2 DONE 0.0s
+[2025-11-18T14:02:55.204+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:02:55.205+0000] {ssh.py:545} WARNING - #3 [internal] load metadata for docker.io/library/python:3.11.0
+[2025-11-18T14:02:56.107+0000] {ssh.py:545} WARNING - #3 DONE 0.9s
+[2025-11-18T14:02:56.107+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:02:56.107+0000] {ssh.py:545} WARNING - #4 [ 1/12] FROM docker.io/library/python:3.11.0@sha256:55101c8373de5311b0ece8746251882ddb0bb394588c93d2477b88852ad00e72
+[2025-11-18T14:02:56.107+0000] {ssh.py:545} WARNING - #4 CACHED
+[2025-11-18T14:02:56.107+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:02:56.107+0000] {ssh.py:545} WARNING - #5 [internal] load build context
+[2025-11-18T14:02:56.108+0000] {ssh.py:545} WARNING - #5 transferring context: 62.78kB done
+[2025-11-18T14:02:56.108+0000] {ssh.py:545} WARNING - #5 DONE 0.0s
+[2025-11-18T14:02:56.108+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:02:56.108+0000] {ssh.py:545} WARNING - #6 [2/7] RUN pip install --upgrade pip
+[2025-11-18T14:02:58.062+0000] {ssh.py:545} WARNING - #6 1.944 Requirement already satisfied: pip in /usr/local/lib/python3.11/site-packages (22.3)
+[2025-11-18T14:02:58.181+0000] {ssh.py:545} WARNING - #6 2.169 Collecting pip
+[2025-11-18T14:02:58.332+0000] {ssh.py:545} WARNING - #6 2.263   Downloading pip-25.3-py3-none-any.whl (1.8 MB)
+[2025-11-18T14:02:58.483+0000] {ssh.py:545} WARNING - #6 2.420      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 11.5 MB/s eta 0:00:00
+[2025-11-18T14:02:58.588+0000] {ssh.py:545} WARNING - #6 2.482 Installing collected packages: pip
+[2025-11-18T14:02:58.588+0000] {ssh.py:545} WARNING - #6 2.482   Attempting uninstall: pip
+[2025-11-18T14:02:58.588+0000] {ssh.py:545} WARNING - #6 2.485     Found existing installation: pip 22.3
+[2025-11-18T14:02:58.588+0000] {ssh.py:545} WARNING - #6 2.576     Uninstalling pip-22.3:
+[2025-11-18T14:02:58.889+0000] {ssh.py:545} WARNING - #6 2.754       Successfully uninstalled pip-22.3
+[2025-11-18T14:02:59.792+0000] {ssh.py:545} WARNING - #6 3.670 Successfully installed pip-25.3
+[2025-11-18T14:02:59.792+0000] {ssh.py:545} WARNING - #6 3.670 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[2025-11-18T14:03:03.692+0000] {ssh.py:545} WARNING - #6 DONE 7.7s
+[2025-11-18T14:03:03.843+0000] {ssh.py:545} WARNING - #7 [3/7] WORKDIR /app
+[2025-11-18T14:03:03.958+0000] {ssh.py:545} WARNING - #7 DONE 0.3s
+[2025-11-18T14:03:04.108+0000] {ssh.py:545} WARNING - #8 [4/7] COPY . .
+[2025-11-18T14:03:04.409+0000] {ssh.py:545} WARNING - #8 DONE 0.4s
+[2025-11-18T14:03:04.409+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:03:04.409+0000] {ssh.py:545} WARNING - #9 [5/7] RUN chmod -R 777 *
+[2025-11-18T14:03:05.117+0000] {ssh.py:545} WARNING - #9 DONE 0.7s
+[2025-11-18T14:03:05.118+0000] {ssh.py:545} WARNING - 
+[2025-11-18T14:03:05.118+0000] {ssh.py:545} WARNING - #10 [6/7] RUN pip install -r requirements.txt
+[2025-11-18T14:03:06.321+0000] {ssh.py:545} WARNING - #10 1.128 Collecting mlflow==3.1.1 (from -r requirements.txt (line 1))
+[2025-11-18T14:03:06.471+0000] {ssh.py:545} WARNING - #10 1.212   Downloading mlflow-3.1.1-py3-none-any.whl.metadata (29 kB)
+[2025-11-18T14:03:06.772+0000] {ssh.py:545} WARNING - #10 1.516 Collecting numpy==1.26.4 (from -r requirements.txt (line 2))
+[2025-11-18T14:03:06.773+0000] {ssh.py:545} WARNING - #10 1.552   Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (61 kB)
+[2025-11-18T14:03:06.877+0000] {ssh.py:545} WARNING - #10 1.760 Collecting polars==1.31.0 (from -r requirements.txt (line 3))
+[2025-11-18T14:03:07.028+0000] {ssh.py:545} WARNING - #10 1.786   Downloading polars-1.31.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+[2025-11-18T14:03:07.139+0000] {ssh.py:545} WARNING - #10 1.923 Collecting pyarrow==20.0.0 (from -r requirements.txt (line 4))
+[2025-11-18T14:03:07.140+0000] {ssh.py:545} WARNING - #10 1.953   Downloading pyarrow-20.0.0-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (3.3 kB)
+[2025-11-18T14:03:07.140+0000] {ssh.py:545} WARNING - #10 2.022 Collecting requests==2.31.0 (from -r requirements.txt (line 5))
+[2025-11-18T14:03:07.243+0000] {ssh.py:545} WARNING - #10 2.050   Downloading requests-2.31.0-py3-none-any.whl.metadata (4.6 kB)
+[2025-11-18T14:03:07.243+0000] {ssh.py:545} WARNING - #10 2.126 Collecting mlflow-skinny==3.1.1 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:07.344+0000] {ssh.py:545} WARNING - #10 2.155   Downloading mlflow_skinny-3.1.1-py3-none-any.whl.metadata (30 kB)
+[2025-11-18T14:03:07.344+0000] {ssh.py:545} WARNING - #10 2.227 Collecting Flask<4 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:07.480+0000] {ssh.py:545} WARNING - #10 2.288   Downloading flask-3.1.2-py3-none-any.whl.metadata (3.2 kB)
+[2025-11-18T14:03:07.480+0000] {ssh.py:545} WARNING - #10 2.363 Collecting alembic!=1.10.0,<2 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:07.630+0000] {ssh.py:545} WARNING - #10 2.388   Downloading alembic-1.17.2-py3-none-any.whl.metadata (7.2 kB)
+[2025-11-18T14:03:07.746+0000] {ssh.py:545} WARNING - #10 2.521 Collecting docker<8,>=4.0.0 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:07.747+0000] {ssh.py:545} WARNING - #10 2.546   Downloading docker-7.1.0-py3-none-any.whl.metadata (3.8 kB)
+[2025-11-18T14:03:07.747+0000] {ssh.py:545} WARNING - #10 2.629 Collecting graphene<4 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:07.863+0000] {ssh.py:545} WARNING - #10 2.656   Downloading graphene-3.4.3-py2.py3-none-any.whl.metadata (6.9 kB)
+[2025-11-18T14:03:07.864+0000] {ssh.py:545} WARNING - #10 2.721 Collecting gunicorn<24 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:07.864+0000] {ssh.py:545} WARNING - #10 2.746   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+[2025-11-18T14:03:08.164+0000] {ssh.py:545} WARNING - #10 2.964 Collecting matplotlib<4 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:08.165+0000] {ssh.py:545} WARNING - #10 2.990   Downloading matplotlib-3.10.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+[2025-11-18T14:03:08.271+0000] {ssh.py:545} WARNING - #10 3.154 Collecting pandas<3 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:08.421+0000] {ssh.py:545} WARNING - #10 3.179   Downloading pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (91 kB)
+[2025-11-18T14:03:08.571+0000] {ssh.py:545} WARNING - #10 3.345 Collecting scikit-learn<2 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:08.572+0000] {ssh.py:545} WARNING - #10 3.374   Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+[2025-11-18T14:03:08.872+0000] {ssh.py:545} WARNING - #10 3.674 Collecting scipy<2 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:08.873+0000] {ssh.py:545} WARNING - #10 3.699   Downloading scipy-1.16.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (62 kB)
+[2025-11-18T14:03:09.159+0000] {ssh.py:545} WARNING - #10 4.042 Collecting sqlalchemy<3,>=1.4.0 (from mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:09.311+0000] {ssh.py:545} WARNING - #10 4.067   Downloading sqlalchemy-2.0.44-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.5 kB)
+[2025-11-18T14:03:09.424+0000] {ssh.py:545} WARNING - #10 4.201 Collecting charset-normalizer<4,>=2 (from requests==2.31.0->-r requirements.txt (line 5))
+[2025-11-18T14:03:09.425+0000] {ssh.py:545} WARNING - #10 4.226   Downloading charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+[2025-11-18T14:03:09.425+0000] {ssh.py:545} WARNING - #10 4.307 Collecting idna<4,>=2.5 (from requests==2.31.0->-r requirements.txt (line 5))
+[2025-11-18T14:03:09.544+0000] {ssh.py:545} WARNING - #10 4.331   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+[2025-11-18T14:03:09.545+0000] {ssh.py:545} WARNING - #10 4.403 Collecting urllib3<3,>=1.21.1 (from requests==2.31.0->-r requirements.txt (line 5))
+[2025-11-18T14:03:09.545+0000] {ssh.py:545} WARNING - #10 4.427   Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+[2025-11-18T14:03:09.675+0000] {ssh.py:545} WARNING - #10 4.558 Collecting certifi>=2017.4.17 (from requests==2.31.0->-r requirements.txt (line 5))
+[2025-11-18T14:03:09.789+0000] {ssh.py:545} WARNING - #10 4.583   Downloading certifi-2025.11.12-py3-none-any.whl.metadata (2.5 kB)
+[2025-11-18T14:03:09.789+0000] {ssh.py:545} WARNING - #10 4.647 Collecting cachetools<7,>=5.0.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:09.790+0000] {ssh.py:545} WARNING - #10 4.672   Downloading cachetools-6.2.2-py3-none-any.whl.metadata (5.6 kB)
+[2025-11-18T14:03:09.940+0000] {ssh.py:545} WARNING - #10 4.746 Collecting click<9,>=7.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:09.941+0000] {ssh.py:545} WARNING - #10 4.771   Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+[2025-11-18T14:03:10.046+0000] {ssh.py:545} WARNING - #10 4.830 Collecting cloudpickle<4 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.046+0000] {ssh.py:545} WARNING - #10 4.855   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+[2025-11-18T14:03:10.046+0000] {ssh.py:545} WARNING - #10 4.929 Collecting databricks-sdk<1,>=0.20.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.196+0000] {ssh.py:545} WARNING - #10 4.953   Downloading databricks_sdk-0.73.0-py3-none-any.whl.metadata (40 kB)
+[2025-11-18T14:03:10.300+0000] {ssh.py:545} WARNING - #10 5.184 Collecting fastapi<1 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.412+0000] {ssh.py:545} WARNING - #10 5.208   Downloading fastapi-0.121.2-py3-none-any.whl.metadata (28 kB)
+[2025-11-18T14:03:10.413+0000] {ssh.py:545} WARNING - #10 5.295 Collecting gitpython<4,>=3.1.9 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.563+0000] {ssh.py:545} WARNING - #10 5.320   Downloading gitpython-3.1.45-py3-none-any.whl.metadata (13 kB)
+[2025-11-18T14:03:10.705+0000] {ssh.py:545} WARNING - #10 5.490 Collecting importlib_metadata!=4.7.0,<9,>=3.7.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.706+0000] {ssh.py:545} WARNING - #10 5.516   Downloading importlib_metadata-8.7.0-py3-none-any.whl.metadata (4.8 kB)
+[2025-11-18T14:03:10.706+0000] {ssh.py:545} WARNING - #10 5.588 Collecting opentelemetry-api<3,>=1.9.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.806+0000] {ssh.py:545} WARNING - #10 5.613   Downloading opentelemetry_api-1.38.0-py3-none-any.whl.metadata (1.5 kB)
+[2025-11-18T14:03:10.807+0000] {ssh.py:545} WARNING - #10 5.689 Collecting opentelemetry-sdk<3,>=1.9.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.918+0000] {ssh.py:545} WARNING - #10 5.714   Downloading opentelemetry_sdk-1.38.0-py3-none-any.whl.metadata (1.5 kB)
+[2025-11-18T14:03:10.918+0000] {ssh.py:545} WARNING - #10 5.775 Collecting packaging<26 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:10.918+0000] {ssh.py:545} WARNING - #10 5.801   Downloading packaging-25.0-py3-none-any.whl.metadata (3.3 kB)
+[2025-11-18T14:03:11.219+0000] {ssh.py:545} WARNING - #10 6.013 Collecting protobuf<7,>=3.12.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.220+0000] {ssh.py:545} WARNING - #10 6.038   Downloading protobuf-6.33.1-cp39-abi3-manylinux2014_x86_64.whl.metadata (593 bytes)
+[2025-11-18T14:03:11.321+0000] {ssh.py:545} WARNING - #10 6.204 Collecting pydantic<3,>=1.10.8 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.439+0000] {ssh.py:545} WARNING - #10 6.229   Downloading pydantic-2.12.4-py3-none-any.whl.metadata (89 kB)
+[2025-11-18T14:03:11.439+0000] {ssh.py:545} WARNING - #10 6.322 Collecting pyyaml<7,>=5.1 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.547+0000] {ssh.py:545} WARNING - #10 6.348   Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+[2025-11-18T14:03:11.547+0000] {ssh.py:545} WARNING - #10 6.404 Collecting sqlparse<1,>=0.4.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.547+0000] {ssh.py:545} WARNING - #10 6.430   Downloading sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+[2025-11-18T14:03:11.667+0000] {ssh.py:545} WARNING - #10 6.550 Collecting typing-extensions<5,>=4.0.0 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.788+0000] {ssh.py:545} WARNING - #10 6.575   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+[2025-11-18T14:03:11.788+0000] {ssh.py:545} WARNING - #10 6.644 Collecting uvicorn<1 (from mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.788+0000] {ssh.py:545} WARNING - #10 6.671   Downloading uvicorn-0.38.0-py3-none-any.whl.metadata (6.8 kB)
+[2025-11-18T14:03:11.938+0000] {ssh.py:545} WARNING - #10 6.731 Collecting Mako (from alembic!=1.10.0,<2->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:11.938+0000] {ssh.py:545} WARNING - #10 6.756   Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+[2025-11-18T14:03:12.089+0000] {ssh.py:545} WARNING - #10 6.864 Collecting google-auth~=2.0 (from databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:12.089+0000] {ssh.py:545} WARNING - #10 6.889   Downloading google_auth-2.43.0-py2.py3-none-any.whl.metadata (6.6 kB)
+[2025-11-18T14:03:12.238+0000] {ssh.py:545} WARNING - #10 7.121 Collecting starlette<0.50.0,>=0.40.0 (from fastapi<1->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:12.389+0000] {ssh.py:545} WARNING - #10 7.146   Downloading starlette-0.49.3-py3-none-any.whl.metadata (6.4 kB)
+[2025-11-18T14:03:12.539+0000] {ssh.py:545} WARNING - #10 7.288 Collecting annotated-doc>=0.0.2 (from fastapi<1->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:12.539+0000] {ssh.py:545} WARNING - #10 7.313   Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+[2025-11-18T14:03:12.655+0000] {ssh.py:545} WARNING - #10 7.449 Collecting blinker>=1.9.0 (from Flask<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:12.655+0000] {ssh.py:545} WARNING - #10 7.474   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+[2025-11-18T14:03:12.655+0000] {ssh.py:545} WARNING - #10 7.538 Collecting itsdangerous>=2.2.0 (from Flask<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:12.778+0000] {ssh.py:545} WARNING - #10 7.563   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+[2025-11-18T14:03:12.779+0000] {ssh.py:545} WARNING - #10 7.635 Collecting jinja2>=3.1.2 (from Flask<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:12.779+0000] {ssh.py:545} WARNING - #10 7.662   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+[2025-11-18T14:03:12.895+0000] {ssh.py:545} WARNING - #10 7.778 Collecting markupsafe>=2.1.1 (from Flask<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.019+0000] {ssh.py:545} WARNING - #10 7.804   Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+[2025-11-18T14:03:13.020+0000] {ssh.py:545} WARNING - #10 7.877 Collecting werkzeug>=3.1.0 (from Flask<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.020+0000] {ssh.py:545} WARNING - #10 7.902   Downloading werkzeug-3.1.3-py3-none-any.whl.metadata (3.7 kB)
+[2025-11-18T14:03:13.170+0000] {ssh.py:545} WARNING - #10 7.957 Collecting gitdb<5,>=4.0.1 (from gitpython<4,>=3.1.9->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.170+0000] {ssh.py:545} WARNING - #10 7.982   Downloading gitdb-4.0.12-py3-none-any.whl.metadata (1.2 kB)
+[2025-11-18T14:03:13.288+0000] {ssh.py:545} WARNING - #10 8.068 Collecting smmap<6,>=3.0.1 (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.289+0000] {ssh.py:545} WARNING - #10 8.093   Downloading smmap-5.0.2-py3-none-any.whl.metadata (4.3 kB)
+[2025-11-18T14:03:13.289+0000] {ssh.py:545} WARNING - #10 8.171 Collecting pyasn1-modules>=0.2.1 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.400+0000] {ssh.py:545} WARNING - #10 8.196   Downloading pyasn1_modules-0.4.2-py3-none-any.whl.metadata (3.5 kB)
+[2025-11-18T14:03:13.400+0000] {ssh.py:545} WARNING - #10 8.258 Collecting rsa<5,>=3.1.4 (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.400+0000] {ssh.py:545} WARNING - #10 8.283   Downloading rsa-4.9.1-py3-none-any.whl.metadata (5.6 kB)
+[2025-11-18T14:03:13.550+0000] {ssh.py:545} WARNING - #10 8.345 Collecting graphql-core<3.3,>=3.1 (from graphene<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.551+0000] {ssh.py:545} WARNING - #10 8.370   Downloading graphql_core-3.2.7-py3-none-any.whl.metadata (11 kB)
+[2025-11-18T14:03:13.698+0000] {ssh.py:545} WARNING - #10 8.433 Collecting graphql-relay<3.3,>=3.1 (from graphene<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.698+0000] {ssh.py:545} WARNING - #10 8.459   Downloading graphql_relay-3.2.0-py3-none-any.whl.metadata (12 kB)
+[2025-11-18T14:03:13.698+0000] {ssh.py:545} WARNING - #10 8.581 Collecting python-dateutil<3,>=2.7.0 (from graphene<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.841+0000] {ssh.py:545} WARNING - #10 8.605   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+[2025-11-18T14:03:13.842+0000] {ssh.py:545} WARNING - #10 8.724 Collecting zipp>=3.20 (from importlib_metadata!=4.7.0,<9,>=3.7.0->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:13.980+0000] {ssh.py:545} WARNING - #10 8.749   Downloading zipp-3.23.0-py3-none-any.whl.metadata (3.6 kB)
+[2025-11-18T14:03:13.981+0000] {ssh.py:545} WARNING - #10 8.863 Collecting contourpy>=1.0.1 (from matplotlib<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:14.092+0000] {ssh.py:545} WARNING - #10 8.889   Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+[2025-11-18T14:03:14.092+0000] {ssh.py:545} WARNING - #10 8.949 Collecting cycler>=0.10 (from matplotlib<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:14.092+0000] {ssh.py:545} WARNING - #10 8.975   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+[2025-11-18T14:03:14.393+0000] {ssh.py:545} WARNING - #10 9.167 Collecting fonttools>=4.22.0 (from matplotlib<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:14.393+0000] {ssh.py:545} WARNING - #10 9.193   Downloading fonttools-4.60.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (112 kB)
+[2025-11-18T14:03:14.543+0000] {ssh.py:545} WARNING - #10 9.309 Collecting kiwisolver>=1.3.1 (from matplotlib<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:14.544+0000] {ssh.py:545} WARNING - #10 9.335   Downloading kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.3 kB)
+[2025-11-18T14:03:14.963+0000] {ssh.py:545} WARNING - #10 9.727 Collecting pillow>=8 (from matplotlib<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:14.964+0000] {ssh.py:545} WARNING - #10 9.753   Downloading pillow-12.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+[2025-11-18T14:03:14.964+0000] {ssh.py:545} WARNING - #10 9.822 Collecting pyparsing>=3 (from matplotlib<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:14.964+0000] {ssh.py:545} WARNING - #10 9.846   Downloading pyparsing-3.2.5-py3-none-any.whl.metadata (5.0 kB)
+[2025-11-18T14:03:15.070+0000] {ssh.py:545} WARNING - #10 9.953 Collecting opentelemetry-semantic-conventions==0.59b0 (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:15.200+0000] {ssh.py:545} WARNING - #10 9.979   Downloading opentelemetry_semantic_conventions-0.59b0-py3-none-any.whl.metadata (2.4 kB)
+[2025-11-18T14:03:15.201+0000] {ssh.py:545} WARNING - #10 10.08 Collecting pytz>=2020.1 (from pandas<3->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:15.323+0000] {ssh.py:545} WARNING - #10 10.11   Downloading pytz-2025.2-py2.py3-none-any.whl.metadata (22 kB)
+[2025-11-18T14:03:15.323+0000] {ssh.py:545} WARNING - #10 10.18 Collecting tzdata>=2022.7 (from pandas<3->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:15.323+0000] {ssh.py:545} WARNING - #10 10.21   Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+[2025-11-18T14:03:15.474+0000] {ssh.py:545} WARNING - #10 10.28 Collecting annotated-types>=0.6.0 (from pydantic<3,>=1.10.8->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:15.474+0000] {ssh.py:545} WARNING - #10 10.30   Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+[2025-11-18T14:03:16.326+0000] {ssh.py:545} WARNING - #10 11.18 Collecting pydantic-core==2.41.5 (from pydantic<3,>=1.10.8->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:16.327+0000] {ssh.py:545} WARNING - #10 11.21   Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+[2025-11-18T14:03:16.427+0000] {ssh.py:545} WARNING - #10 11.29 Collecting typing-inspection>=0.4.2 (from pydantic<3,>=1.10.8->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:16.428+0000] {ssh.py:545} WARNING - #10 11.31   Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+[2025-11-18T14:03:16.698+0000] {ssh.py:545} WARNING - #10 11.46 Collecting six>=1.5 (from python-dateutil<3,>=2.7.0->graphene<4->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:16.698+0000] {ssh.py:545} WARNING - #10 11.49   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+[2025-11-18T14:03:16.698+0000] {ssh.py:545} WARNING - #10 11.56 Collecting pyasn1>=0.1.3 (from rsa<5,>=3.1.4->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:16.698+0000] {ssh.py:545} WARNING - #10 11.58   Downloading pyasn1-0.6.1-py3-none-any.whl.metadata (8.4 kB)
+[2025-11-18T14:03:16.845+0000] {ssh.py:545} WARNING - #10 11.65 Collecting joblib>=1.2.0 (from scikit-learn<2->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:16.846+0000] {ssh.py:545} WARNING - #10 11.68   Downloading joblib-1.5.2-py3-none-any.whl.metadata (5.6 kB)
+[2025-11-18T14:03:16.846+0000] {ssh.py:545} WARNING - #10 11.73 Collecting threadpoolctl>=3.1.0 (from scikit-learn<2->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:16.996+0000] {ssh.py:545} WARNING - #10 11.75   Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+[2025-11-18T14:03:17.147+0000] {ssh.py:545} WARNING - #10 11.95 Collecting greenlet>=1 (from sqlalchemy<3,>=1.4.0->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:17.147+0000] {ssh.py:545} WARNING - #10 11.97   Downloading greenlet-3.2.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (4.1 kB)
+[2025-11-18T14:03:17.269+0000] {ssh.py:545} WARNING - #10 12.05 Collecting anyio<5,>=3.6.2 (from starlette<0.50.0,>=0.40.0->fastapi<1->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:17.269+0000] {ssh.py:545} WARNING - #10 12.08   Downloading anyio-4.11.0-py3-none-any.whl.metadata (4.1 kB)
+[2025-11-18T14:03:17.269+0000] {ssh.py:545} WARNING - #10 12.15 Collecting sniffio>=1.1 (from anyio<5,>=3.6.2->starlette<0.50.0,>=0.40.0->fastapi<1->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:17.378+0000] {ssh.py:545} WARNING - #10 12.18   Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+[2025-11-18T14:03:17.378+0000] {ssh.py:545} WARNING - #10 12.26 Collecting h11>=0.8 (from uvicorn<1->mlflow-skinny==3.1.1->mlflow==3.1.1->-r requirements.txt (line 1))
+[2025-11-18T14:03:17.529+0000] {ssh.py:545} WARNING - #10 12.29   Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+[2025-11-18T14:03:17.642+0000] {ssh.py:545} WARNING - #10 12.52 Downloading mlflow-3.1.1-py3-none-any.whl (24.7 MB)
+[2025-11-18T14:03:20.306+0000] {ssh.py:545} WARNING - #10 15.19    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.7/24.7 MB 9.2 MB/s  0:00:02
+[2025-11-18T14:03:20.457+0000] {ssh.py:545} WARNING - #10 15.21 Downloading numpy-1.26.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (18.3 MB)
+[2025-11-18T14:03:20.585+0000] {ssh.py:545} WARNING - #10 15.47    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.3/18.3 MB 71.9 MB/s  0:00:00
+[2025-11-18T14:03:20.736+0000] {ssh.py:545} WARNING - #10 15.50 Downloading pyarrow-20.0.0-cp311-cp311-manylinux_2_28_x86_64.whl (42.3 MB)
+[2025-11-18T14:03:21.187+0000] {ssh.py:545} WARNING - #10 15.97    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.3/42.3 MB 89.7 MB/s  0:00:00
+[2025-11-18T14:03:21.188+0000] {ssh.py:545} WARNING - #10 16.00 Downloading polars-1.31.0-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (35.1 MB)
+[2025-11-18T14:03:21.445+0000] {ssh.py:545} WARNING - #10 16.33    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.1/35.1 MB 107.2 MB/s  0:00:00
+[2025-11-18T14:03:21.596+0000] {ssh.py:545} WARNING - #10 16.35 Downloading requests-2.31.0-py3-none-any.whl (62 kB)
+[2025-11-18T14:03:21.696+0000] {ssh.py:545} WARNING - #10 16.50 Downloading mlflow_skinny-3.1.1-py3-none-any.whl (1.9 MB)
+[2025-11-18T14:03:21.697+0000] {ssh.py:545} WARNING - #10 16.55    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 32.5 MB/s  0:00:00
+[2025-11-18T14:03:21.697+0000] {ssh.py:545} WARNING - #10 16.58 Downloading alembic-1.17.2-py3-none-any.whl (248 kB)
+[2025-11-18T14:03:21.828+0000] {ssh.py:545} WARNING - #10 16.62 Downloading cachetools-6.2.2-py3-none-any.whl (11 kB)
+[2025-11-18T14:03:21.828+0000] {ssh.py:545} WARNING - #10 16.67 Downloading charset_normalizer-3.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (151 kB)
+[2025-11-18T14:03:21.829+0000] {ssh.py:545} WARNING - #10 16.71 Downloading click-8.3.1-py3-none-any.whl (108 kB)
+[2025-11-18T14:03:21.943+0000] {ssh.py:545} WARNING - #10 16.75 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+[2025-11-18T14:03:21.944+0000] {ssh.py:545} WARNING - #10 16.79 Downloading databricks_sdk-0.73.0-py3-none-any.whl (753 kB)
+[2025-11-18T14:03:21.944+0000] {ssh.py:545} WARNING - #10 16.80    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 753.9/753.9 kB 44.7 MB/s  0:00:00
+[2025-11-18T14:03:21.944+0000] {ssh.py:545} WARNING - #10 16.83 Downloading docker-7.1.0-py3-none-any.whl (147 kB)
+[2025-11-18T14:03:22.050+0000] {ssh.py:545} WARNING - #10 16.86 Downloading fastapi-0.121.2-py3-none-any.whl (109 kB)
+[2025-11-18T14:03:22.051+0000] {ssh.py:545} WARNING - #10 16.90 Downloading flask-3.1.2-py3-none-any.whl (103 kB)
+[2025-11-18T14:03:22.051+0000] {ssh.py:545} WARNING - #10 16.93 Downloading gitpython-3.1.45-py3-none-any.whl (208 kB)
+[2025-11-18T14:03:22.158+0000] {ssh.py:545} WARNING - #10 16.97 Downloading gitdb-4.0.12-py3-none-any.whl (62 kB)
+[2025-11-18T14:03:22.158+0000] {ssh.py:545} WARNING - #10 17.00 Downloading google_auth-2.43.0-py2.py3-none-any.whl (223 kB)
+[2025-11-18T14:03:22.158+0000] {ssh.py:545} WARNING - #10 17.04 Downloading graphene-3.4.3-py2.py3-none-any.whl (114 kB)
+[2025-11-18T14:03:22.262+0000] {ssh.py:545} WARNING - #10 17.07 Downloading graphql_core-3.2.7-py3-none-any.whl (207 kB)
+[2025-11-18T14:03:22.262+0000] {ssh.py:545} WARNING - #10 17.11 Downloading graphql_relay-3.2.0-py3-none-any.whl (16 kB)
+[2025-11-18T14:03:22.262+0000] {ssh.py:545} WARNING - #10 17.14 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+[2025-11-18T14:03:22.370+0000] {ssh.py:545} WARNING - #10 17.18 Downloading idna-3.11-py3-none-any.whl (71 kB)
+[2025-11-18T14:03:22.370+0000] {ssh.py:545} WARNING - #10 17.22 Downloading importlib_metadata-8.7.0-py3-none-any.whl (27 kB)
+[2025-11-18T14:03:22.370+0000] {ssh.py:545} WARNING - #10 17.25 Downloading matplotlib-3.10.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+[2025-11-18T14:03:22.484+0000] {ssh.py:545} WARNING - #10 17.34    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 101.0 MB/s  0:00:00
+[2025-11-18T14:03:22.484+0000] {ssh.py:545} WARNING - #10 17.37 Downloading opentelemetry_api-1.38.0-py3-none-any.whl (65 kB)
+[2025-11-18T14:03:22.610+0000] {ssh.py:545} WARNING - #10 17.49 Downloading opentelemetry_sdk-1.38.0-py3-none-any.whl (132 kB)
+[2025-11-18T14:03:22.725+0000] {ssh.py:545} WARNING - #10 17.53 Downloading opentelemetry_semantic_conventions-0.59b0-py3-none-any.whl (207 kB)
+[2025-11-18T14:03:22.725+0000] {ssh.py:545} WARNING - #10 17.57 Downloading packaging-25.0-py3-none-any.whl (66 kB)
+[2025-11-18T14:03:22.725+0000] {ssh.py:545} WARNING - #10 17.61 Downloading pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.8 MB)
+[2025-11-18T14:03:22.864+0000] {ssh.py:545} WARNING - #10 17.75    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.8/12.8 MB 91.9 MB/s  0:00:00
+[2025-11-18T14:03:22.977+0000] {ssh.py:545} WARNING - #10 17.77 Downloading protobuf-6.33.1-cp39-abi3-manylinux2014_x86_64.whl (323 kB)
+[2025-11-18T14:03:22.978+0000] {ssh.py:545} WARNING - #10 17.82 Downloading pydantic-2.12.4-py3-none-any.whl (463 kB)
+[2025-11-18T14:03:22.978+0000] {ssh.py:545} WARNING - #10 17.86 Downloading pydantic_core-2.41.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+[2025-11-18T14:03:23.085+0000] {ssh.py:545} WARNING - #10 17.88    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 93.8 MB/s  0:00:00
+[2025-11-18T14:03:23.085+0000] {ssh.py:545} WARNING - #10 17.91 Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+[2025-11-18T14:03:23.085+0000] {ssh.py:545} WARNING - #10 17.95 Downloading pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+[2025-11-18T14:03:23.086+0000] {ssh.py:545} WARNING - #10 17.97    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 806.6/806.6 kB 28.1 MB/s  0:00:00
+[2025-11-18T14:03:23.236+0000] {ssh.py:545} WARNING - #10 17.99 Downloading rsa-4.9.1-py3-none-any.whl (34 kB)
+[2025-11-18T14:03:23.236+0000] {ssh.py:545} WARNING - #10 18.03 Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+[2025-11-18T14:03:23.386+0000] {ssh.py:545} WARNING - #10 18.15    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 79.5 MB/s  0:00:00
+[2025-11-18T14:03:23.387+0000] {ssh.py:545} WARNING - #10 18.18 Downloading scipy-1.16.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (35.9 MB)
+[2025-11-18T14:03:23.666+0000] {ssh.py:545} WARNING - #10 18.55    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.9/35.9 MB 97.3 MB/s  0:00:00
+[2025-11-18T14:03:23.769+0000] {ssh.py:545} WARNING - #10 18.57 Downloading smmap-5.0.2-py3-none-any.whl (24 kB)
+[2025-11-18T14:03:23.769+0000] {ssh.py:545} WARNING - #10 18.61 Downloading sqlalchemy-2.0.44-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+[2025-11-18T14:03:23.769+0000] {ssh.py:545} WARNING - #10 18.65    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 74.2 MB/s  0:00:00
+[2025-11-18T14:03:23.873+0000] {ssh.py:545} WARNING - #10 18.68 Downloading sqlparse-0.5.3-py3-none-any.whl (44 kB)
+[2025-11-18T14:03:23.874+0000] {ssh.py:545} WARNING - #10 18.71 Downloading starlette-0.49.3-py3-none-any.whl (74 kB)
+[2025-11-18T14:03:23.874+0000] {ssh.py:545} WARNING - #10 18.76 Downloading anyio-4.11.0-py3-none-any.whl (109 kB)
+[2025-11-18T14:03:23.982+0000] {ssh.py:545} WARNING - #10 18.79 Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+[2025-11-18T14:03:23.982+0000] {ssh.py:545} WARNING - #10 18.83 Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+[2025-11-18T14:03:23.982+0000] {ssh.py:545} WARNING - #10 18.87 Downloading uvicorn-0.38.0-py3-none-any.whl (68 kB)
+[2025-11-18T14:03:24.093+0000] {ssh.py:545} WARNING - #10 18.90 Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+[2025-11-18T14:03:24.094+0000] {ssh.py:545} WARNING - #10 18.94 Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+[2025-11-18T14:03:24.094+0000] {ssh.py:545} WARNING - #10 18.98 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+[2025-11-18T14:03:24.233+0000] {ssh.py:545} WARNING - #10 19.01 Downloading certifi-2025.11.12-py3-none-any.whl (159 kB)
+[2025-11-18T14:03:24.233+0000] {ssh.py:545} WARNING - #10 19.05 Downloading contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (355 kB)
+[2025-11-18T14:03:24.233+0000] {ssh.py:545} WARNING - #10 19.12 Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+[2025-11-18T14:03:24.346+0000] {ssh.py:545} WARNING - #10 19.17 Downloading fonttools-4.60.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.0 MB)
+[2025-11-18T14:03:24.347+0000] {ssh.py:545} WARNING - #10 19.23    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 77.4 MB/s  0:00:00
+[2025-11-18T14:03:24.470+0000] {ssh.py:545} WARNING - #10 19.25 Downloading greenlet-3.2.4-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (587 kB)
+[2025-11-18T14:03:24.471+0000] {ssh.py:545} WARNING - #10 19.28    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 587.7/587.7 kB 17.2 MB/s  0:00:00
+[2025-11-18T14:03:24.471+0000] {ssh.py:545} WARNING - #10 19.30 Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+[2025-11-18T14:03:24.471+0000] {ssh.py:545} WARNING - #10 19.35 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+[2025-11-18T14:03:24.603+0000] {ssh.py:545} WARNING - #10 19.49 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+[2025-11-18T14:03:24.707+0000] {ssh.py:545} WARNING - #10 19.53 Downloading joblib-1.5.2-py3-none-any.whl (308 kB)
+[2025-11-18T14:03:24.707+0000] {ssh.py:545} WARNING - #10 19.57 Downloading kiwisolver-1.4.9-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.4 MB)
+[2025-11-18T14:03:24.707+0000] {ssh.py:545} WARNING - #10 19.59    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 61.6 MB/s  0:00:00
+[2025-11-18T14:03:24.854+0000] {ssh.py:545} WARNING - #10 19.62 Downloading markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+[2025-11-18T14:03:24.854+0000] {ssh.py:545} WARNING - #10 19.66 Downloading pillow-12.0.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+[2025-11-18T14:03:24.854+0000] {ssh.py:545} WARNING - #10 19.74    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 95.3 MB/s  0:00:00
+[2025-11-18T14:03:24.965+0000] {ssh.py:545} WARNING - #10 19.76 Downloading pyasn1-0.6.1-py3-none-any.whl (83 kB)
+[2025-11-18T14:03:24.965+0000] {ssh.py:545} WARNING - #10 19.80 Downloading pyasn1_modules-0.4.2-py3-none-any.whl (181 kB)
+[2025-11-18T14:03:24.965+0000] {ssh.py:545} WARNING - #10 19.85 Downloading pyparsing-3.2.5-py3-none-any.whl (113 kB)
+[2025-11-18T14:03:25.100+0000] {ssh.py:545} WARNING - #10 19.89 Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+[2025-11-18T14:03:25.100+0000] {ssh.py:545} WARNING - #10 19.93 Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+[2025-11-18T14:03:25.100+0000] {ssh.py:545} WARNING - #10 19.98 Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+[2025-11-18T14:03:25.204+0000] {ssh.py:545} WARNING - #10 20.02 Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+[2025-11-18T14:03:25.204+0000] {ssh.py:545} WARNING - #10 20.05 Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+[2025-11-18T14:03:25.204+0000] {ssh.py:545} WARNING - #10 20.09 Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+[2025-11-18T14:03:25.344+0000] {ssh.py:545} WARNING - #10 20.14 Downloading werkzeug-3.1.3-py3-none-any.whl (224 kB)
+[2025-11-18T14:03:25.344+0000] {ssh.py:545} WARNING - #10 20.18 Downloading zipp-3.23.0-py3-none-any.whl (10 kB)
+[2025-11-18T14:03:25.344+0000] {ssh.py:545} WARNING - #10 20.23 Downloading mako-1.3.10-py3-none-any.whl (78 kB)
+[2025-11-18T14:03:26.247+0000] {ssh.py:545} WARNING - #10 21.07 Installing collected packages: pytz, zipp, urllib3, tzdata, typing-extensions, threadpoolctl, sqlparse, sniffio, smmap, six, pyyaml, pyparsing, pyasn1, pyarrow, protobuf, polars, pillow, packaging, numpy, markupsafe, kiwisolver, joblib, itsdangerous, idna, h11, greenlet, graphql-core, fonttools, cycler, cloudpickle, click, charset-normalizer, certifi, cachetools, blinker, annotated-types, annotated-doc, werkzeug, uvicorn, typing-inspection, sqlalchemy, scipy, rsa, requests, python-dateutil, pydantic-core, pyasn1-modules, Mako, jinja2, importlib_metadata, gunicorn, graphql-relay, gitdb, contourpy, anyio, starlette, scikit-learn, pydantic, pandas, opentelemetry-api, matplotlib, graphene, google-auth, gitpython, Flask, docker, alembic, opentelemetry-semantic-conventions, fastapi, databricks-sdk, opentelemetry-sdk, mlflow-skinny, mlflow
+[2025-11-18T14:03:56.325+0000] {ssh.py:545} WARNING - #10 51.09 
+[2025-11-18T14:03:56.325+0000] {ssh.py:545} WARNING - #10 51.09 Successfully installed Flask-3.1.2 Mako-1.3.10 alembic-1.17.2 annotated-doc-0.0.4 annotated-types-0.7.0 anyio-4.11.0 blinker-1.9.0 cachetools-6.2.2 certifi-2025.11.12 charset-normalizer-3.4.4 click-8.3.1 cloudpickle-3.1.2 contourpy-1.3.3 cycler-0.12.1 databricks-sdk-0.73.0 docker-7.1.0 fastapi-0.121.2 fonttools-4.60.1 gitdb-4.0.12 gitpython-3.1.45 google-auth-2.43.0 graphene-3.4.3 graphql-core-3.2.7 graphql-relay-3.2.0 greenlet-3.2.4 gunicorn-23.0.0 h11-0.16.0 idna-3.11 importlib_metadata-8.7.0 itsdangerous-2.2.0 jinja2-3.1.6 joblib-1.5.2 kiwisolver-1.4.9 markupsafe-3.0.3 matplotlib-3.10.7 mlflow-3.1.1 mlflow-skinny-3.1.1 numpy-1.26.4 opentelemetry-api-1.38.0 opentelemetry-sdk-1.38.0 opentelemetry-semantic-conventions-0.59b0 packaging-25.0 pandas-2.3.3 pillow-12.0.0 polars-1.31.0 protobuf-6.33.1 pyarrow-20.0.0 pyasn1-0.6.1 pyasn1-modules-0.4.2 pydantic-2.12.4 pydantic-core-2.41.5 pyparsing-3.2.5 python-dateutil-2.9.0.post0 pytz-2025.2 pyyaml-6.0.3 requests-2.31.0 rsa-4.9.1 scikit-learn-1.7.2 scipy-1.16.3 six-1.17.0 smmap-5.0.2 sniffio-1.3.1 sqlalchemy-2.0.44 sqlparse-0.5.3 starlette-0.49.3 threadpoolctl-3.6.0 typing-extensions-4.15.0 typing-inspection-0.4.2 tzdata-2025.2 urllib3-2.5.0 uvicorn-0.38.0 werkzeug-3.1.3 zipp-3.23.0
+[2025-11-18T14:03:56.325+0000] {ssh.py:545} WARNING - #10 51.09 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-11-18T14:03:57.783+0000] {ssh.py:545} WARNING - #10 DONE 52.7s
+[2025-11-18T14:03:57.934+0000] {ssh.py:545} WARNING - #11 [7/7] RUN pip install .
+[2025-11-18T14:03:58.836+0000] {ssh.py:545} WARNING - #11 0.904 Processing /app
+[2025-11-18T14:03:58.836+0000] {ssh.py:545} WARNING - #11 0.906   Installing build dependencies: started
+[2025-11-18T14:04:00.039+0000] {ssh.py:545} WARNING - #11 2.108   Installing build dependencies: finished with status \'done\'
+[2025-11-18T14:04:00.039+0000] {ssh.py:545} WARNING - #11 2.108   Getting requirements to build wheel: started
+[2025-11-18T14:04:00.339+0000] {ssh.py:545} WARNING - #11 2.436   Getting requirements to build wheel: finished with status \'done\'
+[2025-11-18T14:04:00.340+0000] {ssh.py:545} WARNING - #11 2.438   Preparing metadata (pyproject.toml): started
+[2025-11-18T14:04:00.444+0000] {ssh.py:545} WARNING - #11 2.622   Preparing metadata (pyproject.toml): finished with status \'done\'
+[2025-11-18T14:04:00.595+0000] {ssh.py:545} WARNING - #11 2.624 Building wheels for collected packages: data_quality_check
+[2025-11-18T14:04:00.596+0000] {ssh.py:545} WARNING - #11 2.625   Building wheel for data_quality_check (pyproject.toml): started
+[2025-11-18T14:04:00.697+0000] {ssh.py:545} WARNING - #11 2.872   Building wheel for data_quality_check (pyproject.toml): finished with status \'done\'
+[2025-11-18T14:04:00.697+0000] {ssh.py:545} WARNING - #11 2.873   Created wheel for data_quality_check: filename=data_quality_check-0.0.0-py3-none-any.whl size=3073 sha256=6fd4f0e81a4c302b12d41d4c70568cb67908c5d9d770016034fd1e7c2be66ba3
+[2025-11-18T14:04:00.697+0000] {ssh.py:545} WARNING - #11 2.873   Stored in directory: /tmp/pip-ephem-wheel-cache-5vy8a_mm/wheels/57/0f/98/bb57b2b57b95807699b822a35c022f139d38a02c27922f27ce
+[2025-11-18T14:04:00.697+0000] {ssh.py:545} WARNING - #11 2.875 Successfully built data_quality_check
+[2025-11-18T14:04:00.809+0000] {ssh.py:545} WARNING - #11 2.987 Installing collected packages: data_quality_check
+[2025-11-18T14:04:00.960+0000] {ssh.py:545} WARNING - #11 3.005 Successfully installed data_quality_check-0.0.0
+[2025-11-18T14:04:00.960+0000] {ssh.py:545} WARNING - #11 3.005 WARNING: Running pip as the \'root\' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+[2025-11-18T14:04:01.255+0000] {ssh.py:545} WARNING - #11 DONE 3.4s
+[2025-11-18T14:04:01.406+0000] {ssh.py:545} WARNING - #12 exporting to image
+[2025-11-18T14:04:01.406+0000] {ssh.py:545} WARNING - #12 exporting layers
+[2025-11-18T14:04:07.120+0000] {ssh.py:545} WARNING - #12 exporting layers 5.8s done
+[2025-11-18T14:04:07.120+0000] {ssh.py:545} WARNING - #12 writing image sha256:c04ac0cf539e8855e2d9b5cf07dc02958ad0b70e15c8459b57c90c278bc9ccc7 0.0s done
+[2025-11-18T14:04:07.121+0000] {ssh.py:545} WARNING - #12 naming to docker.io/library/data_quality_check:latest 0.0s done
+[2025-11-18T14:04:07.121+0000] {ssh.py:545} WARNING - #12 DONE 5.8s
+[2025-11-18T14:04:07.197+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-18T14:04:07.198+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=prod_data_quality_check_dag, task_id=build_image, run_id=scheduled__2025-11-16T15:30:00+00:00, execution_date=20251116T153000, start_date=20251118T140254, end_date=20251118T140407
+[2025-11-18T14:04:07.239+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-18T14:04:07.257+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-18T14:04:07.258+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

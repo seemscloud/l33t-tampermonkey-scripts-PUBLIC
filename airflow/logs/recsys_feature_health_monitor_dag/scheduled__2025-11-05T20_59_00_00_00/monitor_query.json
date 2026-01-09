@@ -1,0 +1,55 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=recsys_feature_health_monitor_dag/run_id=scheduled__2025-11-05T20:59:00+00:00/task_id=monitor_query/attempt=1.log
+[2025-11-06T20:59:35.759+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-06T20:59:35.788+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_query scheduled__2025-11-05T20:59:00+00:00 [queued]>
+[2025-11-06T20:59:35.796+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_query scheduled__2025-11-05T20:59:00+00:00 [queued]>
+[2025-11-06T20:59:35.797+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-06T20:59:35.815+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): monitor_query> on 2025-11-05 20:59:00+00:00
+[2025-11-06T20:59:35.829+0000] {standard_task_runner.py:72} INFO - Started process 1327167 to run task
+[2025-11-06T20:59:35.833+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'recsys_feature_health_monitor_dag\', \'monitor_query\', \'scheduled__2025-11-05T20:59:00+00:00\', \'--job-id\', \'385\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/recsys_feature_health_monitor_dag.py\', \'--cfg-path\', \'/tmp/tmp5jwfbqk5\']
+[2025-11-06T20:59:35.835+0000] {standard_task_runner.py:105} INFO - Job 385: Subtask monitor_query
+[2025-11-06T20:59:35.871+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-06T20:59:35.927+0000] {task_command.py:467} INFO - Running <TaskInstance: recsys_feature_health_monitor_dag.monitor_query scheduled__2025-11-05T20:59:00+00:00 [running]> on host b689d2c26a55
+[2025-11-06T20:59:35.930+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-06T20:59:36.055+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'recsys_feature_health_monitor_dag\' AIRFLOW_CTX_TASK_ID=\'monitor_query\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-05T20:59:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-05T20:59:00+00:00\'
+[2025-11-06T20:59:36.056+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-06T20:59:36.081+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-06T20:59:36.081+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-06T20:59:36.097+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-06T20:59:36.363+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-06T20:59:36.374+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-06T20:59:37.307+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-06T20:59:37.308+0000] {ssh.py:494} INFO - Running command: docker exec -i recsys_feature_health_monitor_dag_container python cli.py 2025-11-04 config/config_query.yaml
+[2025-11-06T20:59:38.566+0000] {ssh.py:545} WARNING - /app/src/infrastructure/s3_repository.py:94: UserWarning: Polars found a filename. Ensure you pass a path to the file instead of a python file object when possible for best performance.
+[2025-11-06T20:59:38.566+0000] {ssh.py:545} WARNING -   df = pl.read_parquet(f)
+[2025-11-06T20:59:56.585+0000] {ssh.py:540} INFO - Evaluating features for date: 2025-11-04
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_count: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_clicks_30: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_clicks_15: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_clicks_7: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_clicks_3: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_clicks_1: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.586+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_baskets_30: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_baskets_15: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_baskets_7: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_baskets_3: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_baskets_1: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_views_30: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_views_15: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_views_7: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_views_3: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_views_1: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.587+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_mean_price_30: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.588+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_mean_price_15: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.588+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_mean_price_7: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.588+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_mean_price_3: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.588+0000] {ssh.py:540} INFO - ⚠️ File not found for feature query_query_n_mean_price_1: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/query/2025/11/02.parquet
+[2025-11-06T20:59:56.588+0000] {ssh.py:540} INFO - 
+[2025-11-06T20:59:56.588+0000] {ssh.py:540} INFO - ✅ No alerts detected
+[2025-11-06T20:59:56.977+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-06T20:59:56.977+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=recsys_feature_health_monitor_dag, task_id=monitor_query, run_id=scheduled__2025-11-05T20:59:00+00:00, execution_date=20251105T205900, start_date=20251106T205935, end_date=20251106T205956
+[2025-11-06T20:59:57.022+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-06T20:59:57.043+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-06T20:59:57.045+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

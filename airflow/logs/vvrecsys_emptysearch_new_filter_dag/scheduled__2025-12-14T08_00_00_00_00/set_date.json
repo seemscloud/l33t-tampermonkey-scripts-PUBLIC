@@ -1,0 +1,31 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_emptysearch_new_filter_dag/run_id=scheduled__2025-12-14T08:00:00+00:00/task_id=set_date/attempt=2.log
+[2025-12-16T05:01:03.819+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-16T05:01:03.831+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_emptysearch_new_filter_dag.set_date scheduled__2025-12-14T08:00:00+00:00 [queued]>
+[2025-12-16T05:01:03.838+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_emptysearch_new_filter_dag.set_date scheduled__2025-12-14T08:00:00+00:00 [queued]>
+[2025-12-16T05:01:03.838+0000] {taskinstance.py:2856} INFO - Starting attempt 2 of 2
+[2025-12-16T05:01:03.846+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): set_date> on 2025-12-14 08:00:00+00:00
+[2025-12-16T05:01:03.853+0000] {standard_task_runner.py:72} INFO - Started process 3298103 to run task
+[2025-12-16T05:01:03.856+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_emptysearch_new_filter_dag\', \'set_date\', \'scheduled__2025-12-14T08:00:00+00:00\', \'--job-id\', \'821\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_emptysearch_new_filter.py\', \'--cfg-path\', \'/tmp/tmpqokv42s2\']
+[2025-12-16T05:01:03.857+0000] {standard_task_runner.py:105} INFO - Job 821: Subtask set_date
+[2025-12-16T05:01:03.869+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-16T05:01:03.897+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_emptysearch_new_filter_dag.set_date scheduled__2025-12-14T08:00:00+00:00 [running]> on host b689d2c26a55
+[2025-12-16T05:01:03.898+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-16T05:01:03.962+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_emptysearch_new_filter_dag\' AIRFLOW_CTX_TASK_ID=\'set_date\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-14T08:00:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'2\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-14T08:00:00+00:00\'
+[2025-12-16T05:01:03.962+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-16T05:01:03.972+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-12-16T05:01:03.972+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-12-16T05:01:03.980+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-12-16T05:01:04.100+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-12-16T05:01:04.110+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-12-16T05:01:04.169+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-12-16T05:01:04.169+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_emptysearch_new_filter_dag_container python -m vvrecsys.cli.set_date  --config=configs/datasets.yaml --date 2025-12-13
+[2025-12-16T05:01:04.793+0000] {ssh.py:540} INFO - Attempt setting date...
+[2025-12-16T05:01:04.793+0000] {ssh.py:540} INFO - Date set to 2025-12-13
+[2025-12-16T05:01:05.004+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-16T05:01:05.005+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_emptysearch_new_filter_dag, task_id=set_date, run_id=scheduled__2025-12-14T08:00:00+00:00, execution_date=20251214T080000, start_date=20251216T050103, end_date=20251216T050105
+[2025-12-16T05:01:05.033+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-16T05:01:05.062+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-16T05:01:05.064+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

@@ -1,0 +1,30 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_emptysearch_dag/run_id=scheduled__2025-11-30T09:03:00+00:00/task_id=clone_git/attempt=1.log
+[2025-12-01T14:25:50.318+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-01T14:25:50.330+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_emptysearch_dag.clone_git scheduled__2025-11-30T09:03:00+00:00 [queued]>
+[2025-12-01T14:25:50.336+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_emptysearch_dag.clone_git scheduled__2025-11-30T09:03:00+00:00 [queued]>
+[2025-12-01T14:25:50.336+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-01T14:25:50.347+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): clone_git> on 2025-11-30 09:03:00+00:00
+[2025-12-01T14:25:50.354+0000] {standard_task_runner.py:72} INFO - Started process 2565950 to run task
+[2025-12-01T14:25:50.358+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_emptysearch_dag\', \'clone_git\', \'scheduled__2025-11-30T09:03:00+00:00\', \'--job-id\', \'615\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_emptysearch_dag.py\', \'--cfg-path\', \'/tmp/tmp9krer4j4\']
+[2025-12-01T14:25:50.359+0000] {standard_task_runner.py:105} INFO - Job 615: Subtask clone_git
+[2025-12-01T14:25:50.371+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-01T14:25:50.399+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_emptysearch_dag.clone_git scheduled__2025-11-30T09:03:00+00:00 [running]> on host b689d2c26a55
+[2025-12-01T14:25:50.399+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-01T14:25:50.450+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_emptysearch_dag\' AIRFLOW_CTX_TASK_ID=\'clone_git\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-30T09:03:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-30T09:03:00+00:00\'
+[2025-12-01T14:25:50.450+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-01T14:25:50.460+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-12-01T14:25:50.460+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-12-01T14:25:50.468+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-12-01T14:25:50.583+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-12-01T14:25:50.594+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-12-01T14:25:50.672+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-12-01T14:25:50.673+0000] {ssh.py:494} INFO - Running command: rm -rf vvrecsys_emptysearch_dag_vvrecsys; git clone https://***:***@gitlab-vv.vkusvill.ru/datalab/recsys-core/vvrecsys.git vvrecsys_emptysearch_dag_vvrecsys -b feature/new-filtering
+[2025-12-01T14:25:51.280+0000] {ssh.py:545} WARNING - Cloning into \'vvrecsys_emptysearch_dag_vvrecsys\'...
+[2025-12-01T14:25:52.378+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-01T14:25:52.379+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_emptysearch_dag, task_id=clone_git, run_id=scheduled__2025-11-30T09:03:00+00:00, execution_date=20251130T090300, start_date=20251201T142550, end_date=20251201T142552
+[2025-12-01T14:25:52.416+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-01T14:25:52.439+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-01T14:25:52.441+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

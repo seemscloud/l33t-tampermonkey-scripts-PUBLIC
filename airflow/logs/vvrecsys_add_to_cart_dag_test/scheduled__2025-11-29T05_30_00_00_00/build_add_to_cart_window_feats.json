@@ -1,0 +1,131 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_add_to_cart_dag_test/run_id=scheduled__2025-11-29T05:30:00+00:00/task_id=build_add_to_cart_window_feats/attempt=2.log
+[2025-11-30T20:03:43.273+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-30T20:03:43.289+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_add_to_cart_dag_test.build_add_to_cart_window_feats scheduled__2025-11-29T05:30:00+00:00 [queued]>
+[2025-11-30T20:03:43.298+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_add_to_cart_dag_test.build_add_to_cart_window_feats scheduled__2025-11-29T05:30:00+00:00 [queued]>
+[2025-11-30T20:03:43.298+0000] {taskinstance.py:2856} INFO - Starting attempt 2 of 2
+[2025-11-30T20:03:43.309+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): build_add_to_cart_window_feats> on 2025-11-29 05:30:00+00:00
+[2025-11-30T20:03:43.315+0000] {standard_task_runner.py:72} INFO - Started process 2527377 to run task
+[2025-11-30T20:03:43.319+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_add_to_cart_dag_test\', \'build_add_to_cart_window_feats\', \'scheduled__2025-11-29T05:30:00+00:00\', \'--job-id\', \'579\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_add_to_cart_dag_test.py\', \'--cfg-path\', \'/tmp/tmpar2i7wmx\']
+[2025-11-30T20:03:43.320+0000] {standard_task_runner.py:105} INFO - Job 579: Subtask build_add_to_cart_window_feats
+[2025-11-30T20:03:43.333+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-30T20:03:43.369+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_add_to_cart_dag_test.build_add_to_cart_window_feats scheduled__2025-11-29T05:30:00+00:00 [running]> on host b689d2c26a55
+[2025-11-30T20:03:43.370+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-30T20:03:43.474+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_add_to_cart_dag_test\' AIRFLOW_CTX_TASK_ID=\'build_add_to_cart_window_feats\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-29T05:30:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'2\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-29T05:30:00+00:00\'
+[2025-11-30T20:03:43.475+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-30T20:03:43.488+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-30T20:03:43.488+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-30T20:03:43.499+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-30T20:03:43.646+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-30T20:03:43.657+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-30T20:03:43.721+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-30T20:03:43.721+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_add_to_cart_dag_test_container python -m vvrecsys.cli.production --config=configs/production/add_to_cart_ranking_with_window_feats.yaml
+[2025-11-30T20:03:47.898+0000] {ssh.py:545} WARNING - INFO:root:start
+[2025-11-30T20:03:47.949+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.catalog:Date: None
+[2025-11-30T20:03:48.028+0000] {ssh.py:545} WARNING - INFO:vvrecsys.filters.ranking_new:Loading config from file: configs/ranking_configs/ranking_model_with_huge_window_2025.yaml
+[2025-11-30T20:03:48.049+0000] {ssh.py:545} WARNING - INFO:vvrecsys.filters.ranking_new:Downloading CatBoost model to /tmp/vvrecsys_catboost_9581773336305706/model.cbm
+[2025-11-30T20:03:48.173+0000] {ssh.py:545} WARNING - INFO:vvrecsys.filters.ranking_new:Loading CatBoost model from /tmp/vvrecsys_catboost_9581773336305706/model.cbm
+[2025-11-30T20:03:48.571+0000] {ssh.py:545} WARNING - 2025-11-30 20:03:47.798 | INFO     | features_tools.feature_loader:_find_newest_features_day_s3:48 - Found days: [\'2025/06/01\', \'2025/06/02\', \'2025/06/04\', \'2025/06/05\', \'2025/06/06\', \'2025/06/10\', \'2025/06/11\', \'2025/06/12\', \'2025/06/14\', \'2025/06/15\', \'2025/06/16\', \'2025/06/17\', \'2025/06/18\', \'2025/06/26\', \'2025/06/28\', \'2025/06/29\', \'2025/06/30\', \'2025/07/02\', \'2025/07/03\', \'2025/07/04\', \'2025/07/07\', \'2025/07/08\', \'2025/07/10\', \'2025/07/11\', \'2025/07/12\', \'2025/07/13\', \'2025/07/20\', \'2025/07/24\', \'2025/07/25\', \'2025/07/26\', \'2025/07/27\', \'2025/07/28\', \'2025/07/29\', \'2025/07/30\', \'2025/07/31\', \'2025/08/01\', \'2025/08/02\', \'2025/08/03\', \'2025/08/04\', \'2025/08/05\', \'2025/08/06\', \'2025/08/07\', \'2025/08/08\', \'2025/08/09\', \'2025/08/10\', \'2025/08/11\', \'2025/08/12\', \'2025/08/13\', \'2025/08/14\', \'2025/08/15\', \'2025/08/16\', \'2025/08/17\', \'2025/08/18\', \'2025/08/25\', \'2025/08/30\', \'2025/08/31\', \'2025/09/03\', \'2025/09/04\', \'2025/09/05\', \'2025/09/06\', \'2025/09/07\', \'2025/09/08\', \'2025/09/09\', \'2025/09/12\', \'2025/09/13\', \'2025/09/14\', \'2025/09/15\', \'2025/09/22\', \'2025/09/28\', \'2025/09/29\', \'2025/09/30\', \'2025/10/03\', \'2025/10/05\', \'2025/10/06\', \'2025/10/07\', \'2025/10/08\', \'2025/10/09\', \'2025/10/10\', \'2025/10/11\', \'2025/10/12\', \'2025/10/13\', \'2025/10/14\', \'2025/10/15\', \'2025/10/17\', \'2025/10/18\', \'2025/10/19\', \'2025/10/20\', \'2025/10/21\', \'2025/10/22\', \'2025/10/23\', \'2025/10/24\', \'2025/10/25\', \'2025/10/26\', \'2025/10/27\', \'2025/10/28\', \'2025/10/29\', \'2025/10/30\', \'2025/10/31\', \'2025/11/01\', \'2025/11/03\', \'2025/11/04\', \'2025/11/09\', \'2025/11/10\', \'2025/11/11\', \'2025/11/12\', \'2025/11/13\', \'2025/11/14\', \'2025/11/15\', \'2025/11/16\', \'2025/11/17\', \'2025/11/18\', \'2025/11/20\', \'2025/11/21\', \'2025/11/22\', \'2025/11/23\', \'2025/11/24\', \'2025/11/25\', \'2025/11/26\', \'2025/11/27\', \'2025/11/28\', \'2025/11/29\']
+[2025-11-30T20:03:49.346+0000] {ssh.py:545} WARNING - 2025-11-30 20:03:48.573 | INFO     | features_tools.feature_loader:load_feature_from_s3:16 - reading parquet from s3://vkusvillnew/recsys3/ranking_features/item/2025/11/29.parquet:
+[2025-11-30T20:03:49.346+0000] {ssh.py:545} WARNING - 2025-11-30 20:03:48.574 | INFO     | features_tools.feature_loader:load_feature_from_s3:18 - reading feature item
+[2025-11-30T20:03:49.347+0000] {ssh.py:545} WARNING - 2025-11-30 20:03:48.574 | INFO     | features_tools.feature_loader:get_features:70 - Loaded features for item
+[2025-11-30T20:03:54.113+0000] {ssh.py:545} WARNING - 2025-11-30 20:03:53.339 | INFO     | features_tools.feature_loader:load_feature_from_s3:16 - reading parquet from s3://vkusvillnew/recsys3/ranking_features/user/2025/11/29.parquet:
+[2025-11-30T20:03:54.113+0000] {ssh.py:545} WARNING - 2025-11-30 20:03:53.340 | INFO     | features_tools.feature_loader:load_feature_from_s3:18 - reading feature user
+[2025-11-30T20:04:14.809+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:14.036 | INFO     | features_tools.feature_loader:load_feature_from_s3:16 - reading parquet from s3://vkusvillnew/recsys3/ranking_features/useritem/2025/11/29.parquet:
+[2025-11-30T20:04:14.810+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:14.037 | INFO     | features_tools.feature_loader:load_feature_from_s3:18 - reading feature useritem
+[2025-11-30T20:04:14.810+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:14.037 | INFO     | features_tools.feature_loader:get_features:70 - Loaded features for useritem
+[2025-11-30T20:04:35.445+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:34.670 | INFO     | features_tools.feature_loader:load_feature_from_s3:16 - reading parquet from s3://vkusvillnew/recsys3/ranking_features/usercat/2025/11/29.parquet:
+[2025-11-30T20:04:35.445+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:34.672 | INFO     | features_tools.feature_loader:load_feature_from_s3:18 - reading feature usercat
+[2025-11-30T20:04:35.445+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:34.672 | INFO     | features_tools.feature_loader:get_features:70 - Loaded features for usercat
+[2025-11-30T20:04:35.446+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:34.673 | INFO     | features_tools.feature_loader:get_features:70 - Loaded features for user
+[2025-11-30T20:04:35.449+0000] {ssh.py:545} WARNING - 2025-11-30 20:04:34.676 | INFO     | features_tools.feature_loader:get_newest_features:81 - Successfully loaded features for the day: 2025/11/29
+[2025-11-30T20:04:35.452+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.features_loader_new:Converting 5 boolean columns to int in \'item\': [\'item_is_cheap_in_category_1\', \'item_is_cheap_in_category_3\', \'item_is_cheap_in_category_7\', \'item_is_cheap_in_category_15\', \'item_is_cheap_in_category_30\']
+[2025-11-30T20:04:35.485+0000] {ssh.py:545} WARNING - INFO:root:config loaded!
+[2025-11-30T20:04:35.485+0000] {ssh.py:545} WARNING - INFO:root:targets: unpacking...
+[2025-11-30T20:04:35.485+0000] {ssh.py:545} WARNING - INFO:root:unpacking target: recommends_ranking_with_window_feats...
+[2025-11-30T20:04:35.487+0000] {ssh.py:545} WARNING - INFO:root:unpacking focus_users...
+[2025-11-30T20:04:35.487+0000] {ssh.py:545} WARNING - INFO:root:unpacking target filters...
+[2025-11-30T20:04:35.487+0000] {ssh.py:545} WARNING - INFO:root:unpacking save_path...
+[2025-11-30T20:04:35.549+0000] {ssh.py:545} WARNING - INFO:root:targets: unpacked!
+[2025-11-30T20:04:35.560+0000] {ssh.py:540} INFO - None
+[2025-11-30T20:04:35.560+0000] {ssh.py:540} INFO - vkusvillnew/recsys3/ranking_features/usercat
+[2025-11-30T20:04:35.561+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:04:35.561+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:   0%|          | 0/14 [00:00<?, ?it/s]
+[2025-11-30T20:04:36.839+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:04:36.840+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:05:42.103+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 8104442 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 11895558. Removing duplicates using group_by aggregation.
+[2025-11-30T20:09:26.080+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:09:26.080+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:   7%|▋         | 1/14 [04:50<1:02:56, 290.51s/it]
+[2025-11-30T20:09:26.889+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:09:26.889+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:10:28.176+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 8539926 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 11460074. Removing duplicates using group_by aggregation.
+[2025-11-30T20:14:10.518+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:14:10.518+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  14%|█▍        | 2/14 [09:34<57:23, 286.94s/it]  
+[2025-11-30T20:14:11.254+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:14:11.254+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:15:11.523+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 6620463 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 13379537. Removing duplicates using group_by aggregation.
+[2025-11-30T20:19:01.525+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:19:01.525+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  21%|██▏       | 3/14 [14:25<52:56, 288.79s/it]
+[2025-11-30T20:19:02.519+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:19:02.520+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:20:04.449+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 6186754 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 13813246. Removing duplicates using group_by aggregation.
+[2025-11-30T20:23:54.315+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:23:54.316+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  29%|██▊       | 4/14 [19:18<48:23, 290.37s/it]
+[2025-11-30T20:23:55.150+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:23:55.151+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:24:55.211+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 7291384 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 12708616. Removing duplicates using group_by aggregation.
+[2025-11-30T20:28:41.674+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:28:41.674+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  36%|███▌      | 5/14 [24:06<43:23, 289.28s/it]
+[2025-11-30T20:28:42.627+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:28:42.628+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:29:44.608+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 7157513 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 12842487. Removing duplicates using group_by aggregation.
+[2025-11-30T20:33:32.623+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:33:32.623+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  43%|████▎     | 6/14 [28:57<38:38, 289.85s/it]
+[2025-11-30T20:33:33.459+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:33:33.459+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:34:41.721+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 10976312 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 9023688. Removing duplicates using group_by aggregation.
+[2025-11-30T20:38:20.344+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:38:20.344+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  50%|█████     | 7/14 [33:44<33:44, 289.15s/it]
+[2025-11-30T20:38:20.874+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:38:20.874+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:39:12.947+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 13422737 duplicate rows based on [\'user\', \'item\']. Initial rows: 17251400, unique rows: 3828663. Removing duplicates using group_by aggregation.
+[2025-11-30T20:41:54.805+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:41:54.806+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  57%|█████▋    | 8/14 [37:19<26:32, 265.37s/it]
+[2025-11-30T20:41:55.498+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:41:55.499+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:42:55.523+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 11358359 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 8641641. Removing duplicates using group_by aggregation.
+[2025-11-30T20:46:28.333+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:46:28.333+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  64%|██████▍   | 9/14 [41:52<22:19, 267.92s/it]
+[2025-11-30T20:46:29.400+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:46:29.401+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:47:32.874+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 9659918 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 10340082. Removing duplicates using group_by aggregation.
+[2025-11-30T20:51:17.410+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:51:17.410+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  71%|███████▏  | 10/14 [46:41<18:17, 274.45s/it]
+[2025-11-30T20:51:18.431+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:51:18.431+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:52:19.924+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 7851515 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 12148485. Removing duplicates using group_by aggregation.
+[2025-11-30T20:56:04.057+0000] {ssh.py:545} WARNING - 
+[2025-11-30T20:56:04.057+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  79%|███████▊  | 11/14 [51:28<13:54, 278.18s/it]
+[2025-11-30T20:56:05.152+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T20:56:05.153+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T20:57:09.835+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 7002024 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 12997976. Removing duplicates using group_by aggregation.
+[2025-11-30T21:00:51.831+0000] {ssh.py:545} WARNING - 
+[2025-11-30T21:00:51.831+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  86%|████████▌ | 12/14 [56:16<09:22, 281.10s/it]
+[2025-11-30T21:00:52.865+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T21:00:52.865+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T21:01:55.747+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 7511747 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 12488253. Removing duplicates using group_by aggregation.
+[2025-11-30T21:05:28.691+0000] {ssh.py:545} WARNING - 
+[2025-11-30T21:05:28.691+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates:  93%|█████████▎| 13/14 [1:00:53<04:39, 279.81s/it]
+[2025-11-30T21:05:29.371+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:237: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-11-30T21:05:29.371+0000] {ssh.py:545} WARNING -   assert K < len(df.columns)
+[2025-11-30T21:06:27.298+0000] {ssh.py:545} WARNING - WARNING:vvrecsys.utils.validation:Found 11084182 duplicate rows based on [\'user\', \'item\']. Initial rows: 20000000, unique rows: 8915818. Removing duplicates using group_by aggregation.
+[2025-11-30T21:09:58.455+0000] {ssh.py:545} WARNING - 
+[2025-11-30T21:09:58.455+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates: 100%|██████████| 14/14 [1:05:22<00:00, 276.78s/it]
+[2025-11-30T21:09:58.455+0000] {ssh.py:545} WARNING - Transfer data/models/iptop/candidates: 100%|██████████| 14/14 [1:05:22<00:00, 280.20s/it]
+[2025-11-30T21:10:18.322+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-30T21:10:18.323+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_add_to_cart_dag_test, task_id=build_add_to_cart_window_feats, run_id=scheduled__2025-11-29T05:30:00+00:00, execution_date=20251129T053000, start_date=20251130T200343, end_date=20251130T211018
+[2025-11-30T21:10:18.358+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-30T21:10:18.374+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-30T21:10:18.375+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

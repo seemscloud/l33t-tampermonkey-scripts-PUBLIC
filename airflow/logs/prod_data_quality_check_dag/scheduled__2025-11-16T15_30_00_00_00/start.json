@@ -1,0 +1,2 @@
+[('', "*** Could not read served logs: Invalid URL 'http://:8793/log/dag_id=prod_data_quality_check_dag/run_id=scheduled__2025-11-16T15:30:00+00:00/task_id=start/attempt=4.log': No host supplied
+")]

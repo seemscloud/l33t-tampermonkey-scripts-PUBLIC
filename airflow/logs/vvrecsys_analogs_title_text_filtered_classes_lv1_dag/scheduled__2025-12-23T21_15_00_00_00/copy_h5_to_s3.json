@@ -1,0 +1,142 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag/run_id=scheduled__2025-12-23T21:15:00+00:00/task_id=copy_h5_to_s3/attempt=1.log
+[2025-12-25T14:31:04.643+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-25T14:31:04.657+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.copy_h5_to_s3 scheduled__2025-12-23T21:15:00+00:00 [queued]>
+[2025-12-25T14:31:04.663+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.copy_h5_to_s3 scheduled__2025-12-23T21:15:00+00:00 [queued]>
+[2025-12-25T14:31:04.664+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-25T14:31:04.672+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): copy_h5_to_s3> on 2025-12-23 21:15:00+00:00
+[2025-12-25T14:31:04.680+0000] {standard_task_runner.py:72} INFO - Started process 3767322 to run task
+[2025-12-25T14:31:04.683+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\', \'copy_h5_to_s3\', \'scheduled__2025-12-23T21:15:00+00:00\', \'--job-id\', \'1034\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_analogs_title_text_filtered_classes_lv1_dag.py\', \'--cfg-path\', \'/tmp/tmphlwkk1yg\']
+[2025-12-25T14:31:04.685+0000] {standard_task_runner.py:105} INFO - Job 1034: Subtask copy_h5_to_s3
+[2025-12-25T14:31:04.697+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-25T14:31:04.730+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_analogs_title_text_filtered_classes_lv1_dag.copy_h5_to_s3 scheduled__2025-12-23T21:15:00+00:00 [running]> on host b689d2c26a55
+[2025-12-25T14:31:04.730+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-25T14:31:04.794+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'v.zelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_analogs_title_text_filtered_classes_lv1_dag\' AIRFLOW_CTX_TASK_ID=\'copy_h5_to_s3\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-23T21:15:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-23T21:15:00+00:00\'
+[2025-12-25T14:31:04.795+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-25T14:31:04.806+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-12-25T14:31:04.807+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-12-25T14:31:04.816+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-12-25T14:31:04.860+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-12-25T14:31:04.887+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-12-25T14:31:05.033+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-12-25T14:31:05.034+0000] {ssh.py:494} INFO - Running command: 
+        export AWS_ACCESS_KEY_ID=YCAJEDtMjrDd40h_SQE4mFrjZ
+        export AWS_SECRET_ACCESS_KEY=***
+        aws s3 cp /srv/data/production/analogs_text/ s3://vkusvillnew/recsys3/production/2025/12/23/analogs_text/ --recursive --exclude \'*\' --include \'*.parquet\' --endpoint-url=https://storage.yandexcloud.net
+        
+[2025-12-25T14:31:05.600+0000] {ssh.py:540} INFO - Completed 256.0 KiB/24.4 MiB (8.9 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.601+0000] {ssh.py:540} INFO - Completed 512.0 KiB/24.4 MiB (17.0 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.602+0000] {ssh.py:540} INFO - Completed 768.0 KiB/24.4 MiB (24.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.603+0000] {ssh.py:540} INFO - Completed 1.0 MiB/24.4 MiB (31.1 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.606+0000] {ssh.py:540} INFO - Completed 1.2 MiB/24.4 MiB (36.0 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.607+0000] {ssh.py:540} INFO - Completed 1.5 MiB/24.4 MiB (41.6 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.608+0000] {ssh.py:540} INFO - Completed 1.8 MiB/24.4 MiB (47.3 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.609+0000] {ssh.py:540} INFO - Completed 2.0 MiB/24.4 MiB (52.8 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.610+0000] {ssh.py:540} INFO - Completed 2.2 MiB/24.4 MiB (58.1 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.611+0000] {ssh.py:540} INFO - Completed 2.5 MiB/24.4 MiB (63.3 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.611+0000] {ssh.py:540} INFO - Completed 2.8 MiB/24.4 MiB (68.3 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.612+0000] {ssh.py:540} INFO - Completed 3.0 MiB/24.4 MiB (72.7 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.613+0000] {ssh.py:540} INFO - Completed 3.2 MiB/24.4 MiB (77.3 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.614+0000] {ssh.py:540} INFO - Completed 3.5 MiB/24.4 MiB (81.7 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.618+0000] {ssh.py:540} INFO - Completed 3.8 MiB/24.4 MiB (79.9 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.622+0000] {ssh.py:540} INFO - Completed 4.0 MiB/24.4 MiB (78.4 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.624+0000] {ssh.py:540} INFO - Completed 4.2 MiB/24.4 MiB (80.4 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.627+0000] {ssh.py:540} INFO - Completed 4.5 MiB/24.4 MiB (80.2 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.628+0000] {ssh.py:540} INFO - Completed 4.8 MiB/24.4 MiB (83.5 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.630+0000] {ssh.py:540} INFO - Completed 5.0 MiB/24.4 MiB (85.2 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.631+0000] {ssh.py:540} INFO - Completed 5.2 MiB/24.4 MiB (87.0 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.634+0000] {ssh.py:540} INFO - Completed 5.5 MiB/24.4 MiB (87.6 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.634+0000] {ssh.py:540} INFO - Completed 5.8 MiB/24.4 MiB (91.2 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.636+0000] {ssh.py:540} INFO - Completed 6.0 MiB/24.4 MiB (92.4 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.637+0000] {ssh.py:540} INFO - Completed 6.2 MiB/24.4 MiB (94.7 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.642+0000] {ssh.py:540} INFO - Completed 6.5 MiB/24.4 MiB (91.1 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.645+0000] {ssh.py:540} INFO - Completed 6.8 MiB/24.4 MiB (91.9 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.646+0000] {ssh.py:540} INFO - Completed 7.0 MiB/24.4 MiB (93.5 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.647+0000] {ssh.py:540} INFO - Completed 7.2 MiB/24.4 MiB (95.4 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.648+0000] {ssh.py:540} INFO - Completed 7.5 MiB/24.4 MiB (96.9 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.651+0000] {ssh.py:540} INFO - Completed 7.8 MiB/24.4 MiB (97.7 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.652+0000] {ssh.py:540} INFO - Completed 8.0 MiB/24.4 MiB (98.9 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.654+0000] {ssh.py:540} INFO - Completed 8.2 MiB/24.4 MiB (99.8 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.655+0000] {ssh.py:540} INFO - Completed 8.5 MiB/24.4 MiB (101.3 MiB/s) with 5 file(s) remaining 
+[2025-12-25T14:31:05.660+0000] {ssh.py:540} INFO - Completed 8.8 MiB/24.4 MiB (98.5 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.663+0000] {ssh.py:540} INFO - Completed 9.0 MiB/24.4 MiB (98.3 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.664+0000] {ssh.py:540} INFO - Completed 9.2 MiB/24.4 MiB (99.8 MiB/s) with 5 file(s) remaining  
+[2025-12-25T14:31:05.664+0000] {ssh.py:540} INFO - Completed 9.5 MiB/24.4 MiB (102.0 MiB/s) with 5 file(s) remaining 
+[2025-12-25T14:31:05.666+0000] {ssh.py:540} INFO - Completed 9.8 MiB/24.4 MiB (102.9 MiB/s) with 5 file(s) remaining 
+[2025-12-25T14:31:05.666+0000] {ssh.py:540} INFO - Completed 10.0 MiB/24.4 MiB (105.0 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.668+0000] {ssh.py:540} INFO - Completed 10.2 MiB/24.4 MiB (106.0 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.669+0000] {ssh.py:540} INFO - Completed 10.5 MiB/24.4 MiB (107.0 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.670+0000] {ssh.py:540} INFO - Completed 10.8 MiB/24.4 MiB (109.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.671+0000] {ssh.py:540} INFO - Completed 11.0 MiB/24.4 MiB (110.2 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.672+0000] {ssh.py:540} INFO - Completed 11.2 MiB/24.4 MiB (111.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.672+0000] {ssh.py:540} INFO - Completed 11.5 MiB/24.4 MiB (113.2 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.674+0000] {ssh.py:540} INFO - Completed 11.8 MiB/24.4 MiB (114.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.675+0000] {ssh.py:540} INFO - Completed 12.0 MiB/24.4 MiB (115.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.675+0000] {ssh.py:540} INFO - Completed 12.2 MiB/24.4 MiB (117.2 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.677+0000] {ssh.py:540} INFO - Completed 12.5 MiB/24.4 MiB (117.8 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.678+0000] {ssh.py:540} INFO - Completed 12.8 MiB/24.4 MiB (118.8 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.679+0000] {ssh.py:540} INFO - Completed 13.0 MiB/24.4 MiB (120.5 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.680+0000] {ssh.py:540} INFO - Completed 13.2 MiB/24.4 MiB (121.1 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.681+0000] {ssh.py:540} INFO - Completed 13.5 MiB/24.4 MiB (122.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.682+0000] {ssh.py:540} INFO - Completed 13.8 MiB/24.4 MiB (123.7 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.683+0000] {ssh.py:540} INFO - Completed 14.0 MiB/24.4 MiB (124.4 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.685+0000] {ssh.py:540} INFO - Completed 14.0 MiB/24.4 MiB (123.4 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.685+0000] {ssh.py:540} INFO - Completed 14.3 MiB/24.4 MiB (125.1 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.686+0000] {ssh.py:540} INFO - Completed 14.5 MiB/24.4 MiB (126.0 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.688+0000] {ssh.py:540} INFO - Completed 14.8 MiB/24.4 MiB (126.7 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.688+0000] {ssh.py:540} INFO - Completed 15.0 MiB/24.4 MiB (128.5 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.689+0000] {ssh.py:540} INFO - Completed 15.3 MiB/24.4 MiB (128.9 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.690+0000] {ssh.py:540} INFO - Completed 15.5 MiB/24.4 MiB (130.3 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.691+0000] {ssh.py:540} INFO - Completed 15.8 MiB/24.4 MiB (131.4 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.693+0000] {ssh.py:540} INFO - Completed 16.0 MiB/24.4 MiB (131.7 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.693+0000] {ssh.py:540} INFO - Completed 16.3 MiB/24.4 MiB (133.1 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.695+0000] {ssh.py:540} INFO - Completed 16.5 MiB/24.4 MiB (132.7 MiB/s) with 5 file(s) remaining
+[2025-12-25T14:31:05.695+0000] {ssh.py:540} INFO - upload: ../../srv/data/production/analogs_text/merged_reordered.parquet to s3://vkusvillnew/recsys3/production/2025/12/23/analogs_text/merged_reordered.parquet
+[2025-12-25T14:31:05.696+0000] {ssh.py:540} INFO - Completed 16.5 MiB/24.4 MiB (132.7 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.696+0000] {ssh.py:540} INFO - Completed 16.7 MiB/24.4 MiB (133.6 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.697+0000] {ssh.py:540} INFO - Completed 17.0 MiB/24.4 MiB (134.8 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.697+0000] {ssh.py:540} INFO - Completed 17.2 MiB/24.4 MiB (135.9 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.698+0000] {ssh.py:540} INFO - Completed 17.5 MiB/24.4 MiB (137.0 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.699+0000] {ssh.py:540} INFO - Completed 17.7 MiB/24.4 MiB (137.9 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.700+0000] {ssh.py:540} INFO - Completed 18.0 MiB/24.4 MiB (138.7 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.701+0000] {ssh.py:540} INFO - Completed 18.2 MiB/24.4 MiB (139.6 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.702+0000] {ssh.py:540} INFO - Completed 18.5 MiB/24.4 MiB (140.5 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.703+0000] {ssh.py:540} INFO - Completed 18.7 MiB/24.4 MiB (141.2 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.705+0000] {ssh.py:540} INFO - Completed 18.9 MiB/24.4 MiB (141.0 MiB/s) with 4 file(s) remaining
+[2025-12-25T14:31:05.705+0000] {ssh.py:540} INFO - upload: ../../srv/data/production/analogs_text/merge_text_lv1_lv2.parquet to s3://vkusvillnew/recsys3/production/2025/12/23/analogs_text/merge_text_lv1_lv2.parquet
+[2025-12-25T14:31:05.705+0000] {ssh.py:540} INFO - Completed 18.9 MiB/24.4 MiB (141.0 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.706+0000] {ssh.py:540} INFO - Completed 19.1 MiB/24.4 MiB (142.2 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.706+0000] {ssh.py:540} INFO - Completed 19.4 MiB/24.4 MiB (143.2 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.707+0000] {ssh.py:540} INFO - Completed 19.6 MiB/24.4 MiB (144.3 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.707+0000] {ssh.py:540} INFO - Completed 19.9 MiB/24.4 MiB (145.4 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.712+0000] {ssh.py:540} INFO - Completed 20.1 MiB/24.4 MiB (143.0 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.713+0000] {ssh.py:540} INFO - Completed 20.4 MiB/24.4 MiB (143.7 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.714+0000] {ssh.py:540} INFO - Completed 20.5 MiB/24.4 MiB (143.5 MiB/s) with 3 file(s) remaining
+[2025-12-25T14:31:05.715+0000] {ssh.py:540} INFO - upload: ../../srv/data/production/analogs_text/recommends_title_filter_class.parquet to s3://vkusvillnew/recsys3/production/2025/12/23/analogs_text/recommends_title_filter_class.parquet
+[2025-12-25T14:31:05.715+0000] {ssh.py:540} INFO - Completed 20.5 MiB/24.4 MiB (143.5 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.715+0000] {ssh.py:540} INFO - Completed 20.8 MiB/24.4 MiB (144.0 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.716+0000] {ssh.py:540} INFO - Completed 21.0 MiB/24.4 MiB (144.8 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.717+0000] {ssh.py:540} INFO - Completed 21.3 MiB/24.4 MiB (145.8 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.718+0000] {ssh.py:540} INFO - Completed 21.5 MiB/24.4 MiB (146.6 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.719+0000] {ssh.py:540} INFO - Completed 21.8 MiB/24.4 MiB (147.2 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.720+0000] {ssh.py:540} INFO - Completed 22.0 MiB/24.4 MiB (148.1 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.720+0000] {ssh.py:540} INFO - Completed 22.3 MiB/24.4 MiB (149.0 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.721+0000] {ssh.py:540} INFO - Completed 22.5 MiB/24.4 MiB (149.9 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.740+0000] {ssh.py:540} INFO - Completed 22.8 MiB/24.4 MiB (135.2 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.740+0000] {ssh.py:540} INFO - Completed 23.0 MiB/24.4 MiB (136.1 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.741+0000] {ssh.py:540} INFO - Completed 23.3 MiB/24.4 MiB (137.0 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.745+0000] {ssh.py:540} INFO - Completed 23.5 MiB/24.4 MiB (135.7 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.745+0000] {ssh.py:540} INFO - Completed 23.8 MiB/24.4 MiB (136.5 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.746+0000] {ssh.py:540} INFO - Completed 24.0 MiB/24.4 MiB (137.4 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.747+0000] {ssh.py:540} INFO - Completed 24.3 MiB/24.4 MiB (138.3 MiB/s) with 2 file(s) remaining
+[2025-12-25T14:31:05.836+0000] {ssh.py:540} INFO - upload: ../../srv/data/production/analogs_text/recommends_title.parquet to s3://vkusvillnew/recsys3/production/2025/12/23/analogs_text/recommends_title.parquet
+[2025-12-25T14:31:05.837+0000] {ssh.py:540} INFO - Completed 24.3 MiB/24.4 MiB (138.3 MiB/s) with 1 file(s) remaining
+[2025-12-25T14:31:05.855+0000] {ssh.py:540} INFO - Completed 24.4 MiB/24.4 MiB (85.7 MiB/s) with 1 file(s) remaining 
+[2025-12-25T14:31:05.856+0000] {ssh.py:540} INFO - upload: ../../srv/data/production/analogs_text/recommends.parquet to s3://vkusvillnew/recsys3/production/2025/12/23/analogs_text/recommends.parquet
+[2025-12-25T14:31:05.946+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-25T14:31:05.946+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_analogs_title_text_filtered_classes_lv1_dag, task_id=copy_h5_to_s3, run_id=scheduled__2025-12-23T21:15:00+00:00, execution_date=20251223T211500, start_date=20251225T143104, end_date=20251225T143105
+[2025-12-25T14:31:05.980+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-25T14:31:05.995+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-25T14:31:05.997+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

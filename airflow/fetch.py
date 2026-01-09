@@ -5,20 +5,278 @@ import argparse
 import concurrent.futures
 import threading
 import sys
+import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, Optional, Tuple
 from datetime import datetime
 import ast
-
 import requests
+import urllib3
 from requests.auth import HTTPBasicAuth
 
 
-def build_session(username: str, password: str) -> requests.Session:
+def _log(msg: str) -> None:
+    sys.stderr.write(f"{msg.rstrip()}\n")
+
+
+# HTTP defaults (non-configurable via CLI)
+HTTP_TIMEOUT = 15
+HTTP_CONNECT_TIMEOUT = 5
+HTTP_RETRIES = 3
+HTTP_RETRY_DELAY = 2
+
+
+def _set_bearer(session: requests.Session, token: str, ctx: Dict[str, Any]) -> None:
+    """Apply bearer token consistently to headers, cookies and context."""
+    session.headers["Authorization"] = f"Bearer {token}"
+    session.cookies.set("access_token", token, path="/")
+    session.cookies.set("Authorization", f"Bearer {token}", path="/")
+    # Disable Basic Auth once bearer is available to avoid overwriting Authorization.
+    session.auth = None
+    ctx["bearer"] = token
+    # Airflow 3.x uses DAG source v2; prefer it once bearer exists.
+    ctx["prefer_v2_dagsource"] = True
+
+
+def build_session(
+    username: str,
+    password: str,
+    base_url: str,
+    http_timeout: int,
+    http_connect_timeout: int,
+    http_retries: int,
+    http_retry_delay: int,
+    verify_tls: bool,
+) -> requests.Session:
     session = requests.Session()
+    session.verify = verify_tls
+    if not verify_tls:
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    # Basic Auth first; if server rejects with 401 we also try form login.
     session.auth = HTTPBasicAuth(username, password)
     session.headers.update({"Accept": "application/json"})
+    session._airflow_login_ctx = {  # type: ignore[attr-defined]
+        "base_url": base_url,
+        "username": username,
+        "password": password,
+        "attempted_form_login": False,
+        "attempted_api_login": False,
+        "bearer": None,
+        "csrf": None,
+        "http_timeout": http_timeout,
+        "http_connect_timeout": http_connect_timeout,
+        "http_retries": http_retries,
+        "http_retry_delay": http_retry_delay,
+    }
     return session
+
+
+def _normalize_base_path(base_path: str) -> str:
+    """Ensure base path starts with / and has no trailing slash (except root)."""
+    bp = (base_path or "").strip()
+    if bp and not bp.startswith("/"):
+        bp = f"/{bp}"
+    return bp.rstrip("/")
+
+
+def _probe_base_url(
+    session: requests.Session,
+    base_url: str,
+    timeout: int,
+    connect_timeout: Optional[int],
+    retries: int,
+    retry_delay: int,
+) -> bool:
+    """
+    Quickly check if an Airflow API likely lives under base_url by probing
+    a small set of endpoints. Treat 200/401/403 as success (path exists).
+    404 means this base_url is probably wrong; other 4xx/5xx are ignored.
+    At least one /api/* probe must succeed; /health alone is not sufficient.
+    """
+    probe_paths = ["/api/v1/health", "/api/v1/dags?limit=1", "/health"]
+    api_probe_succeeded = False
+    for path in probe_paths:
+        url = f"{base_url.rstrip('/')}{path}"
+        last_exc: Optional[Exception] = None
+        for attempt in range(max(1, retries)):
+            try:
+                timeout_arg = (connect_timeout, timeout) if connect_timeout else timeout
+                resp = session.get(url, timeout=timeout_arg, headers={"Accept": "application/json"})
+            except requests.RequestException as exc:
+                last_exc = exc
+                _log(f"[probe] {url} attempt {attempt+1}/{retries} error: {exc}")
+                if attempt < retries - 1:
+                    time.sleep(retry_delay)
+                    continue
+                break
+
+            _log(
+                f"[probe] {url} attempt {attempt+1}/{retries} status={resp.status_code} "
+                f"len={len(resp.text or '')}"
+            )
+            if resp.status_code in (200, 401, 403):
+                if path.startswith("/api/"):
+                    api_probe_succeeded = True
+                    break
+                # /health success is noted but not sufficient alone
+                break
+            if resp.status_code == 404:
+                break
+            if resp.status_code < 500:
+                if path.startswith("/api/"):
+                    api_probe_succeeded = True
+                    break
+                break
+            if attempt < retries - 1:
+                time.sleep(retry_delay)
+        if last_exc:
+            continue
+    return api_probe_succeeded
+
+
+def discover_base_url(
+    session: requests.Session,
+    scheme: str,
+    host: str,
+    port: int,
+    user_base_path: str,
+    timeout: int,
+    connect_timeout: Optional[int],
+    retries: int,
+    retry_delay: int,
+) -> Tuple[Optional[str], Optional[str], list[str]]:
+    """
+    Try a set of base path candidates to find a working Airflow API root.
+    Returns (base_url, base_path_used, tried_paths_display).
+    """
+    candidates_raw = [
+        user_base_path,
+        "",
+        "/airflow",
+        "/airflow/api",
+        "/api",
+        "/api/v1/ui",
+    ]
+    candidates: list[str] = []
+    for cand in candidates_raw:
+        norm = _normalize_base_path(cand)
+        if norm not in candidates:
+            candidates.append(norm)
+
+    tried_display: list[str] = []
+    for cand in candidates:
+        base_url = f"{scheme}://{host}:{port}{cand}"
+        tried_display.append(cand or "/")
+        _log(f"[probe] trying base_path='{cand or '/'}' -> {base_url}")
+        if _probe_base_url(session, base_url, timeout, connect_timeout, retries, retry_delay):
+            return base_url, cand, tried_display
+    return None, None, tried_display
+
+
+def _try_api_login(session: requests.Session) -> bool:
+    """
+    Try Airflow API login endpoint to obtain bearer token (JWT for Airflow 3.x, session auth for 2.x).
+    """
+    ctx = getattr(session, "_airflow_login_ctx", None)
+    if not ctx or ctx.get("attempted_api_login"):
+        return False
+    ctx["attempted_api_login"] = True
+    base_url = ctx.get("base_url") or ""
+    username = ctx.get("username") or ""
+    password = ctx.get("password") or ""
+    if not base_url or not username or not password:
+        return False
+
+    # Airflow 3.x uses OAuth2PasswordBearer with /auth/token endpoint
+    # Try this first as it's the new standard
+    token_url = f"{base_url.rstrip('/')}/auth/token"
+    try:
+        payload = {"username": username, "password": password}
+        resp = session.post(
+            token_url,
+            json=payload,
+            timeout=15,
+            allow_redirects=False,
+            headers={"Accept": "application/json", "Content-Type": "application/json"},
+        )
+        _debug_response(resp, token_url)
+        # Some deployments return 201 Created for token issuance; accept any 2xx.
+        if 200 <= resp.status_code < 300:
+            try:
+                data = resp.json()
+            except Exception:
+                data = {}
+            access_token = data.get("access_token") or data.get("token")
+            if access_token:
+                _set_bearer(session, access_token, ctx)
+                sys.stderr.write(f"[http-debug] API login successful (Airflow 3.x), bearer token obtained\n")
+                return True
+    except requests.RequestException as exc:
+        sys.stderr.write(f"[http-debug] /auth/token POST failed: {exc}\n")
+
+    # Fallback: Try old Airflow 2.x endpoints for backward compatibility
+    login_paths = ["/api/v1/security/login", "/api/v2/security/login"]
+    for path in login_paths:
+        url = f"{base_url.rstrip('/')}{path}"
+        # Try GET with basic auth first
+        try:
+            resp = session.get(
+                url,
+                timeout=15,
+                allow_redirects=False,
+                headers={"Accept": "application/json"},
+                auth=HTTPBasicAuth(username, password),
+            )
+        except requests.RequestException as exc:
+            sys.stderr.write(f"[http-debug] api_login GET failed: {exc}\n")
+            # Try POST as fallback
+            try:
+                payload = {"username": username, "password": password}
+                resp = session.post(
+                    url,
+                    json=payload,
+                    timeout=15,
+                    allow_redirects=False,
+                    headers={"Accept": "application/json"},
+                )
+            except requests.RequestException as exc2:
+                sys.stderr.write(f"[http-debug] api_login POST failed: {exc2}\n")
+                continue
+        _debug_response(resp, url)
+        if resp.status_code >= 400:
+            continue
+        try:
+            data = resp.json()
+        except Exception:
+            data = {}
+        access_token = data.get("access_token") or data.get("token")
+        if access_token:
+            _set_bearer(session, access_token, ctx)
+            sys.stderr.write(f"[http-debug] API login successful (Airflow 2.x), bearer token obtained\n")
+            return True
+    return False
+
+
+def _debug_response(resp: requests.Response, url: str) -> None:
+    """
+    Emit extended debug info about an HTTP response to stderr.
+    """
+    try:
+        body = resp.text
+    except Exception:
+        body = "<unreadable body>"
+    body_preview = body or ""
+    headers_dict = dict(resp.headers) if resp.headers else {}
+    sys.stderr.write(
+        f"[http-debug] url={url} status={resp.status_code} "
+        f"content_type={resp.headers.get('Content-Type','')} "
+        f"content_length={len(body_preview)} "
+        f"cookies={dict(resp.cookies)}\n"
+    )
+    if headers_dict:
+        sys.stderr.write(f"[http-debug] headers: {headers_dict}\n")
+    if body_preview:
+        sys.stderr.write(f"[http-debug] body:\n{body_preview}\n")
 
 
 def api_get(
@@ -26,16 +284,110 @@ def api_get(
     base_url: str,
     path: str,
     params: Optional[Dict[str, Any]] = None,
-    timeout: int = 30,
+    timeout: Optional[int] = None,
+    retries: Optional[int] = None,
+    retry_delay: Optional[int] = None,
+    connect_timeout: Optional[int] = None,
 ) -> requests.Response:
+    """
+    Perform GET against Airflow API.
+    - Tries /api/v1 first (current default in this script).
+    - If the server responds with Airflow 3 style 404 hinting that /api/v1 is removed,
+      automatically retries once with /api/v2 to stay compatible with both versions.
+    - If the server responds with 401 "Not authenticated", try API token login and retry once.
+    - Retries up to `retries` times (default 5) with `retry_delay` seconds between attempts on
+      network errors or HTTP 429/5xx responses.
+    """
+    ctx = getattr(session, "_airflow_login_ctx", {}) or {}
+    bearer = ctx.get("bearer")
+    timeout = timeout or ctx.get("http_timeout") or 30
+    connect_timeout = connect_timeout or ctx.get("http_connect_timeout") or None
+    retries = retries or ctx.get("http_retries") or 5
+    retry_delay = retry_delay or ctx.get("http_retry_delay") or 3
+    # If we have a bearer, ensure headers/cookies are aligned (Basic disabled).
+    if bearer:
+        _set_bearer(session, bearer, ctx)
+    common_headers = {
+        "Referer": base_url,
+        "Origin": base_url,
+        "Accept": "application/json",
+    }
+    if bearer:
+        common_headers.setdefault("Authorization", f"Bearer {bearer}")
     url = f"{base_url.rstrip('/')}{path}"
-    try:
-        resp = session.get(url, params=params, timeout=timeout)
-    except requests.RequestException as exc:
-        raise RuntimeError(f"Request to {url} failed: {exc}") from exc
+    last_url = url
+    retry_statuses = {429, 500, 502, 503, 504}
+
+    def _get_with_retry(target_url: str) -> requests.Response:
+        last_exc: Optional[Exception] = None
+        for attempt in range(retries):
+            try:
+                timeout_arg = (connect_timeout, timeout) if connect_timeout else timeout
+                response = session.get(target_url, params=params, timeout=timeout_arg, headers=common_headers)
+            except requests.RequestException as exc:
+                last_exc = exc
+                _log(
+                    f"[http-retry] GET {target_url} attempt {attempt+1}/{retries} "
+                    f"failed: {exc}; retry in {retry_delay}s"
+                )
+                if attempt < retries - 1:
+                    time.sleep(retry_delay)
+                    continue
+                raise RuntimeError(f"Request to {target_url} failed: {exc}") from exc
+
+            if response.status_code in retry_statuses and attempt < retries - 1:
+                _log(
+                    f"[http-retry] GET {target_url} attempt {attempt+1}/{retries} "
+                    f"status={response.status_code}; retry in {retry_delay}s"
+                )
+                time.sleep(retry_delay)
+                continue
+
+            return response
+
+        # Should never reach here, but keep mypy happy.
+        if last_exc:
+            raise RuntimeError(f"Request to {target_url} failed: {last_exc}") from last_exc
+        raise RuntimeError(f"Request to {target_url} failed after {retries} attempts")
+
+    # Try with Basic Auth first if available (session.auth is set in build_session)
+    resp = _get_with_retry(url)
+
+    # Airflow 3 removes /api/v1 and returns a helpful 404 message; try /api/v2 automatically.
+    if (
+        resp.status_code == 404
+        and "/api/v1 has been removed" in (resp.text or "")
+        and "/api/v2" in (resp.text or "")
+    ):
+        v2_path = path.replace("/api/v1", "/api/v2", 1)
+        if v2_path != path:
+            url_v2 = f"{base_url.rstrip('/')}{v2_path}"
+            resp = _get_with_retry(url_v2)
+            last_url = url_v2
+            # if still >=400 it will be handled below
+
+    # Authentication recovery: if unauthorized, try API login then retry once.
+    if resp.status_code == 401:
+        if _try_api_login(session):
+            # Refresh bearer/header state after login
+            bearer = getattr(session, "_airflow_login_ctx", {}).get("bearer")
+            if bearer:
+                _set_bearer(session, bearer, ctx)
+                common_headers.setdefault("Authorization", f"Bearer {bearer}")
+            resp = _get_with_retry(last_url)
+            sys.stderr.write(f"[http-debug] Retry after API login: status={resp.status_code}\n")
+
+        # If still unauthorized on v1, try v2 explicitly after API login.
+        if resp.status_code == 401 and "/api/v1/" in last_url:
+            v2_url = last_url.replace("/api/v1/", "/api/v2/", 1)
+            resp = _get_with_retry(v2_url)
+            sys.stderr.write(f"[http-debug] Retry v2 after API login: status={resp.status_code}\n")
+            last_url = v2_url
+
     if resp.status_code >= 400:
+        _debug_response(resp, last_url)
         raise RuntimeError(
-            f"Request to {url} failed with {resp.status_code}: {resp.text[:500]}"
+            f"Request to {last_url} failed with {resp.status_code}: {resp.text[:500]}"
         )
     return resp
 
@@ -239,17 +591,41 @@ def fetch_dag_source(
         if dag_id in dag_source_cache:
             cached = dag_source_cache[dag_id]
             return cached or None
+    resp: Optional[requests.Response] = None
+    ctx = getattr(session, "_airflow_login_ctx", {}) or {}
+
+    # Airflow 3.x exposes /api/v2/dagSources/{dag_id}
     try:
-        resp = api_get(session, base_url, f"/api/v1/dags/{dag_id}/dagSource", params=None)
+        resp = api_get(session, base_url, f"/api/v2/dagSources/{dag_id}", params=None)
         ts = datetime.now().isoformat()
-        print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch","status_code":{resp.status_code}}}')
-    except Exception as exc:  # noqa: BLE001
-        sys.stderr.write(f"[{dag_id}] Failed to fetch DAG source: {exc}\n")
-        with dag_source_cache_lock:
-            dag_source_cache[dag_id] = ""
-        with dag_source_unavailable_lock:
-            dag_source_unavailable.add(dag_id)
-        return None
+        print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch_dag_source_v2","status_code":{resp.status_code}}}')
+        ctx["prefer_v2_dagsource"] = True
+    except Exception as exc_v2:  # noqa: BLE001
+        # Fall back to legacy v1-style endpoint if v2 is missing
+        resp = None
+        err_txt = str(exc_v2)
+        if "dag with id" in err_txt.lower():
+            # DAG truly missing; mark unavailable and stop further attempts for this dag_id
+            with dag_source_cache_lock:
+                dag_source_cache[dag_id] = ""
+            with dag_source_unavailable_lock:
+                dag_source_unavailable.add(dag_id)
+            return None
+        if "404" not in err_txt and "API route not found" not in err_txt:
+            _log(f"[{dag_id}] v2 dagSource fetch failed ({exc_v2}); trying v1 endpoint")
+    if resp is None:
+        try:
+            resp = api_get(session, base_url, f"/api/v1/dags/{dag_id}/dagSource", params=None)
+            ts = datetime.now().isoformat()
+            print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch_dag_source_v1","status_code":{resp.status_code}}}')
+            ctx["prefer_v2_dagsource"] = ctx.get("prefer_v2_dagsource", False)
+        except Exception as exc:  # noqa: BLE001
+            _log(f"[{dag_id}] Failed to fetch DAG source: {exc}")
+            with dag_source_cache_lock:
+                dag_source_cache[dag_id] = ""
+            with dag_source_unavailable_lock:
+                dag_source_unavailable.add(dag_id)
+            return None
 
     content_type = resp.headers.get("Content-Type", "")
     text: Optional[str]
@@ -284,10 +660,34 @@ def fetch_task_code(
     dag_source_unavailable_lock: threading.Lock,
     dag_file_token_cache_lock: threading.Lock,
 ) -> Optional[Tuple[str, Optional[str]]]:
+    ctx = getattr(session, "_airflow_login_ctx", {}) or {}
+    # On Airflow 3.x prefer the dagSources v2 endpoint (per DAG) before token-based fallbacks.
+    if ctx.get("prefer_v2_dagsource"):
+        dag_src_pref = fetch_dag_source(
+            session,
+            base_url,
+            dag_id,
+            dag_source_cache,
+            dag_source_unavailable,
+            dag_source_cache_lock,
+            dag_source_unavailable_lock,
+        )
+        if dag_src_pref:
+            return dag_src_pref, f"dag_source:{dag_id}"
+        with dag_source_unavailable_lock:
+            if dag_id in dag_source_unavailable:
+                # DAG missing or dagSource unavailable; skip further attempts for this DAG
+                return None
+
     try:
         detail = get_task_detail(session, base_url, dag_id, task_id)
     except Exception as exc:  # noqa: BLE001
-        sys.stderr.write(f"[{dag_id}] Failed to get task detail for {task_id}: {exc}\n")
+        msg = str(exc)
+        if "dag with id" in msg.lower() or ("404" in msg and "not found" in msg.lower()):
+            with dag_source_unavailable_lock:
+                dag_source_unavailable.add(dag_id)
+            return None
+        _log(f"[{dag_id}] Failed to get task detail for {task_id}: {exc}")
         return None
 
     file_token = detail.get("file_token")
@@ -298,9 +698,9 @@ def fetch_task_code(
         try:
             resp = api_get(session, base_url, f"/api/v1/dagSources/{file_token}", params=None)
             ts = datetime.now().isoformat()
-            print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch","status_code":{resp.status_code}}}')
+            print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch_dag_file_token","status_code":{resp.status_code}}}')
         except Exception as exc:  # noqa: BLE001
-            sys.stderr.write(f"[{dag_id}] Failed to fetch source for {task_id}: {exc}\n")
+            _log(f"[{dag_id}] Failed to fetch source for {task_id} via file_token: {exc}")
             return None
 
         content_type = resp.headers.get("Content-Type", "")
@@ -337,9 +737,9 @@ def fetch_task_code(
         try:
             resp = api_get(session, base_url, f"/api/v1/dagSources/{dag_file_token}", params=None)
             ts = datetime.now().isoformat()
-            print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch","status_code":{resp.status_code}}}')
+            print(f'{{"timestamp":"{ts}","dag":"{dag_id}","action":"fetch_dag_file_token_shared","status_code":{resp.status_code}}}')
         except Exception as exc:  # noqa: BLE001
-            sys.stderr.write(f"[{dag_id}] Failed to fetch DAG source via file_token: {exc}\n")
+            _log(f"[{dag_id}] Failed to fetch DAG source via file_token: {exc}")
             resp = None
         if resp:
             content_type = resp.headers.get("Content-Type", "")
@@ -375,9 +775,7 @@ def fetch_task_code(
         return None
 
     hint = " (dagSource unavailable)"
-    sys.stderr.write(
-        f"[{dag_id}] No file_token for task {task_id}; skipping code fetch{hint}.\n"
-    )
+    _log(f"[{dag_id}] No file_token for task {task_id}; skipping code fetch{hint}.")
     return None
 
 
@@ -391,31 +789,43 @@ def save_log(text: str, output_dir: Path, dag_id: str, dag_run_id: str, task_id:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Download Airflow logs and/or code for DAGs."
+        description="Download Airflow logs and/or code for DAGs.",
+        add_help=False,
     )
     parser.add_argument(
-        "--host",
+        "--help", "-?",
+        action="help",
+        help="Show this help message and exit",
+    )
+    parser.add_argument(
+        "-h", "--host",
         default="127.0.0.1",
         help="Airflow host (default: 127.0.0.1)",
     )
     parser.add_argument(
-        "--port",
+        "-p", "--port",
         type=int,
         default=8080,
         help="Airflow port (default: 8080)",
+    )
+    parser.add_argument(
+        "--base-path",
+        default="",
+        help="Optional URL path prefix (e.g. /airflow) if Airflow is served behind a subpath",
     )
     parser.add_argument(
         "--tls",
         action="store_true",
         help="Use HTTPS instead of HTTP when contacting Airflow",
     )
+    # TLS verification is always disabled (developer mode). No flags to enable.
     parser.add_argument(
-        "--username",
+        "-U", "--username",
         default="airflow",
         help="Airflow username (default: airflow)",
     )
     parser.add_argument(
-        "--password",
+        "-P", "--password",
         default="airflow",
         help="Airflow password (default: airflow)",
     )
@@ -446,7 +856,8 @@ def main() -> int:
         return 1
 
     scheme = "https" if args.tls else "http"
-    base_url = f"{scheme}://{args.host}:{args.port}"
+    base_path_user = _normalize_base_path(args.base_path or "")
+    initial_base_url = f"{scheme}://{args.host}:{args.port}{base_path_user}"
     username = args.username
     password = args.password
     default_output = None
@@ -454,12 +865,66 @@ def main() -> int:
     logs_enabled = bool(args.logs)
     code_enabled = bool(args.source)
 
-    session = build_session(username, password)
+    # TLS verification is always disabled (developer mode).
+    verify_tls = False
+
+    _log(
+        f"[startup] init scheme={'https' if args.tls else 'http'} host={args.host} port={args.port} "
+        f"base_path_user='{base_path_user or '/'}' verify_tls={verify_tls} "
+        f"logs={logs_enabled} code={code_enabled} concurrency={args.concurrency} "
+        f"http_timeout={HTTP_TIMEOUT}s connect_timeout={HTTP_CONNECT_TIMEOUT}s "
+        f"http_retries={HTTP_RETRIES} retry_delay={HTTP_RETRY_DELAY}s"
+    )
+    session = build_session(
+        username,
+        password,
+        initial_base_url,
+        HTTP_TIMEOUT,
+        HTTP_CONNECT_TIMEOUT,
+        HTTP_RETRIES,
+        HTTP_RETRY_DELAY,
+        verify_tls=verify_tls,
+    )
+
+    base_url_detected, base_path_detected, tried_paths = discover_base_url(
+        session,
+        scheme,
+        args.host,
+        args.port,
+        base_path_user,
+        HTTP_TIMEOUT,
+        HTTP_CONNECT_TIMEOUT,
+        HTTP_RETRIES,
+        HTTP_RETRY_DELAY,
+    )
+    if base_url_detected is None or base_path_detected is None:
+        _log(f"Failed to find Airflow API base path. Tried: {', '.join(tried_paths)}")
+        return 1
+    if base_path_detected != base_path_user:
+        _log(
+            f"[startup] auto-selected base_path='{base_path_detected or '/'}' "
+            f"(candidates tried: {', '.join(tried_paths)})"
+        )
+    base_path = base_path_detected
+    base_url = base_url_detected
+    # Update session context with the final base_url for downstream calls/login retries.
+    ctx = getattr(session, "_airflow_login_ctx", None)
+    if isinstance(ctx, dict):
+        ctx["base_url"] = base_url
+
+    _log(
+        f"[startup] base_url set to {base_url} (base_path='{base_path or '/'}'); "
+        f"timeout={HTTP_TIMEOUT}s connect_timeout={HTTP_CONNECT_TIMEOUT}s "
+        f"retries={HTTP_RETRIES} retry_delay={HTTP_RETRY_DELAY}s "
+        f"concurrency={args.concurrency} logs={logs_enabled} code={code_enabled}"
+    )
 
     try:
+        _log("[dags] listing DAGs…")
         dag_ids = list(list_dags(session, base_url))
+        _log(f"[dags] found {len(dag_ids)} DAGs")
     except Exception as exc:  # noqa: BLE001
-        sys.stderr.write(f"Failed to list DAGs: {exc}\n")
+        _log(f"Failed to list DAGs: {exc}")
         return 1
     if not dag_ids:
         sys.stderr.write("No DAGs found.\n")
@@ -499,11 +964,11 @@ def main() -> int:
                 try:
                     dag_runs = list_successful_dag_runs(session, base_url, dag_id, limit=10)
                 except Exception as exc:  # noqa: BLE001
-                    sys.stderr.write(f"[{dag_id}] Failed to list successful DAG runs: {exc}\n")
+                    _log(f"[{dag_id}] Failed to list successful DAG runs: {exc}")
                     dag_runs = []
 
                 if not dag_runs:
-                    sys.stderr.write(f"[{dag_id}] No successful DAG runs found.\n")
+                    _log(f"[{dag_id}] No successful DAG runs found.")
 
                 for dag_run in dag_runs:
                     dag_run_id = dag_run.get("dag_run_id") or dag_run.get("run_id")
@@ -514,7 +979,7 @@ def main() -> int:
                             get_task_instances(session, base_url, dag_id, dag_run_id)
                         )
                     except Exception as exc:  # noqa: BLE001
-                        sys.stderr.write(f"[{dag_id}] Failed to list task instances for {dag_run_id}: {exc}\n")
+                        _log(f"[{dag_id}] Failed to list task instances for {dag_run_id}: {exc}")
                         task_instances = []
 
                     if task_instances:
@@ -556,11 +1021,12 @@ def main() -> int:
                     task_ids_for_code = [ti.get("task_id") or "unknown_task" for ti in task_instances]
 
             if code_enabled and executor_code:
+                _log(f"[{dag_id}] fetching code (logs_enabled={logs_enabled})")
                 if task_ids_for_code is None:
                     try:
                         task_ids_for_code = list(list_tasks(session, base_url, dag_id))
                     except Exception as exc:  # noqa: BLE001
-                        sys.stderr.write(f"[{dag_id}] Failed to list tasks for code fetch: {exc}\n")
+                        _log(f"[{dag_id}] Failed to list tasks for code fetch: {exc}")
                         task_ids_for_code = []
 
                 def _code_worker(dag_id_local: str, task_id_local: str) -> Optional[str]:
@@ -590,23 +1056,27 @@ def main() -> int:
                     with shared_code_written_lock:
                         already_written = shared_code_written.get(dag_id_local, False)
                     if already_written:
-                        print(
-                            f'{{"timestamp":"{ts}","dag":"{dag_id_local}","path":"{rel_path}","action":"save"}}'
-                        )
+                        _log(f"[{dag_id_local}] code already written; skipping duplicate save.")
                         return None
 
                     # Save single code file per DAG: code/<dag>/source.py
                     code_path = save_code(code_text, output_dir, dag_id_local, "source")
                     with shared_code_written_lock:
                         shared_code_written[dag_id_local] = True
+                    _log(f"[{dag_id_local}] code saved to {code_path}")
                     print(
                         f'{{"timestamp":"{ts}","dag":"{dag_id_local}","path":"{rel_path}","action":"save"}}'
                     )
                     return str(code_path)
 
-                for tid in (task_ids_for_code or []):
+                # Submit only one code fetch per DAG to avoid redundant saves.
+                first_tid = (task_ids_for_code or ["__dag_source__"])[0]
+                with shared_code_written_lock:
+                    if shared_code_written.get(dag_id):
+                        first_tid = None
+                if first_tid is not None:
                     with futures_code_lock:
-                        futures_code.append(executor_code.submit(_code_worker, dag_id, tid))
+                        futures_code.append(executor_code.submit(_code_worker, dag_id, first_tid))
 
         for dag_id in dag_ids:
             dag_executor.submit(_process_dag, dag_id)

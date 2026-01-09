@@ -1,0 +1,1817 @@
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_destination_url_performance_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'destination_url_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_destination_url_performance_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'destination_url_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_infinity_feed_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_lifecycle_cleanup_dag/source.py:14: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       13: from utils.telegram import create_telegram_alert_func
+       14: 
+       15: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       16: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       17: 
+       18: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       19: IMAGE_NAME = "lifecycle_cleanup_dag"
+       20: 
+       21: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       22: 
+       23: DOCKER_VOLUME_PATH = Variable.get("PROD_DOCKER_VOLUME_PATH")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_analogues_dag/source.py:24: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       23: from utils.telegram import create_telegram_alert_func
+       24: 
+       25: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       26: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       27: 
+       28: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       29: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       30: 
+       31: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       32: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       33: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_coitems_dag/source.py:23: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       22: from utils.telegram import create_telegram_alert_func
+       23: 
+       24: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       25: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       26: 
+       27: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: 
+       30: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       31: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       32: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/test_clickhouse_21_http/source.py:58: [password] password = conn.password
+       57:     logging.info(f"ClickHouse host={conn.host}, port={conn.port}, db={conn.schema}")
+       58: 
+       59:     host = conn.host
+       60:     port = conn.port or 8123
+       61:     user = conn.login
+       62:     password = conn.password
+       63:     database = conn.schema or "default"
+       64: 
+       65:     url = f"http://{host}:{port}/?database={database}"
+       66:     logging.info(f"Подключаюсь к {url} ...")
+       67: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_cohort_promo/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: )
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       24: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       25: 
+       26: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       27: 
+       28: AWS_ACCESS_KEY_ID = Variable.get("AWS_ACCESS_KEY_ID")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/recsys_feature_health_monitor_dag/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: from utils.telegram import create_telegram_alert_func
+       19: 
+       20: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       21: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       22: 
+       23: FEATURE_HEALTH_MONITOR_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/feature-health-monitor.git"
+       24: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       25: IMAGE_NAME = "feature-health-monitor:latest"
+       26: 
+       27: INSTANCE_ID = Variable.get("DEV_INSTANCE_ID")
+       28: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_emptysearch_mmr_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_publisher_usage_performance_hourly_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'publisher_usage_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_publisher_usage_performance_hourly_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'publisher_usage_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_promo_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_recsys_new_ranking_features_dag/source.py:18: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       17: from utils.telegram import create_telegram_alert_func
+       18: 
+       19: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       20: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       21: 
+       22: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_ranking_features.git"
+       23: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       24: IMAGE_NAME = "recsys_ranking_features:latest"
+       25: 
+       26: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       27: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_train_and_inference_parent_candidate_dag_part2/source.py:22: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: # Default configurations
+       24: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       25: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       26: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       27: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: CLOUD_DATA_PATH = "/srv/data"
+       30: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       31: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/dev_recsys_s3_dataloader_dag/source.py:17: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       16:     create_docker_stop_operator,
+       17:     create_ssh_command_operator,
+       18: )
+       19: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       20: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       21: DATALOADER_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       22: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_dev_connection"
+       23: 
+       24: INSTANCE_ID = Variable.get("DEV_INSTANCE_ID")
+       25: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       26: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_account_history_to_bq/source.py:25: [token] token = BingOAuthHelper
+       24: bq_dataset = 'ads_msft'
+       25: bq_table = 'account_history'
+       26: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       27: bucket = 'bing_ads_airflow'
+       28: client = GCPConnectionInfo.bigquery_client
+       29: access_token = BingOAuthHelper().get_access_token()
+       30: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       31: 
+       32: local_tz = timezone('UTC')
+       33: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       34: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_account_history_to_bq/source.py:26: [token] token = pandas.read_json
+       25: bq_table = 'account_history'
+       26: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       27: bucket = 'bing_ads_airflow'
+       28: client = GCPConnectionInfo.bigquery_client
+       29: access_token = BingOAuthHelper().get_access_token()
+       30: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       31: 
+       32: local_tz = timezone('UTC')
+       33: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       34: default_args = {
+       35:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_audience_to_bq/source.py:113: [access_token] access_token = get_access_token
+      112:     return result
+      113: 
+      114: 
+      115: def get_criteo_data_to_local():
+      116:     df_data = []
+      117:     access_token = get_access_token()
+      118:     advertiser_ids = get_advertiser_ids(access_token)
+      119:     response_data = get_raw_data(advertiser_ids, access_token)
+      120:     if response_data:
+      121:         for row in response_data:
+      122:             attribute_data = row.get('attributes')
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_audience_to_bq/source.py:113: [token] token = get_access_token
+      112:     return result
+      113: 
+      114: 
+      115: def get_criteo_data_to_local():
+      116:     df_data = []
+      117:     access_token = get_access_token()
+      118:     advertiser_ids = get_advertiser_ids(access_token)
+      119:     response_data = get_raw_data(advertiser_ids, access_token)
+      120:     if response_data:
+      121:         for row in response_data:
+      122:             attribute_data = row.get('attributes')
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_surpluses_dag/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: )
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       24: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       25: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       26: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       27: CLOUD_DATA_PATH = "/srv/data"
+       28: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_age_gender_audience_hourly_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'age_gender_audience_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_age_gender_audience_hourly_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'age_gender_audience_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_image_url_to_bq/source.py:79: [access_token] access_token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_image_url_to_bq/source.py:79: [token] token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_emptysearch_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_bestsellers/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: 
+       24: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       26: 
+       27: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       28: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       29: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_budget_summary_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'budget_summary_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_budget_summary_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'budget_summary_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_widget_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: # Configuration variables
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       26: CLOUD_DATA_PATH = "/srv/data"
+       27: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       28: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+       29: SSH_FOLDER_PATH = "/home/airflow/.ssh"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_emptysearch_novelties_boosting_dag/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: )
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       24: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       25: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       26: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       27: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: CLOUD_DATA_PATH = "/srv/data"
+       30: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_recsys_old_ranking_features_dag/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: 
+       25: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_ranking_features.git"
+       26: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       27: IMAGE_NAME = "recsys_features_ranking:latest"
+       28: 
+       29: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       30: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_upload_minio/source.py:16: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       15:     create_ssh_command_operator,
+       16: )
+       17: 
+       18: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       19: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       20: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       21: 
+       22: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection_backup"
+       23: CLOUD_DATA_PATH = "/srv/data"
+       24: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+       25: SSH_FOLDER_PATH = "/home/airflow/.ssh"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_metrics_validator_dag/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: 
+       25: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-metrics-validator.git"
+       26: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       27: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: CLOUD_DATA_PATH = "/srv/data"
+       30: SSH_FOLDER_PATH = "/home/airflow/.ssh"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_logo_to_bq/source.py:79: [access_token] access_token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_logo_to_bq/source.py:79: [token] token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/dev_recsys_new_ranking_features_dag/source.py:14: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       13: 
+       14: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       15: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       16: 
+       17: 
+       18: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_ranking_features.git"
+       19: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_dev_connection"
+       20: IMAGE_NAME = "recsys_ranking_features:latest"
+       21: 
+       22: INSTANCE_ID = Variable.get("DEV_INSTANCE_ID")
+       23: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_delivery_limitations_operation_system_to_bq/source.py:116: [access_token] access_token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_delivery_limitations_operation_system_to_bq/source.py:116: [token] token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/dev_data_quality_check_dag/source.py:22: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       21: password_mlflow = Variable.get("password_mlflow")
+       22: 
+       23: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_dev_connection"
+       24: INSTANCE_ID = Variable.get('DEV_INSTANCE_ID')
+       25: AUTHORIZED_KEYS = Variable.get('AUTHORIZED_KEYS', deserialize_json=True)
+       26: QUALITY_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_data_quality_check.git"
+       27: IMAGE_NAME = "data_quality_check:latest"
+       28: DOCKER_VOLUME_PATH = Variable.get("DEV_DOCKER_VOLUME_PATH")
+       29: 
+       30: # AWS_CONN_ID = "mlflow"
+       31: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/dev_data_quality_check_dag/source.py:37: [telegram_bot_token] 6573050267:AAHXSde3V8eFJL_JZufBS51QXF2GZ2_A9wA
+       36: with DAG(
+       37:     'dev_data_quality_check_dag',
+       38:     default_args={
+       39:         'depends_on_past': False,
+       40:         'retries': 1,
+       41:         "on_failure_callback": create_telegram_alert_func("6573050267:AAHXSde3V8eFJL_JZufBS51QXF2GZ2_A9wA"),
+       42:         'retry_delay': timedelta(minutes=5),
+       43:         'owner': 'm.gazoian'
+       44:     },
+       45:     description='DAG for data quality check',
+       46:     schedule_interval='30 18 * * *',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_account_performance_daily_report_to_bq/source.py:29: [token] token = BingOAuthHelper
+       28: bq_dataset = 'ads_msft'
+       29: bq_table = 'account_performance_daily_report'
+       30: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       31: bucket = 'bing_ads_airflow'
+       32: client = GCPConnectionInfo.bigquery_client
+       33: access_token = BingOAuthHelper().get_access_token()
+       34: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       35: 
+       36: local_tz = timezone('UTC')
+       37: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       38: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_account_performance_daily_report_to_bq/source.py:30: [token] token = pandas.read_json
+       29: bq_table = 'account_performance_daily_report'
+       30: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       31: bucket = 'bing_ads_airflow'
+       32: client = GCPConnectionInfo.bigquery_client
+       33: access_token = BingOAuthHelper().get_access_token()
+       34: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       35: 
+       36: local_tz = timezone('UTC')
+       37: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       38: default_args = {
+       39:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_add_to_cart_dag_test/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19:     create_ssh_command_operator,
+       20: )
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_add_to_cart_dag_test/source.py:29: [token] TOKEN = Variable.get
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+       30: SSH_FOLDER_PATH = "/home/airflow/.ssh"
+       31: OPENVPN_CREDENTIALS_PATH = "/etc/openvpn"
+       32: #TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       33: #TELEGRAM_SENDING_TOKEN = Variable.get("TELEGRAM_SENDING_TOKEN")
+       34: MINIO_ENDPOINT_URL = Variable.get("MINIO_ENDPOINT_URL")
+       35: MINIO_ACCESS_KEY = Variable.get("MINIO_ACCESS_KEY")
+       36: MINIO_SECRET_KEY = Variable.get("MINIO_SECRET_KEY")
+       37: AWS_ACCESS_KEY_ID = Variable.get("AWS_ACCESS_KEY_ID")
+       38: AWS_SECRET_ACCESS_KEY = Variable.get("AWS_SECRET_ACCESS_KEY")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_ratings_dag/source.py:18: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       17: )
+       18: from utils.telegram import create_telegram_alert_func
+       19: 
+       20: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       21: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       22: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       23: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       24: 
+       25: DOCKER_VOLUME_PATH = Variable.get("PROD_DOCKER_VOLUME_PATH")
+       26: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       27: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_build_dataset_dag/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: from utils.telegram import create_telegram_alert_func
+       19: 
+       20: # Default configurations
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       24: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       25: 
+       26: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       27: CLOUD_DATA_PATH = "/srv/data"
+       28: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_conversion_performance_hourly_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'conversion_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_conversion_performance_hourly_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'conversion_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_lp_dag/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: )
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       24: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       25: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       26: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       27: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: CLOUD_DATA_PATH = "/srv/data"
+       30: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_campaign_to_bq/source.py:79: [access_token] access_token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85:     url = "https://api.criteo.com/2024-07/marketing-solutions/campaigns/search"
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_campaign_to_bq/source.py:79: [token] token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85:     url = "https://api.criteo.com/2024-07/marketing-solutions/campaigns/search"
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/dags_schedule_dag/source.py:26: [access_key] access_key=AWS_SECRET_ACCESS_KEY
+       25: 
+       26: def boto3_session():
+       27:     return boto3.client(
+       28:         "s3",
+       29:         aws_access_key_id=AWS_ACCESS_KEY_ID,
+       30:         aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+       31:         endpoint_url=ENDPOINT_URL,
+       32:     )
+       33: 
+       34: 
+       35: def compute_and_upload_runtimes(**context):
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_emptysearch_new_filter_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_creative_to_bq/source.py:79: [access_token] access_token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_creative_to_bq/source.py:79: [token] token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/user_top_store_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: # Load Variables
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       25: AWS_CONN_ID = "s3_experimental"
+       26: BUCKET_NAME = Variable.get("BUCKET_NAME")
+       27: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       28: REGION_NAME = Variable.get("REGION_NAME")
+       29: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_analogs_text_dag/source.py:22: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       24: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       25: 
+       26: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: 
+       29: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       30: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       31: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_publisher_usage_performance_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'publisher_usage_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_publisher_usage_performance_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'publisher_usage_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_historytape_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection_backup" #Variable.get("REMOTE_HOST_MACHINE_SSH_CONNECTION")
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_audience_performance_hourly_report_to_bq/source.py:2: [aws_secret_access_key] service/audienceperformancereportrequest
+        1: """
+        2:     https://learn.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportrequest?view=bingads-13&tabs=json
+        3: """
+        4: 
+        5: import json
+        6: import requests
+        7: import os
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_audience_performance_hourly_report_to_bq/source.py:31: [token] token = BingOAuthHelper
+       30: bq_dataset = 'ads_msft'
+       31: bq_table = 'audience_performance_hourly_report'
+       32: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       33: bucket = 'bing_ads_airflow'
+       34: client = GCPConnectionInfo.bigquery_client
+       35: access_token = BingOAuthHelper().get_access_token()
+       36: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       37: 
+       38: local_tz = timezone('UTC')
+       39: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       40: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_audience_performance_hourly_report_to_bq/source.py:32: [token] token = pandas.read_json
+       31: bq_table = 'audience_performance_hourly_report'
+       32: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       33: bucket = 'bing_ads_airflow'
+       34: client = GCPConnectionInfo.bigquery_client
+       35: access_token = BingOAuthHelper().get_access_token()
+       36: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       37: 
+       38: local_tz = timezone('UTC')
+       39: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       40: default_args = {
+       41:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vpn_monitor_dag/source.py:17: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       16: )
+       17: from utils.telegram import create_telegram_alert_func
+       18: 
+       19: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       20: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       21: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vpn.git"
+       22: 
+       23: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       24: CLOUD_DATA_PATH = "/srv/data"
+       25: SSH_FOLDER_PATH = "/home/airflow/.ssh"
+       26: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_query_item_dag/source.py:18: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       17: from utils.telegram import create_telegram_alert_func
+       18: 
+       19: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       20: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       21: 
+       22: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvnprecsys.git"
+       23: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       24: IMAGE_NAME = "query_item:vpn"
+       25: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_call_to_action_to_bq/source.py:79: [access_token] access_token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_call_to_action_to_bq/source.py:79: [token] token = get_access_token
+       78:     return result
+       79: 
+       80: 
+       81: def get_criteo_data_to_local():
+       82:     df_data = []
+       83:     access_token = get_access_token()
+       84:     advertiser_ids = get_advertiser_ids(access_token)
+       85: 
+       86:     header = {
+       87:         "Accept": "application/json",
+       88:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_actions_to_bq/source.py:32: [access_token] access_token = pandas.read_json
+       31: gcp_conn = GCPConnectionInfo.gcp_conn
+       32: project_id = GCPConnectionInfo.gcp_project
+       33: bucket = 'ads_facebook_airflow'
+       34: client = GCPConnectionInfo.bigquery_client
+       35: 
+       36: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       37: 
+       38: local_tz = timezone('UTC')
+       39: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       40: default_args = {
+       41:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_actions_to_bq/source.py:32: [token] token = pandas.read_json
+       31: gcp_conn = GCPConnectionInfo.gcp_conn
+       32: project_id = GCPConnectionInfo.gcp_project
+       33: bucket = 'ads_facebook_airflow'
+       34: client = GCPConnectionInfo.bigquery_client
+       35: 
+       36: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       37: 
+       38: local_tz = timezone('UTC')
+       39: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       40: default_args = {
+       41:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_actions_to_bq/source.py:59: [token] token=access_token
+       58: 
+       59: def get_fb_ads_raw_data():
+       60:     campaign_ids = Variable.get("facebook_ad_campaign_ids").rstrip(',').split(',')
+       61:     result = []
+       62:     list_last_9_days_ago = get_list_last_9_days_ago()
+       63:     FacebookAdsApi.init(access_token=access_token)
+       64:     insight_fields = [
+       65:         AdsInsights.Field.campaign_id,
+       66:         AdsInsights.Field.actions,
+       67:     ]
+       68:     for campaign_id in campaign_ids:
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_actions_to_bq/source.py:74: [jwt] AdsInsights.ActionAttributionWindows.value_1d_view
+       73:                     "until": date_range
+       74:                 },
+       75:                 "level": AdsInsights.Level.campaign,
+       76: 
+       77:                 "action_attribution_windows": [
+       78:                     AdsInsights.ActionAttributionWindows.value_1d_view,
+       79:                     AdsInsights.ActionAttributionWindows.value_7d_click,
+       80:                 ]
+       81:             }
+       82: 
+       83:             campaign = Campaign(campaign_id)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_actions_to_bq/source.py:75: [jwt] AdsInsights.ActionAttributionWindows.value_7d_click
+       74:                 },
+       75:                 "level": AdsInsights.Level.campaign,
+       76: 
+       77:                 "action_attribution_windows": [
+       78:                     AdsInsights.ActionAttributionWindows.value_1d_view,
+       79:                     AdsInsights.ActionAttributionWindows.value_7d_click,
+       80:                 ]
+       81:             }
+       82: 
+       83:             campaign = Campaign(campaign_id)
+       84: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_delivery_limitations_environment_to_bq/source.py:116: [access_token] access_token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_delivery_limitations_environment_to_bq/source.py:116: [token] token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_ad_to_bq/source.py:77: [access_token] access_token = get_access_token
+       76:     return result
+       77: 
+       78: 
+       79: def get_criteo_data_to_local():
+       80:     df_data = []
+       81:     access_token = get_access_token()
+       82:     advertiser_ids = get_advertiser_ids(access_token)
+       83: 
+       84:     header = {
+       85:         "Accept": "application/json",
+       86:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_ad_to_bq/source.py:77: [token] token = get_access_token
+       76:     return result
+       77: 
+       78: 
+       79: def get_criteo_data_to_local():
+       80:     df_data = []
+       81:     access_token = get_access_token()
+       82:     advertiser_ids = get_advertiser_ids(access_token)
+       83: 
+       84:     header = {
+       85:         "Accept": "application/json",
+       86:         # "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_website_purchase_roas_to_bq/source.py:29: [access_token] access_token = pandas.read_json
+       28: gcp_conn = GCPConnectionInfo.gcp_conn
+       29: project_id = GCPConnectionInfo.gcp_project
+       30: bucket = 'ads_facebook_airflow'
+       31: client = GCPConnectionInfo.bigquery_client
+       32: 
+       33: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       34: 
+       35: local_tz = timezone('UTC')
+       36: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       37: default_args = {
+       38:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_website_purchase_roas_to_bq/source.py:29: [token] token = pandas.read_json
+       28: gcp_conn = GCPConnectionInfo.gcp_conn
+       29: project_id = GCPConnectionInfo.gcp_project
+       30: bucket = 'ads_facebook_airflow'
+       31: client = GCPConnectionInfo.bigquery_client
+       32: 
+       33: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       34: 
+       35: local_tz = timezone('UTC')
+       36: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       37: default_args = {
+       38:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_website_purchase_roas_to_bq/source.py:56: [token] token=access_token
+       55: 
+       56: def get_fb_ads_raw_data():
+       57:     campaign_ids = Variable.get("facebook_ad_campaign_ids").rstrip(',').split(',')
+       58:     result = []
+       59:     list_last_9_days_ago = get_list_last_9_days_ago()
+       60:     FacebookAdsApi.init(access_token=access_token)
+       61:     insight_fields = [
+       62:         AdsInsights.Field.campaign_id,
+       63:         AdsInsights.Field.website_purchase_roas,
+       64:     ]
+       65:     for campaign_id in campaign_ids:
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_website_purchase_roas_to_bq/source.py:70: [jwt] AdsInsights.ActionBreakdowns.action_type
+       69:                     "since": date_range,
+       70:                     "until": date_range
+       71:                 },
+       72:                 "level": AdsInsights.Level.campaign,
+       73:                 "summary_action_breakdowns": [
+       74:                     AdsInsights.ActionBreakdowns.action_type
+       75:                 ],
+       76:                 "action_attribution_windows": [
+       77:                     AdsActionStats.Field.field_1d_view,
+       78:                     AdsActionStats.Field.field_7d_click,
+       79:                 ],
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_oftenbuy_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_data_quality_check_dag/source.py:24: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       23: password_mlflow = Variable.get("password_mlflow")
+       24: 
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       26: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       27: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       28: QUALITY_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_data_quality_check.git"
+       29: IMAGE_NAME = "data_quality_check:latest"
+       30: DOCKER_VOLUME_PATH = Variable.get("PROD_DOCKER_VOLUME_PATH")
+       31: 
+       32: # AWS_CONN_ID = "mlflow"
+       33: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_data_quality_check_dag/source.py:38: [telegram_bot_token] 6573050267:AAHXSde3V8eFJL_JZufBS51QXF2GZ2_A9wA
+       37: 
+       38: with DAG(
+       39:     "prod_data_quality_check_dag",
+       40:     default_args={
+       41:         "depends_on_past": False,
+       42:         # "on_failure_callback": create_telegram_alert_func("6573050267:AAHXSde3V8eFJL_JZufBS51QXF2GZ2_A9wA"),
+       43:         "owner": "m.gazoian",
+       44:     },
+       45:     description="DAG for data quality check",
+       46:     schedule_interval="30 18 * * *",
+       47:     start_date=datetime(2024, 11, 1),
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/new_ranking_features_dag_test/source.py:14: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       13: 
+       14: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       15: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       16: 
+       17: 
+       18: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_ranking_features.git"
+       19: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection_backup"
+       20: IMAGE_NAME = "recsys_ranking_features:latest"
+       21: 
+       22: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       23: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_train_and_inference_parent_candidate_dag_part1/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: )
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       24: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       25: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       26: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       30: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_geographic_performance_hourly_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'geographic_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_geographic_performance_hourly_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'geographic_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_audience_performance_daily_report_to_bq/source.py:2: [aws_secret_access_key] service/audienceperformancereportrequest
+        1: """
+        2:     https://learn.microsoft.com/en-us/advertising/reporting-service/audienceperformancereportrequest?view=bingads-13&tabs=json
+        3: """
+        4: 
+        5: import json
+        6: import requests
+        7: import os
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_audience_performance_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'audience_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_audience_performance_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'audience_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_analogs_title_text_filtered_classes_lv1_dag/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: )
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: 
+       25: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       26: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection_backup"
+       27: 
+       28: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       29: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       30: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_analogs_title_text_filtered_classes_lv1_dag/source.py:32: [token] TOKEN = Variable.get
+       31: CLOUD_DATA_PATH = "/srv/data"
+       32: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+       33: SSH_FOLDER_PATH = "/home/airflow/.ssh"
+       34: 
+       35: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       36: TELEGRAM_SENDING_TOKEN = Variable.get("TELEGRAM_SENDING_TOKEN")
+       37: 
+       38: AWS_ACCESS_KEY_ID = Variable.get("AWS_ACCESS_KEY_ID")
+       39: AWS_SECRET_ACCESS_KEY = Variable.get("AWS_SECRET_ACCESS_KEY")
+       40: 
+       41: ENDPOINT_URL = Variable.get("ENDPOINT_URL")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_to_bq/source.py:29: [access_token] access_token = pandas.read_json
+       28: gcp_conn = GCPConnectionInfo.gcp_conn
+       29: project_id = GCPConnectionInfo.gcp_project
+       30: bucket = 'ads_facebook_airflow'
+       31: client = GCPConnectionInfo.bigquery_client
+       32: 
+       33: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       34: 
+       35: local_tz = timezone('UTC')
+       36: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       37: default_args = {
+       38:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_to_bq/source.py:29: [token] token = pandas.read_json
+       28: gcp_conn = GCPConnectionInfo.gcp_conn
+       29: project_id = GCPConnectionInfo.gcp_project
+       30: bucket = 'ads_facebook_airflow'
+       31: client = GCPConnectionInfo.bigquery_client
+       32: 
+       33: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       34: 
+       35: local_tz = timezone('UTC')
+       36: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       37: default_args = {
+       38:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_to_bq/source.py:56: [token] token=access_token
+       55: 
+       56: def get_facebook_data_to_local():
+       57:     account_ids = Variable.get("facebook_ad_account_ids").rstrip(',').split(',')
+       58:     list_last_9_days_ago = get_list_last_9_days_ago()
+       59:     df_data = []
+       60:     FacebookAdsApi.init(access_token=access_token)
+       61: 
+       62:     insight_fields = [
+       63:         AdsInsights.Field.campaign_id,
+       64:         AdsInsights.Field.account_currency,
+       65:         AdsInsights.Field.account_id,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_adset_statistics_hourly_report_to_bq/source.py:59: [access_token] access_token = get_access_token
+       58:     return response_data.get('access_token')
+       59: 
+       60: 
+       61: def get_criteo_data_to_local():
+       62:     df_data = []
+       63:     access_token = get_access_token()
+       64:     url = 'https://api.criteo.com/2024-07/statistics/report'
+       65:     header = {
+       66:         "Accept": "application/json",
+       67:         "Content-Type": "application/json",
+       68:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_adset_statistics_hourly_report_to_bq/source.py:59: [token] token = get_access_token
+       58:     return response_data.get('access_token')
+       59: 
+       60: 
+       61: def get_criteo_data_to_local():
+       62:     df_data = []
+       63:     access_token = get_access_token()
+       64:     url = 'https://api.criteo.com/2024-07/statistics/report'
+       65:     header = {
+       66:         "Accept": "application/json",
+       67:         "Content-Type": "application/json",
+       68:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/dev_vvrecsys_analogues_dag/source.py:22: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       24: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       25: 
+       26: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection_backup"
+       28: 
+       29: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       30: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       31: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_ad_set_to_bq/source.py:91: [access_token] access_token = get_access_token
+       90:     return data_dict
+       91: 
+       92: 
+       93: def get_criteo_data_to_local():
+       94:     df_data = []
+       95:     access_token = get_access_token()
+       96:     advertiser_ids = get_advertiser_ids(access_token)
+       97:     url = "https://api.criteo.com/2024-07/marketing-solutions/ad-sets/search"
+       98:     header = {
+       99:         "Accept": "application/json",
+      100:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_ad_set_to_bq/source.py:91: [token] token = get_access_token
+       90:     return data_dict
+       91: 
+       92: 
+       93: def get_criteo_data_to_local():
+       94:     df_data = []
+       95:     access_token = get_access_token()
+       96:     advertiser_ids = get_advertiser_ids(access_token)
+       97:     url = "https://api.criteo.com/2024-07/marketing-solutions/ad-sets/search"
+       98:     header = {
+       99:         "Accept": "application/json",
+      100:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversions_to_bq/source.py:29: [access_token] access_token = pandas.read_json
+       28: gcp_conn = GCPConnectionInfo.gcp_conn
+       29: project_id = GCPConnectionInfo.gcp_project
+       30: bucket = 'ads_facebook_airflow'
+       31: client = GCPConnectionInfo.bigquery_client
+       32: 
+       33: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       34: 
+       35: local_tz = timezone('UTC')
+       36: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       37: default_args = {
+       38:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversions_to_bq/source.py:29: [token] token = pandas.read_json
+       28: gcp_conn = GCPConnectionInfo.gcp_conn
+       29: project_id = GCPConnectionInfo.gcp_project
+       30: bucket = 'ads_facebook_airflow'
+       31: client = GCPConnectionInfo.bigquery_client
+       32: 
+       33: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       34: 
+       35: local_tz = timezone('UTC')
+       36: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       37: default_args = {
+       38:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversions_to_bq/source.py:56: [token] token=access_token
+       55: 
+       56: def get_fb_ads_raw_data():
+       57:     campaign_ids = Variable.get("facebook_ad_campaign_ids").rstrip(',').split(',')
+       58:     result = []
+       59:     list_last_9_days_ago = get_list_last_9_days_ago()
+       60:     FacebookAdsApi.init(access_token=access_token)
+       61:     insight_fields = [
+       62:         AdsInsights.Field.campaign_id,
+       63:         AdsInsights.Field.conversions,
+       64:     ]
+       65:     for campaign_id in campaign_ids:
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_recsys_s3_transfer_dag/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: from utils.telegram import create_telegram_alert_func
+       19: 
+       20: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       21: 
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: # DATALOADER_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       24: DATALOADER_REPO = f"https://oauth2:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       26: 
+       27: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       28: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_recsys_s3_transfer_dag/source.py:20: [uri_basic_auth] https://oauth2:{GITLAB_TOKEN_VV}@
+       19: 
+       20: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       21: 
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: # DATALOADER_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       24: DATALOADER_REPO = f"https://oauth2:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       26: 
+       27: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       28: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       29: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_destination_url_performance_hourly_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'destination_url_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_destination_url_performance_hourly_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'destination_url_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_negative_keyword_conflict_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'negative_keyword_conflict_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_negative_keyword_conflict_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'negative_keyword_conflict_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_prepare/source.py:16: [access_token] access_token = pandas.read_json
+       15: 
+       16: last_9_day_ago = (datetime.today() - timedelta(days=9)).strftime('%Y-%m-%d')
+       17: yesterday = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+       18: today_date = datetime.today().strftime('%Y-%m-%d')
+       19: bucket = 'ads_facebook_airflow'
+       20: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       21: local_tz = timezone('UTC')
+       22: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       23: default_args = {
+       24:     "email": email_on_failure,
+       25:     "email_on_failure": True,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_prepare/source.py:16: [token] token = pandas.read_json
+       15: 
+       16: last_9_day_ago = (datetime.today() - timedelta(days=9)).strftime('%Y-%m-%d')
+       17: yesterday = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+       18: today_date = datetime.today().strftime('%Y-%m-%d')
+       19: bucket = 'ads_facebook_airflow'
+       20: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       21: local_tz = timezone('UTC')
+       22: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       23: default_args = {
+       24:     "email": email_on_failure,
+       25:     "email_on_failure": True,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_prepare/source.py:39: [token] token=access_token
+       38:         result.append(day)
+       39:     return result
+       40: 
+       41: 
+       42: def get_facebook_ad_account_ids():
+       43:     FacebookAdsApi.init(access_token=access_token)
+       44:     url = "https://graph.facebook.com/v21.0/286709921951730/owned_ad_accounts"
+       45: 
+       46:     headers = {
+       47:         "Accept": "application/json",
+       48:         "Content-Type": "application/json",
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_prepare/source.py:80: [token] token=access_token
+       79:         Variable.set('facebook_ad_account_ids', ','.join(ad_account_ids))
+       80: 
+       81: 
+       82: def get_facebook_campaign_ids():
+       83:     ad_account_ids = (Variable.get('facebook_ad_account_ids')).split(',')
+       84:     FacebookAdsApi.init(access_token=access_token)
+       85:     campaign_fields = [
+       86:         'name',
+       87:         'account_id',
+       88:         'status',
+       89:         'budget_remaining',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_age_gender_audience_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'age_gender_audience_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_age_gender_audience_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'age_gender_audience_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_artifacts_cleanup_dag/source.py:24: [access_key] access_key=AWS_SECRET_ACCESS_KEY
+       23: 
+       24: def boto3_session():
+       25:     return boto3.client(
+       26:         "s3",
+       27:         aws_access_key_id=AWS_ACCESS_KEY_ID,
+       28:         aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+       29:         endpoint_url=ENDPOINT_URL,
+       30:     )
+       31: 
+       32: 
+       33: def cleanup_old_artifacts(base_prefix: str, keep_last: int = 10):
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_old_recsys_s3_dataloader_dag/source.py:18: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       17: )
+       18: from utils.telegram import create_telegram_alert_func
+       19: 
+       20: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       21: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       22: DATALOADER_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       23: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_old_prod_connection"
+       24: 
+       25: INSTANCE_ID = Variable.get("DEV_INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversion_values_to_bq/source.py:30: [access_token] access_token = pandas.read_json
+       29: gcp_conn = GCPConnectionInfo.gcp_conn
+       30: project_id = GCPConnectionInfo.gcp_project
+       31: bucket = 'ads_facebook_airflow'
+       32: client = GCPConnectionInfo.bigquery_client
+       33: 
+       34: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       35: 
+       36: local_tz = timezone('UTC')
+       37: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       38: default_args = {
+       39:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversion_values_to_bq/source.py:30: [token] token = pandas.read_json
+       29: gcp_conn = GCPConnectionInfo.gcp_conn
+       30: project_id = GCPConnectionInfo.gcp_project
+       31: bucket = 'ads_facebook_airflow'
+       32: client = GCPConnectionInfo.bigquery_client
+       33: 
+       34: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       35: 
+       36: local_tz = timezone('UTC')
+       37: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       38: default_args = {
+       39:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversion_values_to_bq/source.py:57: [token] token=access_token
+       56: 
+       57: def get_fb_ads_raw_data():
+       58:     campaign_ids = Variable.get("facebook_ad_campaign_ids").rstrip(',').split(',')
+       59:     result = []
+       60:     list_last_9_days_ago = get_list_last_9_days_ago()
+       61:     FacebookAdsApi.init(access_token=access_token)
+       62:     insight_fields = [
+       63:         AdsInsights.Field.campaign_id,
+       64:         AdsInsights.Field.conversion_values,
+       65:     ]
+       66:     for campaign_id in campaign_ids:
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_conversion_values_to_bq/source.py:71: [jwt] AdsInsights.ActionBreakdowns.action_type
+       70:                     "since": date_range,
+       71:                     "until": date_range
+       72:                 },
+       73:                 "level": AdsInsights.Level.campaign,
+       74:                 "summary_action_breakdowns": [
+       75:                     AdsInsights.ActionBreakdowns.action_type
+       76:                 ],
+       77:                 "action_attribution_windows": [
+       78:                     AdsActionStats.Field.field_1d_view,
+       79:                     AdsActionStats.Field.field_7d_click,
+       80:                 ],
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/tifu_bm25_candidates_combiner_dag/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: )
+       19: 
+       20: # Load Variables
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       24: AWS_CONN_ID = "s3_experimental"
+       25: BUCKET_NAME = Variable.get("BUCKET_NAME")
+       26: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       27: REGION_NAME = Variable.get("REGION_NAME")
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_advertiser_to_bq/source.py:59: [access_token] access_token = get_access_token
+       58:     return response_data.get('access_token')
+       59: 
+       60: 
+       61: def get_criteo_data_to_local():
+       62:     df_data = []
+       63:     access_token = get_access_token()
+       64:     url = "https://api.criteo.com/2024-07/advertisers/me"
+       65:     header = {
+       66:         "Accept": "application/json",
+       67:         "Content-Type": "application/json",
+       68:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_advertiser_to_bq/source.py:59: [token] token = get_access_token
+       58:     return response_data.get('access_token')
+       59: 
+       60: 
+       61: def get_criteo_data_to_local():
+       62:     df_data = []
+       63:     access_token = get_access_token()
+       64:     url = "https://api.criteo.com/2024-07/advertisers/me"
+       65:     header = {
+       66:         "Accept": "application/json",
+       67:         "Content-Type": "application/json",
+       68:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_emptysearch_new_ranking_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: )
+       20: from utils.telegram import create_telegram_alert_func
+       21: 
+       22: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       23: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       24: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       25: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       26: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       27: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       28: CLOUD_DATA_PATH = "/srv/data"
+       29: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_add_to_cart_dag/source.py:21: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       20: )
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       24: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       25: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       26: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       27: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: CLOUD_DATA_PATH = "/srv/data"
+       30: OPENVPN_FOLDER_PATH = "/etc/openvpn"
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_ad_dynamic_text_performance_hourly_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'ad_dynamic_text_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_ad_dynamic_text_performance_hourly_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'ad_dynamic_text_performance_hourly_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_geographic_performance_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'geographic_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_geographic_performance_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'geographic_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/recsys_new_ranking_features_dag/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: 
+       20: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       21: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       22: 
+       23: 
+       24: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_ranking_features.git"
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_dev_connection"
+       26: IMAGE_NAME = "recsys_ranking_features:latest"
+       27: 
+       28: INSTANCE_ID = Variable.get("DEV_INSTANCE_ID")
+       29: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_train_and_inference_vkusback_dag/source.py:22: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       21: from utils.telegram import create_telegram_alert_func
+       22: 
+       23: # Default configurations
+       24: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       25: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       26: GITLAB_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/vvrecsys.git"
+       27: INSTANCE_ID = Variable.get("INSTANCE_ID")
+       28: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       29: CLOUD_DATA_PATH = "/srv/data"
+       30: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       31: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_delivery_limitations_device_to_bq/source.py:116: [access_token] access_token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_delivery_limitations_device_to_bq/source.py:116: [token] token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_purchase_roas_to_bq/source.py:27: [access_token] access_token = pandas.read_json
+       26: gcp_conn = GCPConnectionInfo.gcp_conn
+       27: project_id = GCPConnectionInfo.gcp_project
+       28: bucket = 'ads_facebook_airflow'
+       29: client = GCPConnectionInfo.bigquery_client
+       30: 
+       31: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       32: 
+       33: local_tz = timezone('UTC')
+       34: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       35: default_args = {
+       36:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_purchase_roas_to_bq/source.py:27: [token] token = pandas.read_json
+       26: gcp_conn = GCPConnectionInfo.gcp_conn
+       27: project_id = GCPConnectionInfo.gcp_project
+       28: bucket = 'ads_facebook_airflow'
+       29: client = GCPConnectionInfo.bigquery_client
+       30: 
+       31: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       32: 
+       33: local_tz = timezone('UTC')
+       34: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       35: default_args = {
+       36:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_purchase_roas_to_bq/source.py:54: [token] token=access_token
+       53: 
+       54: def get_fb_ads_raw_data():
+       55:     campaign_ids = Variable.get("facebook_ad_campaign_ids").rstrip(',').split(',')
+       56:     result = []
+       57:     list_last_9_days_ago = get_list_last_9_days_ago()
+       58:     FacebookAdsApi.init(access_token=access_token)
+       59:     insight_fields = [
+       60:         AdsInsights.Field.campaign_id,
+       61:         AdsInsights.Field.purchase_roas,
+       62:     ]
+       63:     for campaign_id in campaign_ids:
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_purchase_roas_to_bq/source.py:68: [jwt] AdsInsights.ActionBreakdowns.action_type
+       67:                     "since": date_range,
+       68:                     "until": date_range
+       69:                 },
+       70:                 "level": AdsInsights.Level.campaign,
+       71:                 "summary_action_breakdowns": [
+       72:                     AdsInsights.ActionBreakdowns.action_type
+       73:                 ],
+       74:                 "action_attribution_windows": [
+       75:                     AdsActionStats.Field.field_1d_view,
+       76:                     AdsActionStats.Field.field_7d_click,
+       77:                 ],
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_geolocation_country_to_bq/source.py:116: [access_token] access_token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_geolocation_country_to_bq/source.py:116: [token] token = get_access_token
+      115:     return data_dict
+      116: 
+      117: 
+      118: def get_criteo_data_to_local():
+      119:     df_data = []
+      120:     access_token = get_access_token()
+      121:     adset_ids = get_adset_ids(access_token)
+      122:     header = {
+      123:         "Accept": "application/json",
+      124:         # "Content-Type": "application/json",
+      125:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_action_values_to_bq/source.py:30: [access_token] access_token = pandas.read_json
+       29: gcp_conn = GCPConnectionInfo.gcp_conn
+       30: project_id = GCPConnectionInfo.gcp_project
+       31: bucket = 'ads_facebook_airflow'
+       32: client = GCPConnectionInfo.bigquery_client
+       33: 
+       34: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       35: 
+       36: local_tz = timezone('UTC')
+       37: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       38: default_args = {
+       39:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_action_values_to_bq/source.py:30: [token] token = pandas.read_json
+       29: gcp_conn = GCPConnectionInfo.gcp_conn
+       30: project_id = GCPConnectionInfo.gcp_project
+       31: bucket = 'ads_facebook_airflow'
+       32: client = GCPConnectionInfo.bigquery_client
+       33: 
+       34: access_token = pandas.read_json('/opt/airflow/config/facebook_api_authorize.json', typ='series').access_token
+       35: 
+       36: local_tz = timezone('UTC')
+       37: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       38: default_args = {
+       39:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_action_values_to_bq/source.py:57: [token] token=access_token
+       56: 
+       57: def get_fb_ads_raw_data():
+       58:     campaign_ids = Variable.get("facebook_ad_campaign_ids").rstrip(',').split(',')
+       59:     result = []
+       60:     list_last_9_days_ago = get_list_last_9_days_ago()
+       61:     FacebookAdsApi.init(access_token=access_token)
+       62:     insight_fields = [
+       63:         AdsInsights.Field.campaign_id,
+       64:         AdsInsights.Field.action_values,
+       65: 
+       66:     ]
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/facebook_ads_daily_campaign_action_values_to_bq/source.py:72: [jwt] AdsInsights.ActionBreakdowns.action_type
+       71:                     "since": date_range,
+       72:                     "until": date_range
+       73:                 },
+       74:                 "level": AdsInsights.Level.campaign,
+       75:                 "summary_action_breakdowns": [
+       76:                     AdsInsights.ActionBreakdowns.action_type
+       77:                 ],
+       78:                 "action_attribution_windows": [
+       79:                     AdsActionStats.Field.field_1d_view,
+       80:                     AdsActionStats.Field.field_7d_click,
+       81:                     AdsActionStats.Field.inline,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_adset_statistics_report_to_bq/source.py:59: [access_token] access_token = get_access_token
+       58:     return response_data.get('access_token')
+       59: 
+       60: 
+       61: def get_criteo_data_to_local():
+       62:     df_data = []
+       63:     access_token = get_access_token()
+       64:     url = 'https://api.criteo.com/2024-07/statistics/report'
+       65:     header = {
+       66:         "Accept": "application/json",
+       67:         "Content-Type": "application/json",
+       68:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/criteo_ads_adset_statistics_report_to_bq/source.py:59: [token] token = get_access_token
+       58:     return response_data.get('access_token')
+       59: 
+       60: 
+       61: def get_criteo_data_to_local():
+       62:     df_data = []
+       63:     access_token = get_access_token()
+       64:     url = 'https://api.criteo.com/2024-07/statistics/report'
+       65:     header = {
+       66:         "Accept": "application/json",
+       67:         "Content-Type": "application/json",
+       68:         'Authorization': f'Bearer {access_token}',
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_catalog_with_fts/source.py:20: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: 
+       24: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       25: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       26: 
+       27: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       28: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       29: 
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/prod_recsys_s3_dataloader_dag/source.py:17: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       16: INSTANCE_ID = Variable.get("PROD_INSTANCE_ID")
+       17: AUTHORIZED_KEYS = Variable.get("AUTHORIZED_KEYS", deserialize_json=True)
+       18: 
+       19: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       20: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       21: DATALOADER_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys_dataloader.git"
+       22: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       23: IMAGE_NAME = "recsys_s3_dataloader:latest"
+       24: CONTAINER_VOLUME_PATH = "/app/data"
+       25: 
+       26: LOGIN_GIT = Variable.get("LOGIN_GIT")
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_ad_dynamic_text_performance_daily_report_to_bq/source.py:30: [token] token = BingOAuthHelper
+       29: bq_dataset = 'ads_msft'
+       30: bq_table = 'ad_dynamic_text_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/bing_ads_ad_dynamic_text_performance_daily_report_to_bq/source.py:31: [token] token = pandas.read_json
+       30: bq_table = 'ad_dynamic_text_performance_daily_report'
+       31: gcp_conn = GCPConnectionInfo.gcp_conn_test
+       32: bucket = 'bing_ads_airflow'
+       33: client = GCPConnectionInfo.bigquery_client
+       34: access_token = BingOAuthHelper().get_access_token()
+       35: developer_token = pandas.read_json('/opt/airflow/config/bing_ads_api_authorize.json', typ='series').developer_token
+       36: 
+       37: local_tz = timezone('UTC')
+       38: email_on_failure = Variable.get("email_on_failure").rstrip(',').split(',')
+       39: default_args = {
+       40:     "email": email_on_failure,
+/Users/taw/projects/git/github/seemscloud/osint-scripts-PUB/airflow/code/vvrecsys_top_sale_items/source.py:19: [uri_basic_auth] https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@
+       18: )
+       19: from utils.telegram import create_telegram_alert_func
+       20: 
+       21: GITLAB_TOKEN_VV = Variable.get("GITLAB_TOKEN_VV")
+       22: GITLAB_URL_VV = Variable.get("GITLAB_URL_VV")
+       23: FEATURES_PIPELINE_REPO = f"https://{GITLAB_TOKEN_VV}:{GITLAB_TOKEN_VV}@{GITLAB_URL_VV}/recsys-ad-hoc.git"
+       24: REMOTE_HOST_MACHINE_SSH_CONNECTION = "ssh_recsys_prod_connection"
+       25: 
+       26: TELEGRAM_TOKEN_BOT = Variable.get("TELEGRAM_TOKEN_BOT")
+       27: 
+       28: AWS_ACCESS_KEY_ID = Variable.get("AWS_ACCESS_KEY_ID")
+Found 152 potential secret(s).

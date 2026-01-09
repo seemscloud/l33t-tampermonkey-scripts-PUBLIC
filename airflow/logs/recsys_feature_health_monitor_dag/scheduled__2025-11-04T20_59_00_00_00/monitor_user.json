@@ -1,0 +1,37 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=recsys_feature_health_monitor_dag/run_id=scheduled__2025-11-04T20:59:00+00:00/task_id=monitor_user/attempt=1.log
+[2025-11-05T20:59:28.275+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-05T20:59:28.300+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_user scheduled__2025-11-04T20:59:00+00:00 [queued]>
+[2025-11-05T20:59:28.313+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_user scheduled__2025-11-04T20:59:00+00:00 [queued]>
+[2025-11-05T20:59:28.313+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-05T20:59:28.329+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): monitor_user> on 2025-11-04 20:59:00+00:00
+[2025-11-05T20:59:28.346+0000] {standard_task_runner.py:72} INFO - Started process 1277220 to run task
+[2025-11-05T20:59:28.353+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'recsys_feature_health_monitor_dag\', \'monitor_user\', \'scheduled__2025-11-04T20:59:00+00:00\', \'--job-id\', \'373\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/recsys_feature_health_monitor_dag.py\', \'--cfg-path\', \'/tmp/tmp0ln5esla\']
+[2025-11-05T20:59:28.355+0000] {standard_task_runner.py:105} INFO - Job 373: Subtask monitor_user
+[2025-11-05T20:59:28.379+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-05T20:59:28.440+0000] {task_command.py:467} INFO - Running <TaskInstance: recsys_feature_health_monitor_dag.monitor_user scheduled__2025-11-04T20:59:00+00:00 [running]> on host b689d2c26a55
+[2025-11-05T20:59:28.441+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-05T20:59:28.637+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'recsys_feature_health_monitor_dag\' AIRFLOW_CTX_TASK_ID=\'monitor_user\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-04T20:59:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-04T20:59:00+00:00\'
+[2025-11-05T20:59:28.637+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-05T20:59:28.687+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-05T20:59:28.687+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-05T20:59:28.719+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-05T20:59:28.946+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-05T20:59:28.959+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-05T20:59:29.569+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-05T20:59:29.569+0000] {ssh.py:494} INFO - Running command: docker exec -i recsys_feature_health_monitor_dag_container python cli.py 2025-11-03 config/config_user.yaml
+[2025-11-05T20:59:30.918+0000] {ssh.py:540} INFO - Evaluating features for date: 2025-11-03
+[2025-11-05T20:59:30.918+0000] {ssh.py:540} INFO - ⚠️ File not found for feature user_count: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/user/2025/11/02.parquet
+[2025-11-05T20:59:30.919+0000] {ssh.py:540} INFO - ⚠️ File not found for feature user_user_mean_margin: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/user/2025/11/02.parquet
+[2025-11-05T20:59:30.919+0000] {ssh.py:540} INFO - ⚠️ File not found for feature user_user_mean_margin_last_30_days: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/user/2025/11/02.parquet
+[2025-11-05T20:59:30.919+0000] {ssh.py:540} INFO - ⚠️ File not found for feature user_user_mean_cheque: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/user/2025/11/02.parquet
+[2025-11-05T20:59:30.919+0000] {ssh.py:540} INFO - ⚠️ File not found for feature user_user_total_spent_last_30_days: File not found in S3: s3://vkusvillnew/recsys3/ranking_features/user/2025/11/02.parquet
+[2025-11-05T20:59:30.919+0000] {ssh.py:540} INFO - 
+[2025-11-05T20:59:30.919+0000] {ssh.py:540} INFO - ✅ No alerts detected
+[2025-11-05T20:59:31.116+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-05T20:59:31.116+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=recsys_feature_health_monitor_dag, task_id=monitor_user, run_id=scheduled__2025-11-04T20:59:00+00:00, execution_date=20251104T205900, start_date=20251105T205928, end_date=20251105T205931
+[2025-11-05T20:59:31.152+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-05T20:59:31.172+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-11-05T20:59:31.174+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

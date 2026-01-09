@@ -1,0 +1,306 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_emptysearch_dag/run_id=scheduled__2025-12-21T09:03:00+00:00/task_id=build_emptysearch/attempt=1.log
+[2025-12-22T09:07:13.973+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-22T09:07:13.986+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_emptysearch_dag.build_emptysearch scheduled__2025-12-21T09:03:00+00:00 [queued]>
+[2025-12-22T09:07:13.992+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_emptysearch_dag.build_emptysearch scheduled__2025-12-21T09:03:00+00:00 [queued]>
+[2025-12-22T09:07:13.992+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-12-22T09:07:14.000+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): build_emptysearch> on 2025-12-21 09:03:00+00:00
+[2025-12-22T09:07:14.007+0000] {standard_task_runner.py:72} INFO - Started process 3606931 to run task
+[2025-12-22T09:07:14.010+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_emptysearch_dag\', \'build_emptysearch\', \'scheduled__2025-12-21T09:03:00+00:00\', \'--job-id\', \'982\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_emptysearch_dag.py\', \'--cfg-path\', \'/tmp/tmp5jbdylsp\']
+[2025-12-22T09:07:14.011+0000] {standard_task_runner.py:105} INFO - Job 982: Subtask build_emptysearch
+[2025-12-22T09:07:14.024+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-12-22T09:07:14.052+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_emptysearch_dag.build_emptysearch scheduled__2025-12-21T09:03:00+00:00 [running]> on host b689d2c26a55
+[2025-12-22T09:07:14.053+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-12-22T09:07:14.112+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_emptysearch_dag\' AIRFLOW_CTX_TASK_ID=\'build_emptysearch\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-12-21T09:03:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-12-21T09:03:00+00:00\'
+[2025-12-22T09:07:14.113+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-22T09:07:14.123+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-12-22T09:07:14.123+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-12-22T09:07:14.132+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-12-22T09:07:14.248+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-12-22T09:07:14.260+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-12-22T09:07:14.319+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-12-22T09:07:14.319+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_emptysearch_dag_container python -m vvrecsys.cli.production --config=configs/production/emptysearch.yaml
+[2025-12-22T09:07:18.384+0000] {ssh.py:545} WARNING - INFO:root:start
+[2025-12-22T09:07:18.435+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.catalog:Date: None
+[2025-12-22T09:07:18.708+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.catalog:Date: 2025-12-20
+[2025-12-22T09:07:22.531+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:22.546+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:22.551+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:22.561+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:23.215+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:23.220+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:23.256+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:23.267+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:23.272+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:23.929+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:24.852+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:25.690+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:25.710+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:25.726+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:25.777+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:25.792+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:34.845+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:37.004+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:37.435+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:40.595+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:41.674+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:42.102+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:44.153+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:44.186+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:44.400+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:44.959+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:45.126+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:46.170+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:46.519+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:46.829+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:51.400+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:51.985+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:52.461+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:53.597+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:54.293+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:56.633+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:07:58.024+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:01.312+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:01.781+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:02.354+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:02.946+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:03.290+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:05.154+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:06.076+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:08:06.881+0000] {ssh.py:545} WARNING - sys:1: MapWithoutReturnDtypeWarning: Calling `map_elements` without specifying `return_dtype` can lead to unpredictable results. Specify `return_dtype` to silence this warning.
+[2025-12-22T09:19:03.795+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.catalog:Date: None
+[2025-12-22T09:19:38.486+0000] {ssh.py:545} WARNING - INFO:root:config loaded!
+[2025-12-22T09:19:38.486+0000] {ssh.py:545} WARNING - INFO:root:targets: unpacking...
+[2025-12-22T09:19:38.487+0000] {ssh.py:545} WARNING - INFO:root:unpacking target: tifu_cleanout_ranker...
+[2025-12-22T09:19:38.488+0000] {ssh.py:545} WARNING - INFO:root:unpacking focus_users...
+[2025-12-22T09:19:38.488+0000] {ssh.py:545} WARNING - INFO:root:unpacking target filters...
+[2025-12-22T09:19:38.488+0000] {ssh.py:545} WARNING - INFO:root:unpacking save_path...
+[2025-12-22T09:19:38.836+0000] {ssh.py:545} WARNING - INFO:root:targets: unpacked!
+[2025-12-22T09:19:38.837+0000] {ssh.py:540} INFO - Filter key contains deprecated parameters. Update it after full migration to python 3.11.
+[2025-12-22T09:19:38.837+0000] {ssh.py:540} INFO - Data key: AbsBinUserset_20251106_20251220_Filter_20251106_20251106_20251220_None_None_None_None_7000
+[2025-12-22T09:19:38.837+0000] {ssh.py:540} INFO - Reading data...
+[2025-12-22T09:19:38.837+0000] {ssh.py:540} INFO - Collecting unique pairs...
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Filter key contains deprecated parameters. Update it after full migration to python 3.11.
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Filter key: Filter_20251106_20251106_20251220_None_None_None_None_7000
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Getting items... 2025-12-20
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Items: 7000
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Getting users... 2025-12-20
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Users: 5139557
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Writing Filter_20251106_20251106_20251220_None_None_None_None_7000 to h5 file
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Building dataset...
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Writing AbsBinUserset_20251106_20251220_Filter_20251106_20251106_20251220_None_None_None_None_7000 to h5 file
+[2025-12-22T09:19:38.838+0000] {ssh.py:540} INFO - Userset: 5139557 / 7000
+[2025-12-22T09:19:38.838+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:19:38.839+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:   0%|          | 0/51 [00:00<?, ?it/s]
+[2025-12-22T09:19:38.868+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:19:38.869+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:21:17.022+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:21:17.022+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:   2%|▏         | 1/51 [01:38<1:21:49, 98.18s/it]
+[2025-12-22T09:21:17.056+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:21:17.056+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:22:09.864+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:22:09.865+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:   4%|▍         | 2/51 [02:31<58:24, 71.51s/it]  
+[2025-12-22T09:22:09.902+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:22:09.902+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:23:07.793+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:23:07.794+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:   6%|▌         | 3/51 [03:28<52:14, 65.31s/it]
+[2025-12-22T09:23:07.830+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:23:07.831+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:23:59.922+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:23:59.922+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:   8%|▊         | 4/51 [04:21<47:04, 60.11s/it]
+[2025-12-22T09:23:59.957+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:23:59.957+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:24:52.927+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:24:52.928+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  10%|▉         | 5/51 [05:14<44:07, 57.54s/it]
+[2025-12-22T09:24:52.962+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:24:52.962+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:25:50.631+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:25:50.632+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  12%|█▏        | 6/51 [06:11<43:11, 57.60s/it]
+[2025-12-22T09:25:50.673+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:25:50.674+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:26:52.234+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:26:52.234+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  14%|█▎        | 7/51 [07:13<43:11, 58.91s/it]
+[2025-12-22T09:26:52.272+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:26:52.272+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:27:46.708+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:27:46.708+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  16%|█▌        | 8/51 [08:07<41:12, 57.50s/it]
+[2025-12-22T09:27:46.741+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:27:46.741+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:28:38.656+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:28:38.657+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  18%|█▊        | 9/51 [08:59<39:01, 55.76s/it]
+[2025-12-22T09:28:38.670+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:28:38.670+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:28:56.120+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:28:56.121+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  20%|█▉        | 10/51 [09:17<30:01, 43.94s/it]
+[2025-12-22T09:28:56.159+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:28:56.160+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:29:50.639+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:29:50.639+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  22%|██▏       | 11/51 [10:11<31:27, 47.18s/it]
+[2025-12-22T09:29:50.676+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:29:50.677+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:30:43.979+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:30:43.980+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  24%|██▎       | 12/51 [11:05<31:52, 49.05s/it]
+[2025-12-22T09:30:44.016+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:30:44.016+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:31:39.037+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:31:39.037+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  25%|██▌       | 13/51 [12:00<32:13, 50.87s/it]
+[2025-12-22T09:31:39.075+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:31:39.075+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:32:33.840+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:32:33.841+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  27%|██▋       | 14/51 [12:54<32:06, 52.06s/it]
+[2025-12-22T09:32:33.876+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:32:33.877+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:33:29.136+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:33:29.137+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  29%|██▉       | 15/51 [13:50<31:49, 53.03s/it]
+[2025-12-22T09:33:29.173+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:33:29.174+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:34:23.001+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:34:23.001+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  31%|███▏      | 16/51 [14:44<31:04, 53.28s/it]
+[2025-12-22T09:34:23.038+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:34:23.039+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:35:18.800+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:35:18.800+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  33%|███▎      | 17/51 [15:39<30:37, 54.04s/it]
+[2025-12-22T09:35:18.838+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:35:18.839+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:36:16.877+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:36:16.878+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  35%|███▌      | 18/51 [16:38<30:23, 55.25s/it]
+[2025-12-22T09:36:16.916+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:36:16.916+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:37:14.650+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:37:14.651+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  37%|███▋      | 19/51 [17:35<29:52, 56.01s/it]
+[2025-12-22T09:37:14.688+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:37:14.688+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:38:13.658+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:38:13.658+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  39%|███▉      | 20/51 [18:34<29:24, 56.91s/it]
+[2025-12-22T09:38:13.695+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:38:13.695+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:39:10.484+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:39:10.484+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  41%|████      | 21/51 [19:31<28:26, 56.88s/it]
+[2025-12-22T09:39:10.518+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:39:10.518+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:40:09.353+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:40:09.353+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  43%|████▎     | 22/51 [20:30<27:46, 57.48s/it]
+[2025-12-22T09:40:09.388+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:40:09.388+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:41:06.626+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:41:06.626+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  45%|████▌     | 23/51 [21:27<26:47, 57.42s/it]
+[2025-12-22T09:41:06.662+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:41:06.662+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:42:06.210+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:42:06.210+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  47%|████▋     | 24/51 [22:27<26:07, 58.07s/it]
+[2025-12-22T09:42:06.244+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:42:06.245+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:43:06.342+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:43:06.342+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  49%|████▉     | 25/51 [23:27<25:25, 58.69s/it]
+[2025-12-22T09:43:06.378+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:43:06.379+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:44:07.295+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:44:07.296+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  51%|█████     | 26/51 [24:28<24:44, 59.37s/it]
+[2025-12-22T09:44:07.331+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:44:07.332+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:45:07.499+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:45:07.499+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  53%|█████▎    | 27/51 [25:28<23:50, 59.62s/it]
+[2025-12-22T09:45:07.539+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:45:07.540+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:46:08.466+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:46:08.467+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  55%|█████▍    | 28/51 [26:29<23:00, 60.02s/it]
+[2025-12-22T09:46:08.506+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:46:08.506+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:47:10.335+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:47:10.335+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  57%|█████▋    | 29/51 [27:31<22:12, 60.58s/it]
+[2025-12-22T09:47:10.370+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:47:10.371+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:48:10.690+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:48:10.691+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  59%|█████▉    | 30/51 [28:31<21:10, 60.51s/it]
+[2025-12-22T09:48:10.725+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:48:10.726+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:49:15.361+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:49:15.362+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  61%|██████    | 31/51 [29:36<20:35, 61.76s/it]
+[2025-12-22T09:49:15.399+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:49:15.400+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:50:17.712+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:50:17.713+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  63%|██████▎   | 32/51 [30:38<19:36, 61.94s/it]
+[2025-12-22T09:50:17.749+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:50:17.749+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:51:21.786+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:51:21.787+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  65%|██████▍   | 33/51 [31:42<18:46, 62.58s/it]
+[2025-12-22T09:51:21.824+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:51:21.824+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:52:25.578+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:52:25.578+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  67%|██████▋   | 34/51 [32:46<17:49, 62.94s/it]
+[2025-12-22T09:52:25.610+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:52:25.611+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:53:30.686+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:53:30.686+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  69%|██████▊   | 35/51 [33:51<16:57, 63.59s/it]
+[2025-12-22T09:53:30.720+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:53:30.720+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:54:36.126+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:54:36.126+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  71%|███████   | 36/51 [34:57<16:02, 64.15s/it]
+[2025-12-22T09:54:36.164+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:54:36.164+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:56:01.539+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:56:01.539+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  73%|███████▎  | 37/51 [36:22<16:27, 70.53s/it]
+[2025-12-22T09:56:01.578+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:56:01.578+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:57:14.381+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:57:14.381+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  75%|███████▍  | 38/51 [37:35<15:25, 71.22s/it]
+[2025-12-22T09:57:14.413+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:57:14.413+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:58:21.411+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:58:21.411+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  76%|███████▋  | 39/51 [38:42<13:59, 69.96s/it]
+[2025-12-22T09:58:21.444+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:58:21.444+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T09:59:34.567+0000] {ssh.py:545} WARNING - 
+[2025-12-22T09:59:34.568+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  78%|███████▊  | 40/51 [39:55<13:00, 70.92s/it]
+[2025-12-22T09:59:34.604+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T09:59:34.604+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:00:44.698+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:00:44.699+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  80%|████████  | 41/51 [41:05<11:46, 70.68s/it]
+[2025-12-22T10:00:44.731+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:00:44.732+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:01:52.194+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:01:52.194+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  82%|████████▏ | 42/51 [42:13<10:27, 69.73s/it]
+[2025-12-22T10:01:52.228+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:01:52.228+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:02:59.125+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:02:59.126+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  84%|████████▍ | 43/51 [43:20<09:11, 68.89s/it]
+[2025-12-22T10:02:59.160+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:02:59.161+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:04:08.655+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:04:08.656+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  86%|████████▋ | 44/51 [44:29<08:03, 69.08s/it]
+[2025-12-22T10:04:08.691+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:04:08.691+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:05:18.887+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:05:18.888+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  88%|████████▊ | 45/51 [45:40<06:56, 69.43s/it]
+[2025-12-22T10:05:18.921+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:05:18.922+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:06:28.596+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:06:28.597+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  90%|█████████ | 46/51 [46:49<05:47, 69.51s/it]
+[2025-12-22T10:06:28.631+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:06:28.631+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:07:37.549+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:07:37.549+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  92%|█████████▏| 47/51 [47:58<04:37, 69.34s/it]
+[2025-12-22T10:07:37.580+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:07:37.581+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:08:46.344+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:08:46.344+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  94%|█████████▍| 48/51 [49:07<03:27, 69.18s/it]
+[2025-12-22T10:08:46.379+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:08:46.380+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:09:56.011+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:09:56.012+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  96%|█████████▌| 49/51 [50:17<02:18, 69.32s/it]
+[2025-12-22T10:09:56.046+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:09:56.046+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:11:07.283+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:11:07.284+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates:  98%|█████████▊| 50/51 [51:28<01:09, 69.91s/it]
+[2025-12-22T10:11:07.317+0000] {ssh.py:545} WARNING - /app/vvrecsys/cli/production.py:236: PerformanceWarning: Determining the column names of a LazyFrame requires resolving its schema, which is a potentially expensive operation. Use `LazyFrame.collect_schema().names()` to get the column names without this warning.
+[2025-12-22T10:11:07.317+0000] {ssh.py:545} WARNING -   assert len(df.columns) > k
+[2025-12-22T10:12:19.255+0000] {ssh.py:545} WARNING - 
+[2025-12-22T10:12:19.256+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates: 100%|██████████| 51/51 [52:40<00:00, 70.53s/it]
+[2025-12-22T10:12:19.256+0000] {ssh.py:545} WARNING - Transfer data/models/tifu/candidates: 100%|██████████| 51/51 [52:40<00:00, 61.97s/it]
+[2025-12-22T10:12:50.424+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-22T10:12:50.424+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_emptysearch_dag, task_id=build_emptysearch, run_id=scheduled__2025-12-21T09:03:00+00:00, execution_date=20251221T090300, start_date=20251222T090713, end_date=20251222T101250
+[2025-12-22T10:12:50.473+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-12-22T10:12:50.493+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-22T10:12:50.494+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

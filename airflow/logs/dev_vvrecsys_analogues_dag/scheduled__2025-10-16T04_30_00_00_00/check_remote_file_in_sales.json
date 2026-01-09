@@ -1,0 +1,28 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=dev_vvrecsys_analogues_dag/run_id=scheduled__2025-10-16T04:30:00+00:00/task_id=check_remote_file_in_sales/attempt=3.log
+[2025-10-17T15:21:26.657+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-17T15:21:26.668+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dev_vvrecsys_analogues_dag.check_remote_file_in_sales scheduled__2025-10-16T04:30:00+00:00 [queued]>
+[2025-10-17T15:21:26.674+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dev_vvrecsys_analogues_dag.check_remote_file_in_sales scheduled__2025-10-16T04:30:00+00:00 [queued]>
+[2025-10-17T15:21:26.674+0000] {taskinstance.py:2856} INFO - Starting attempt 3 of 3
+[2025-10-17T15:21:26.717+0000] {taskinstance.py:2879} INFO - Executing <Task(RemoteFileSensor): check_remote_file_in_sales> on 2025-10-16 04:30:00+00:00
+[2025-10-17T15:21:26.725+0000] {standard_task_runner.py:72} INFO - Started process 310984 to run task
+[2025-10-17T15:21:26.728+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'dev_vvrecsys_analogues_dag\', \'check_remote_file_in_sales\', \'scheduled__2025-10-16T04:30:00+00:00\', \'--job-id\', \'52\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/dev_vvrecsys_analogues_dag.py\', \'--cfg-path\', \'/tmp/tmph1461fci\']
+[2025-10-17T15:21:26.729+0000] {standard_task_runner.py:105} INFO - Job 52: Subtask check_remote_file_in_sales
+[2025-10-17T15:21:26.740+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-10-17T15:21:26.767+0000] {task_command.py:467} INFO - Running <TaskInstance: dev_vvrecsys_analogues_dag.check_remote_file_in_sales scheduled__2025-10-16T04:30:00+00:00 [running]> on host b689d2c26a55
+[2025-10-17T15:21:26.767+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-10-17T15:21:26.818+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'s.nikiforov\' AIRFLOW_CTX_DAG_ID=\'dev_vvrecsys_analogues_dag\' AIRFLOW_CTX_TASK_ID=\'check_remote_file_in_sales\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-10-16T04:30:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'3\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-10-16T04:30:00+00:00\'
+[2025-10-17T15:21:26.819+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-17T15:21:26.834+0000] {remote_operator.py:20} INFO - Poking for file: /srv/data/raw/sales/2025/10/15.parquet
+[2025-10-17T15:21:26.841+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-10-17T15:21:26.882+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-10-17T15:21:26.910+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-10-17T15:21:27.055+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-10-17T15:21:27.251+0000] {remote_operator.py:27} INFO - File found: /srv/data/raw/sales/2025/10/15.parquet
+[2025-10-17T15:21:27.252+0000] {base.py:336} INFO - Success criteria met. Exiting.
+[2025-10-17T15:21:27.260+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-17T15:21:27.260+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=dev_vvrecsys_analogues_dag, task_id=check_remote_file_in_sales, run_id=scheduled__2025-10-16T04:30:00+00:00, execution_date=20251016T043000, start_date=20251017T152126, end_date=20251017T152127
+[2025-10-17T15:21:27.302+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-10-17T15:21:27.313+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

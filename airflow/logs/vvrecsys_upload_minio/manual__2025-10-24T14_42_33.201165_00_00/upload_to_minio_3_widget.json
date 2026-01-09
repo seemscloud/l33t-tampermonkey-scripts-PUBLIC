@@ -1,0 +1,48 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=vvrecsys_upload_minio/run_id=manual__2025-10-24T14:42:33.201165+00:00/task_id=upload_to_minio_3_widget/attempt=1.log
+[2025-10-24T15:43:12.416+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-10-24T15:43:12.428+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_3_widget manual__2025-10-24T14:42:33.201165+00:00 [queued]>
+[2025-10-24T15:43:12.434+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vvrecsys_upload_minio.upload_to_minio_3_widget manual__2025-10-24T14:42:33.201165+00:00 [queued]>
+[2025-10-24T15:43:12.434+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-10-24T15:43:12.442+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): upload_to_minio_3_widget> on 2025-10-24 14:42:33.201165+00:00
+[2025-10-24T15:43:12.448+0000] {standard_task_runner.py:72} INFO - Started process 664327 to run task
+[2025-10-24T15:43:12.452+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'vvrecsys_upload_minio\', \'upload_to_minio_3_widget\', \'manual__2025-10-24T14:42:33.201165+00:00\', \'--job-id\', \'232\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/vvrecsys_upload_minio_dag.py\', \'--cfg-path\', \'/tmp/tmp_i3kuxc3\']
+[2025-10-24T15:43:12.453+0000] {standard_task_runner.py:105} INFO - Job 232: Subtask upload_to_minio_3_widget
+[2025-10-24T15:43:12.464+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-10-24T15:43:12.488+0000] {task_command.py:467} INFO - Running <TaskInstance: vvrecsys_upload_minio.upload_to_minio_3_widget manual__2025-10-24T14:42:33.201165+00:00 [running]> on host b689d2c26a55
+[2025-10-24T15:43:12.546+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'vzelenin\' AIRFLOW_CTX_DAG_ID=\'vvrecsys_upload_minio\' AIRFLOW_CTX_TASK_ID=\'upload_to_minio_3_widget\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-10-24T14:42:33.201165+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'manual__2025-10-24T14:42:33.201165+00:00\'
+[2025-10-24T15:43:12.546+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-10-24T15:43:12.557+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-10-24T15:43:12.557+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-10-24T15:43:12.566+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection_backup\'
+[2025-10-24T15:43:12.606+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-10-24T15:43:12.632+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_7.6p1)
+[2025-10-24T15:43:12.776+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-10-24T15:43:12.776+0000] {ssh.py:494} INFO - Running command: docker exec -i vvrecsys_upload_minio_container python -m vvrecsys.cli.minio --config=configs/production/widget.yaml
+[2025-10-24T15:50:07.311+0000] {ssh.py:540} INFO - Opening data/production/widget/recommends.h5 ...
+[2025-10-24T15:50:07.312+0000] {ssh.py:540} INFO - Opened data/production/widget/recommends.h5
+[2025-10-24T15:50:07.312+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:07.312+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:   0%|          | 0/8404113 [00:00<?, ?it/s]
+[2025-10-24T15:50:12.312+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:12.312+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  25%|██▌       | 2122582/8404113 [00:05<00:14, 424515.12it/s]
+[2025-10-24T15:50:30.529+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:30.530+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  25%|██▌       | 2122582/8404113 [00:23<00:14, 424515.12it/s]
+[2025-10-24T15:50:30.530+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  49%|████▊     | 4082057/8404113 [00:23<00:27, 158639.54it/s]
+[2025-10-24T15:50:47.940+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:47.941+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  49%|████▊     | 4082057/8404113 [00:40<00:27, 158639.54it/s]
+[2025-10-24T15:50:47.941+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:47.941+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  74%|███████▎  | 6195001/8404113 [00:40<00:15, 138734.07it/s]
+[2025-10-24T15:50:52.941+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:52.941+0000] {ssh.py:545} WARNING - get_dict_from_dataframe:  96%|█████████▌| 8046019/8404113 [00:45<00:01, 180320.86it/s]
+[2025-10-24T15:50:53.767+0000] {ssh.py:545} WARNING - 
+[2025-10-24T15:50:53.768+0000] {ssh.py:545} WARNING - get_dict_from_dataframe: 100%|██████████| 8404113/8404113 [00:46<00:00, 180906.20it/s]
+[2025-10-24T15:50:56.748+0000] {ssh.py:540} INFO - [2025-10-24 15:50:56,742] INFO: VPN запущен.
+[2025-10-24T15:50:56.749+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.vpn:VPN запущен.
+[2025-10-24T15:59:48.809+0000] {ssh.py:540} INFO - [2025-10-24 15:59:48,803] INFO: Передача по VPN завершена.
+[2025-10-24T15:59:48.809+0000] {ssh.py:545} WARNING - INFO:vvrecsys.utils.vpn:Передача по VPN завершена.
+[2025-10-24T16:00:16.457+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-10-24T16:00:16.457+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vvrecsys_upload_minio, task_id=upload_to_minio_3_widget, run_id=manual__2025-10-24T14:42:33.201165+00:00, execution_date=20251024T144233, start_date=20251024T154312, end_date=20251024T160016
+[2025-10-24T16:00:16.505+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-10-24T16:00:16.524+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-10-24T16:00:16.526+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]

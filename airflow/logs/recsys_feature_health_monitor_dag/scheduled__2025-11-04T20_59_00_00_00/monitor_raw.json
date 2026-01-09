@@ -1,0 +1,60 @@
+[('b689d2c26a55', '*** Found local files:
+***   * /opt/airflow/logs/dag_id=recsys_feature_health_monitor_dag/run_id=scheduled__2025-11-04T20:59:00+00:00/task_id=monitor_raw/attempt=1.log
+[2025-11-05T20:59:28.279+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-05T20:59:28.295+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_raw scheduled__2025-11-04T20:59:00+00:00 [queued]>
+[2025-11-05T20:59:28.304+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: recsys_feature_health_monitor_dag.monitor_raw scheduled__2025-11-04T20:59:00+00:00 [queued]>
+[2025-11-05T20:59:28.304+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2025-11-05T20:59:28.318+0000] {taskinstance.py:2879} INFO - Executing <Task(SSHOperator): monitor_raw> on 2025-11-04 20:59:00+00:00
+[2025-11-05T20:59:28.333+0000] {standard_task_runner.py:72} INFO - Started process 1277217 to run task
+[2025-11-05T20:59:28.338+0000] {standard_task_runner.py:104} INFO - Running: [\'***\', \'tasks\', \'run\', \'recsys_feature_health_monitor_dag\', \'monitor_raw\', \'scheduled__2025-11-04T20:59:00+00:00\', \'--job-id\', \'375\', \'--raw\', \'--subdir\', \'DAGS_FOLDER/dags/recsys_feature_health_monitor_dag.py\', \'--cfg-path\', \'/tmp/tmphtqkdr_5\']
+[2025-11-05T20:59:28.340+0000] {standard_task_runner.py:105} INFO - Job 375: Subtask monitor_raw
+[2025-11-05T20:59:28.363+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:209: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  SQL_ALCHEMY_CONN = conf.get("database", "SQL_ALCHEMY_CONN")
+[2025-11-05T20:59:28.404+0000] {task_command.py:467} INFO - Running <TaskInstance: recsys_feature_health_monitor_dag.monitor_raw scheduled__2025-11-04T20:59:00+00:00 [running]> on host b689d2c26a55
+[2025-11-05T20:59:28.405+0000] {warnings.py:109} WARNING - /home/***/.local/lib/python3.10/site-packages/***/settings.py:449: DeprecationWarning: The sql_alchemy_conn option in [core] has been moved to the sql_alchemy_conn option in [database] - the old setting has been used, but please update your config.
+  if conf.get("database", "sql_alchemy_conn") == "none://":
+[2025-11-05T20:59:28.595+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER=\'a.velichko\' AIRFLOW_CTX_DAG_ID=\'recsys_feature_health_monitor_dag\' AIRFLOW_CTX_TASK_ID=\'monitor_raw\' AIRFLOW_CTX_EXECUTION_DATE=\'2025-11-04T20:59:00+00:00\' AIRFLOW_CTX_TRY_NUMBER=\'1\' AIRFLOW_CTX_DAG_RUN_ID=\'scheduled__2025-11-04T20:59:00+00:00\'
+[2025-11-05T20:59:28.596+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-05T20:59:28.618+0000] {ssh.py:151} INFO - Creating ssh_client
+[2025-11-05T20:59:28.619+0000] {ssh.py:124} INFO - ssh_hook is not provided or invalid. Trying ssh_conn_id to create SSHHook.
+[2025-11-05T20:59:28.648+0000] {base.py:84} INFO - Retrieving connection \'ssh_recsys_prod_connection\'
+[2025-11-05T20:59:28.932+0000] {ssh.py:304} WARNING - No Host Key Verification. This won\'t protect against Man-In-The-Middle attacks
+[2025-11-05T20:59:28.942+0000] {transport.py:1923} INFO - Connected (version 2.0, client OpenSSH_8.4p1)
+[2025-11-05T20:59:29.526+0000] {transport.py:1923} INFO - Authentication (publickey) successful!
+[2025-11-05T20:59:29.527+0000] {ssh.py:494} INFO - Running command: docker exec -i recsys_feature_health_monitor_dag_container python cli.py 2025-11-03 config/config_raw.yaml
+[2025-11-05T20:59:30.663+0000] {ssh.py:545} WARNING - /app/src/infrastructure/s3_repository.py:94: UserWarning: Polars found a filename. Ensure you pass a path to the file instead of a python file object when possible for best performance.
+[2025-11-05T20:59:30.663+0000] {ssh.py:545} WARNING -   df = pl.read_parquet(f)
+[2025-11-05T21:01:02.464+0000] {ssh.py:540} INFO - Evaluating features for date: 2025-11-03
+[2025-11-05T21:01:02.465+0000] {ssh.py:540} INFO - 
+[2025-11-05T21:01:02.465+0000] {ssh.py:540} INFO - raw_sales:
+[2025-11-05T21:01:02.465+0000] {ssh.py:540} INFO -   Current: 4322774.00
+[2025-11-05T21:01:02.465+0000] {ssh.py:540} INFO -   Day change: -339239.00 (-7.28%) (prev: 4662013.00)
+[2025-11-05T21:01:02.465+0000] {ssh.py:540} INFO -   Week change: -137885.00 (-3.09%) (prev: 4460659.00)
+[2025-11-05T21:01:02.465+0000] {ssh.py:540} INFO - 
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO - raw_clicks:
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO -   Current: 2304111.00
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO -   Day change: -48427.00 (-2.06%) (prev: 2352538.00)
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO -   Week change: -152281.00 (-6.20%) (prev: 2456392.00)
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO - 
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO - raw_baskets:
+[2025-11-05T21:01:02.466+0000] {ssh.py:540} INFO -   Current: 3124655.00
+[2025-11-05T21:01:02.467+0000] {ssh.py:540} INFO -   Day change: -99013.00 (-3.07%) (prev: 3223668.00)
+[2025-11-05T21:01:02.467+0000] {ssh.py:540} INFO -   Week change: -138362.00 (-4.24%) (prev: 3263017.00)
+[2025-11-05T21:01:02.467+0000] {ssh.py:540} INFO - 
+[2025-11-05T21:01:02.467+0000] {ssh.py:540} INFO - raw_favorites:
+[2025-11-05T21:01:02.467+0000] {ssh.py:540} INFO -   Current: 58745.00
+[2025-11-05T21:01:02.467+0000] {ssh.py:540} INFO -   Day change: -3725.00 (-5.96%) (prev: 62470.00)
+[2025-11-05T21:01:02.468+0000] {ssh.py:540} INFO -   Week change: -906.00 (-1.52%) (prev: 59651.00)
+[2025-11-05T21:01:02.468+0000] {ssh.py:540} INFO - 
+[2025-11-05T21:01:02.468+0000] {ssh.py:540} INFO - raw_feedbacks:
+[2025-11-05T21:01:02.468+0000] {ssh.py:540} INFO -   Current: 5983511.00
+[2025-11-05T21:01:02.468+0000] {ssh.py:540} INFO -   Day change: -674575.00 (-10.13%) (prev: 6658086.00)
+[2025-11-05T21:01:02.468+0000] {ssh.py:540} INFO -   Week change: -243774.00 (-3.91%) (prev: 6227285.00)
+[2025-11-05T21:01:02.469+0000] {ssh.py:540} INFO - 
+[2025-11-05T21:01:02.469+0000] {ssh.py:540} INFO - 🚨 Found 1 alerts
+[2025-11-05T21:01:02.469+0000] {ssh.py:540} INFO -    Alerts sent to Telegram
+[2025-11-05T21:01:02.657+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-05T21:01:02.658+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=recsys_feature_health_monitor_dag, task_id=monitor_raw, run_id=scheduled__2025-11-04T20:59:00+00:00, execution_date=20251104T205900, start_date=20251105T205928, end_date=20251105T210102
+[2025-11-05T21:01:02.720+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2025-11-05T21:01:02.744+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-05T21:01:02.746+0000] {local_task_job_runner.py:240} INFO - ::endgroup::')]
